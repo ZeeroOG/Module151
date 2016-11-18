@@ -1,13 +1,31 @@
 <?php
 
-// ========================= //
-// Système de routage génial //
-// ========================= //
+// Session
+session_start();
+
+/*
+	Système de routage des pages
+	============================
+*/
 
 $pages = array();
 
-$pages['home'] = 'app/controler/home.php';
-$pages['test'] = 'app/controler/test.php';
+// Tout le monde
+$pages['home'] = 'app/controler/home/index.php';
+$pages['shop'] = 'app/controler/shop/index.php';
+
+// Utilisateur déconnecté
+$pages['register'] = 'app/controler/register/index.php';
+$pages['login'] = 'app/controler/login/index.php';
+
+// Utilisateur connecté
+$pages['orders'] = 'app/controler/orders/index.php';
+$pages['account'] = 'app/controler/account/index.php';
+$pages['logout'] = 'app/controler/logoff/index.php';
+
+// Administrateur uniquement
+$pages['admin'] = 'app/controler/admin/index.php';
+
 
 if(!isset($_GET['p']) || !array_key_exists($_GET['p'], $pages)) {
     header('Location: ?p=home');
@@ -18,19 +36,6 @@ if(!isset($_GET['p']) || !array_key_exists($_GET['p'], $pages)) {
 
 $page_link = $pages[$page];
 
-?>
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>routeur</title>
-</head>
-<body>
-<?php
-
-include($page_link);
-echo "\n";
+include('app/view/global/index.php')
 
 ?>
-</body>
-</html>
