@@ -1,7 +1,29 @@
 <?php
 
-// Session
+/*
+ 	Démarrage de la session
+	=======================
+*/
+
 session_start();
+
+/*
+	Constantes
+	==========
+*/
+
+define("PROJECT_PATH", dirname(__FILE__));
+
+include("app/model/users/connectUserDB.php");
+
+$database = connectUserDB();
+
+$test = $database->query('SELECT * FROM t_test');
+while ($lol = $test->fetch()) {
+	echo $lol['test'] . "<br />";
+}
+
+die();
 
 /*
 	Système de routage des pages
