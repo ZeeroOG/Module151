@@ -1,35 +1,21 @@
 <?php
 
-/*
- 	Démarrage de la session
-	=======================
-*/
-
+// Démarrage de la session
 session_start();
 
-/*
-	Constantes
-	==========
-*/
-
+// Constantes
 define("PROJECT_PATH", dirname(__FILE__));
 
-include("app/model/users/connectUserDB.php");
+// Fichiers inclus
+include("app/core/includes.php");
 
-$database = connectUserDB();
+// Connexion aux bases de données
+$db_sql = connectDB();
+$db_acc = connectUserDB();
 
-$test = $database->query('SELECT * FROM t_test');
-while ($lol = $test->fetch()) {
-	echo $lol['test'] . "<br />";
-}
+//Système de routage des pages
 
-die();
-
-/*
-	Système de routage des pages
-	============================
-*/
-
+// TODO: Migrer ce tableau dans la base SQL
 $pages = array();
 
 // Tout le monde
@@ -38,12 +24,12 @@ $pages['shop'] = 'app/controler/shop/index.php';
 
 // Utilisateur déconnecté
 $pages['register'] = 'app/controler/register/index.php';
-$pages['login'] = 'app/controler/login/index.php';
+$pages['login'] = 'app/controler/session/login.php';
 
 // Utilisateur connecté
 $pages['orders'] = 'app/controler/orders/index.php';
 $pages['account'] = 'app/controler/account/index.php';
-$pages['logout'] = 'app/controler/logoff/index.php';
+$pages['logout'] = 'app/controler/session/logout.php';
 
 // Administrateur uniquement
 $pages['admin'] = 'app/controler/admin/index.php';
