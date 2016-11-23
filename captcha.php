@@ -23,7 +23,7 @@ class Captcha {
 			case 1:
 				return array(200, 0, 0);
 				break;
-		  case 2:
+			case 2:
 				return array(102, 0, 102);
 				break;
 		}
