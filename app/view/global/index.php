@@ -10,7 +10,8 @@
 	<div class="container header">
 		<!-- PROMO -->
 		<div style="text-align: center; margin-bottom: 20px;">
-			<img style="width: 100%;" src="img/promo.jpg" alt="PROMO" />
+			<!--<img style="width: 100%;" src="img/promo.jpg" alt="PROMO" />-->
+      <img style="width: 100%;" src="http://placehold.it/1000x100" alt="PROMO" />
 		</div>
 		<!-- Barre de navigation -->
 		<div class="navbar">
