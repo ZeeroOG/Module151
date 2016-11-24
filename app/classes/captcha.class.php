@@ -14,9 +14,9 @@ class Captcha {
 	*	<img src="<?php echo $captcha->getImage(); ?>" />
 	*
 	*	// Pour récupérer le texte du captcha
-	*	$texte = $captcha->getTexte();	
+	*	$texte = $captcha->getTexte();
 	*/
-	
+
 	private $texte;
 	private $image;
 
@@ -58,6 +58,9 @@ class Captcha {
 		$text_color = imagecolorallocate($image, $text_rgb[0], $text_rgb[1], $text_rgb[2]);
 
 		// Générer un code aléatoire
+		$code = "";
+		$text = "";
+
 		for($i = 0; $i < 6; $i++) {
 			if(rand(0, 1) == 0) $x = chr(rand(65,90));
 			else $x = rand(0, 9);
@@ -67,7 +70,7 @@ class Captcha {
 		}
 
 		// Affichage du texte (avec un angle aléatoire entre -1 et -5 deg)
-		imagettftext($image, 34, -rand(1, 5), 20, 40, $text_color, "captcha.ttf", $text);
+		imagettftext($image, 34, -rand(1, 5), 20, 40, $text_color, "app/ressources/captcha.ttf", $text);
 
 		// Couleur des lignes
 		$line_color = imagecolorallocate($image, 64, 64, 64);

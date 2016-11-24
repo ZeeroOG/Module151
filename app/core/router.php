@@ -1,3 +1,35 @@
+<?php
+
+// TODO: Migrer ce tableau dans la base SQL
+$pages = array();
+
+// Tout le monde
+$pages['home'] = 'app/controler/home.php';
+$pages['shop'] = 'app/controler/shop.php';
+
+// Utilisateur déconnecté
+$pages['register'] = 'app/controler/register.php';
+$pages['login'] = 'app/controler/login.php';
+
+// Utilisateur connecté
+$pages['orders'] = 'app/controler/orders.php';
+$pages['account'] = 'app/controler/account.php';
+$pages['logout'] = 'app/controler/logout.php';
+
+// Administrateur uniquement
+$pages['admin'] = 'app/controler/admin.php';
+
+
+if(!isset($_GET['p']) || !array_key_exists($_GET['p'], $pages)) {
+    header('Location: ?p=home');
+    die();
+} else {
+    $page = $_GET['p'];
+}
+
+$page_link = $pages[$page];
+
+?>
 <!doctype html>
 <html>
 <head>
