@@ -1,6 +1,22 @@
 <?php
 
 class Captcha {
+   /*
+    * 	# Générateur de captcha alphanumériques
+    *
+    *	Utilisation
+	*	===========
+	*
+	*	// Création de l'objet
+	*	$captcha = new Captcha();
+	*
+	*	// Pour afficher l'image en base64
+	*	<img src="<?php echo $captcha->getImage(); ?>" />
+	*
+	*	// Pour récupérer le texte du captcha
+	*	$texte = $captcha->getTexte();	
+	*/
+	
 	private $texte;
 	private $image;
 
@@ -72,20 +88,3 @@ class Captcha {
 		$this->image = "data:image/png;base64," . base64_encode($image_data);
 	}
 }
-
-// TEST
-$captcha = new Captcha();
-
-?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Test Captcha</title>
-	</head>
-	<body>
-		<img src="<?php echo $captcha->getImage(); ?>" />
-		<br />
-		<h3>CODE : <?php echo $captcha->getTexte(); ?></h3>
-	</body>
-</html>
