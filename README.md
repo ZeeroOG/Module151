@@ -3,8 +3,10 @@
 Ce qui est déjà fait par William
 ================================
 
+- Structure fichiers (à confirmer)
 - HTML (Header + Footer)
 - Routeur
 - Connecteur MySQL
 - Connecteur Access
-- Captcha (POO)
+- Classe Captcha
+- Classe Youtube
