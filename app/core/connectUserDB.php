@@ -17,4 +17,7 @@ function connectUserDB() {
 	return $database; // Retourner l'objet PDO
 }
 
+// Connexion à la base de données
+$db_acc = connectUserDB();
+
 ?>
