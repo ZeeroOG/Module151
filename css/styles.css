@@ -65,6 +65,26 @@ body {
     background-color: #4CAF50;
 }
 
+/* Style pour le formulaire de login */
+.loginForm table, .loginForm button {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.loginForm div {
+	text-align: center;
+}
+
+.loginForm input {
+	width: 100%;
+}
+
+.loginForm table {
+	border-spacing: 5px;
+    border-collapse: separate;
+}
+
 /* Style utilisé pour le formulaire d'ajout/modification dans la DB */
 
 #addToDB {
@@ -74,7 +94,7 @@ body {
 	border: 3px solid #4d4d4d;
 	background-color: rgba(128, 128, 128, .2);
 	border-radius: 10px;
-	padding: 15px 5px; 
+	padding: 15px 5px;
 }
 #addToDB h3 {
 	text-align: center;

@@ -1,5 +1,5 @@
 <?php
 
-echo 'mon compte';
+include("app/view/account.php");
 
 ?>

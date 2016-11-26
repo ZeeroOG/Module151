@@ -44,24 +44,33 @@ $page_link = $pages[$page];
 		<!-- PROMO -->
 		<div style="text-align: center; margin-bottom: 20px;">
 			<!--<img style="width: 100%;" src="img/promo.jpg" alt="PROMO" />-->
-      <img style="width: 100%;" src="http://placehold.it/1000x100" alt="PROMO" />
+			<img style="width: 100%;" src="http://placehold.it/1000x100" alt="PROMO" />
 		</div>
+		<?php if(isset($_SESSION['user'])) { ?><p>Bienvenue, <?php echo $_SESSION['user']->getUsername(); ?> !</p><?php } ?>
 		<!-- Barre de navigation -->
 		<div class="navbar">
 			<ul>
-				<!-- Tout le monde -->
 				<li class="active"><a href="?p=home">Accueil</a></li>
 				<li><a href="?p=shop">Shop</a></li>
+				<?php if(isset($_SESSION['user']) AND $_SESSION['user']->getLevel() > 0) { ?>
 				<!-- Utilisateur connecté -->
 				<li><a href="?p=orders">Commandes</a></li>
+				<?php } ?>
+				<?php if(isset($_SESSION['user']) AND $_SESSION['user']->getLevel() > 1) { ?>
+				<!-- Opérateur / Administrateur -->
 				<li><a href="?p=admin">Administration</a></li>
+				<?php } ?>
 				<div class="right">
+					<?php if(!isset($_SESSION['user'])) { ?>
 					<!-- Utilisateur déconnecté -->
 					<li><a href="?p=register">Inscription</a></li>
 					<li><a href="?p=login">Connexion</a></li>
+					<?php } ?>
+					<?php if(isset($_SESSION['user']) AND $_SESSION['user']->getLevel() > 0) { ?>
 					<!-- Utilisateur connecté -->
 					<li><a href="?p=account">Mon compte</a></li>
 					<li><a href="?p=logout">Déconnexion</a></li>
+					<?php } ?>
 				</div>
 			</ul>
 		</div>
