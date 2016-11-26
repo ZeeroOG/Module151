@@ -64,3 +64,38 @@ body {
 .navbar .active {
     background-color: #4CAF50;
 }
+
+/* Style utilisé pour le formulaire d'ajout/modification dans la DB */
+
+#addToDB {
+	margin: 0 auto;
+	min-width: 175px;
+	width: 30%;
+	border: 3px solid #4d4d4d;
+	background-color: rgba(128, 128, 128, .2);
+	border-radius: 10px;
+	padding: 15px 5px; 
+}
+#addToDB h3 {
+	text-align: center;
+	font-size: 23px;
+	margin-top: 10px;
+}
+#addToDB .element {
+	display: block;
+}
+#addToDB input {
+	margin: 2px 3px 2px 20px;
+	padding: 5px 3px;
+	width: 70%;
+}
+#addToDB .required {
+	color: red;
+	font-size: 20px;
+	position: absolute;
+	transform: translate(2px,5px);
+}
+#addToDB p {
+	margin-left: 30px;
+	color: red;
+}

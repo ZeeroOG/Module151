@@ -18,6 +18,7 @@ $pages['logout'] = 'app/controler/logout.php';
 
 // Administrateur uniquement
 $pages['admin'] = 'app/controler/admin.php';
+$pages['DBmanagement'] = 'app/controler/DBmanagement.php';
 
 
 if(!isset($_GET['p']) || !array_key_exists($_GET['p'], $pages)) {
