@@ -11,6 +11,8 @@ if(isset($_POST['username']) && isset($_POST['password']))
 	} else {
 		$_SESSION['user'] = $user;
 
+		new Login($user->getUsername());
+
 		header('Location: ?p=home');
 		die();
 	}
