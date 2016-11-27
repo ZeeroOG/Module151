@@ -18,7 +18,7 @@ class User {
 		return $this->username;
 	}
 
-	public function update($username)
+	public function update()
 	{
 		global $db_acc;
 		// Si utilisateur existe pas encore :
@@ -34,8 +34,10 @@ class User {
 		}
 	}
 
-	private function getAge($naissance)
+	public function getAge($naissance = NULL)
 	{
+		if($naissance == NULL) $naissance = $this->naissance;
+
 		// Calcluler l'age en fonction de la date de naissance
 		$maintenant = new DateTime();
 		$naissance = new DateTime($naissance);
@@ -75,23 +77,27 @@ class User {
 		global $db_acc;
 
 		$req = $db_acc->prepare("SELECT * FROM t_users WHERE username = ?");
-		$rep = $req->execute(array($this->username));
+		$req->execute(array($this->username));
 
-		while($user = $rep->fetch()) {
-			$this->username = $user['username'];
-			$this->nom = $user['nom'];
-			$this->prenom = $user['prenom'];
-			$this->naissance = $user['naissance'];
+		while($x = $req->fetch()) {
+			$this->username = utf8_encode($x['username']);
+			$this->nom = utf8_encode($x['nom']);
+			$this->prenom = utf8_encode($x['prenom']);
+			$this->naissance = $x['naissance'];
 			$this->age = $this->getAge($this->naissance);
-			$this->email = $user['email'];
-			$this->level = $user['fk_level'];
+			$this->email = utf8_encode($x['email']);
+			$this->level = $x['fk_level'];
 		}
 	}
 
 	public function getLevel() {
-		if($this->level == 0) return "Utilisateur";
-		else if($this->level == 1) return "Opérateur";
-		else if($this->level == 2) return "Administrateur";
+		return $this->level;
+	}
+
+	public function getLevelName() {
+		if($this->level == 1) return "Utilisateur";
+		else if($this->level == 2) return "Opérateur";
+		else if($this->level == 3) return "Administrateur";
 		else return "N/A";
 	}
 }

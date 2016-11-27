@@ -6,8 +6,16 @@ if(isset($_POST['username']) && isset($_POST['password']))
 	$user = new User($_POST['username']);
 	$rep = $user->login($_POST['password']);
 
-	if($rep == false) echo "ERROR !";
-	else echo "Welcome " . $user->username . " !";
+	if($rep == false) {
+		echo '<p style="color: red; text-align: center;">Utilisateur ou mot de passe incorrect</p>';
+	} else {
+		$_SESSION['user'] = $user;
+
+		header('Location: ?p=home');
+		die();
+	}
+
+
 }
 
 include("app/view/login.php");

@@ -1,8 +1,5 @@
 <?php
 
-// Démarrage de la session
-session_start();
-
 // Constantes
 define("PROJECT_PATH", dirname(__FILE__));
 
