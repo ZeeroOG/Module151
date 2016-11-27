@@ -30,7 +30,14 @@
 	<input type="text" id="pochetteURL" name="pochetteURL" placeholder="URL de l'image" <?=(empty($pochetteURL) ? '' : 'value="'.$pochetteURL.'" ')?> />
   </span>
   <span class="element">
-	<input type="text" id="videoURL" name="videoURL" placeholder="URL de la vidéo" <?=(empty($videoURL) ? '' : 'value="'.$videoURL.'" ')?> />
+	<input type="text" id="bandeAnnonceURL" name="bandeAnnonceURL" placeholder="URL de la vidéo" <?=(empty($bandeAnnonceURL) ? '' : 'value="'.$bandeAnnonceURL.'" ')?> />
+  </span>
+  <span class="element">
+    <h4>Genres <span class="required">*</span></h4>
+    <select name="genres" id="genres">
+	  <?php foreach($genres as $key => $value) {
+			  echo '<option value="'.$key.'">'.$value.'</option>'.PHP_EOL; } ?>
+	</select>
   </span>
   <span class="element">
     <p>* obligatoire</p>
