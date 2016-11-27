@@ -94,11 +94,7 @@ body {
 	border: 3px solid #4d4d4d;
 	background-color: rgba(128, 128, 128, .2);
 	border-radius: 10px;
-<<<<<<< HEAD
 	padding: 15px 5px 15px 25px; 
-=======
-	padding: 15px 5px;
->>>>>>> origin/master
 }
 #addToDB h3 {
 	text-align: center;
