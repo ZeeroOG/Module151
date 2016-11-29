@@ -41,10 +41,9 @@ $page_link = $pages[$page];
 </head>
 <body>
 	<div class="container header">
-		<!-- PROMO -->
+		<!-- Logo -->
 		<div style="text-align: center; margin-bottom: 20px;">
-			<!--<img style="width: 100%;" src="img/promo.jpg" alt="PROMO" />-->
-			<img style="width: 100%;" src="http://placehold.it/1000x100" alt="PROMO" />
+			<img style="width: 100%; max-height: 150px; max-width: 1000px;" src="img/logo.png" alt="Logo" />
 		</div>
 		<?php if(isset($_SESSION['user'])) { ?><p>Bienvenue, <?php echo $_SESSION['user']->getUsername(); ?> !</p><?php } ?>
 		<!-- Barre de navigation -->
