@@ -1,0 +1,56 @@
+{
+	"home": {
+			"path" : "app/controler/home.php",
+			"title": "Accueil",
+			"menu" : "home",
+			"grade": 0
+		},
+	"shop": {
+			"path" : "app/controler/shop.php",
+			"title": "Boutique",
+			"menu" : "shop",
+			"grade": 0
+		},
+	"register": {
+			"path" : "app/controler/register.php",
+			"title": "Inscription",
+			"menu" : "register",
+			"grade": -1
+		},
+	"login": {
+			"path" : "app/controler/login.php",
+			"title": "Connexion",
+			"menu" : "login",
+			"grade": -1
+		},
+	"orders": {
+			"path" : "app/controler/orders.php",
+			"title": "Commandes",
+			"menu" : "orders",
+			"grade": 1
+		},
+	"account": {
+			"path" : "app/controler/account.php",
+			"title": "Mon compte",
+			"menu" : "account",
+			"grade": 1
+		},
+	"logout": {
+			"path" : "app/controler/logout.php",
+			"title": "Déconnexion",
+			"menu" : "logout",
+			"grade": 1
+		},
+	"admin": {
+			"path" : "app/controler/admin.php",
+			"title": "Administration",
+			"menu" : "admin",
+			"grade": 2
+		},
+	"addFilm": {
+			"path" : "app/controler/addFilm.php",
+			"title": "Ajout film",
+			"menu" : "admin",
+			"grade": 2
+		}
+}

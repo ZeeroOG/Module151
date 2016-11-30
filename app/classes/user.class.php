@@ -95,10 +95,14 @@ class User {
 	}
 
 	public function getLevelName() {
-		if($this->level == 1) return "Utilisateur";
-		else if($this->level == 2) return "Opérateur";
-		else if($this->level == 3) return "Administrateur";
-		else return "N/A";
+		global $db_acc;
+
+		$req = $db_acc->prepare("SELECT nom FROM t_level WHERE id_level = ?");
+		$req->execute(array($this->level));
+
+		while($x = $req->fetch()) {
+			return $x['nom'];
+		}
 	}
 }
 

@@ -1,34 +1,34 @@
 <?php
 
-// TODO: Migrer ce tableau dans la base SQL
-$pages = array();
+function checkActive($check) {
+	global $pages;
+	global $page;
 
-// Tout le monde
-$pages['home'] = 'app/controler/home.php';
-$pages['shop'] = 'app/controler/shop.php';
+	if($pages->$page->menu == $check) echo " class=\"active\"";
+}
 
-// Utilisateur déconnecté
-$pages['register'] = 'app/controler/register.php';
-$pages['login'] = 'app/controler/login.php';
+$pages = json_decode(file_get_contents('db/router.json'));
 
-// Utilisateur connecté
-$pages['orders'] = 'app/controler/orders.php';
-$pages['account'] = 'app/controler/account.php';
-$pages['logout'] = 'app/controler/logout.php';
-
-// Administrateur uniquement
-$pages['admin'] = 'app/controler/admin.php';
-$pages['DBmanagement'] = 'app/controler/DBmanagement.php';
-
-
-if(!isset($_GET['p']) || !array_key_exists($_GET['p'], $pages)) {
+if(!isset($_GET['p']) || !isset($pages->$_GET['p'])) {
     header('Location: ?p=home');
     die();
 } else {
     $page = $_GET['p'];
 }
 
-$page_link = $pages[$page];
+if(isset($_SESSION['user'])) {
+	$grade = $_SESSION['user']->getLevel();
+} else {
+	$grade = 0;
+}
+
+if($pages->$page->grade == -1 AND $grade != 0) {
+	header('Location: ?p=home');
+    die();
+} elseif ($grade < $pages->$page->grade) {
+	header('Location: ?p=home');
+    die();
+}
 
 ?>
 <!doctype html>
@@ -36,7 +36,7 @@ $page_link = $pages[$page];
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Magasin</title>
+    <title><?php echo $pages->$page->title; ?> | Nexflit | Achetez vos DVD et Blu-Ray en ligne !</title>
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -49,33 +49,33 @@ $page_link = $pages[$page];
 		<!-- Barre de navigation -->
 		<div class="navbar">
 			<ul>
-				<li class="active"><a href="?p=home">Accueil</a></li>
-				<li><a href="?p=shop">Shop</a></li>
+				<li<?php checkActive("home"); ?>><a href="?p=home">Accueil</a></li>
+				<li<?php checkActive("shop"); ?>><a href="?p=shop">Shop</a></li>
 				<?php if(isset($_SESSION['user']) AND $_SESSION['user']->getLevel() > 0) { ?>
 				<!-- Utilisateur connecté -->
-				<li><a href="?p=orders">Commandes</a></li>
+				<li<?php checkActive("orders"); ?>><a href="?p=orders">Commandes</a></li>
 				<?php } ?>
 				<?php if(isset($_SESSION['user']) AND $_SESSION['user']->getLevel() > 1) { ?>
 				<!-- Opérateur / Administrateur -->
-				<li><a href="?p=admin">Administration</a></li>
+				<li<?php checkActive("admin"); ?>><a href="?p=admin">Administration</a></li>
 				<?php } ?>
 				<div class="right">
 					<?php if(!isset($_SESSION['user'])) { ?>
 					<!-- Utilisateur déconnecté -->
-					<li><a href="?p=register">Inscription</a></li>
-					<li><a href="?p=login">Connexion</a></li>
+					<li<?php checkActive("register"); ?>><a href="?p=register">Inscription</a></li>
+					<li<?php checkActive("login"); ?>><a href="?p=login">Connexion</a></li>
 					<?php } ?>
 					<?php if(isset($_SESSION['user']) AND $_SESSION['user']->getLevel() > 0) { ?>
 					<!-- Utilisateur connecté -->
-					<li><a href="?p=account">Mon compte</a></li>
-					<li><a href="?p=logout">Déconnexion</a></li>
+					<li<?php checkActive("account"); ?>><a href="?p=account">Mon compte</a></li>
+					<li<?php checkActive("logout"); ?>><a href="?p=logout">Déconnexion</a></li>
 					<?php } ?>
 				</div>
 			</ul>
 		</div>
 	</div>
     <div class="container">
-        <?php include($page_link);
+        <?php include($pages->$page->path);
         echo "\n"; ?>
 	</div>
 	<div class="container footer">
