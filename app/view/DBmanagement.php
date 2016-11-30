@@ -42,7 +42,7 @@
 	  <?php foreach($genres as $key => $value) {
 			  echo '<option value="'.$key.'">'.$value.'</option>'.PHP_EOL; } ?>
 	</select>
-	<a href="#" class="addItem" id="addGenre">+ Ajouter</a>
+	<button class="addItem" id="addGenre">+ Ajouter</button>
   </span>
   <hr>
   <span class="element">
@@ -51,7 +51,7 @@
 	  <?php foreach($langues as $key => $value) {
 			  echo '<option value="'.$key.'">'.$value.'</option>'.PHP_EOL; } ?>
 	</select>
-	<a href="#" class="addItem" id="addLangue">+ Ajouter</a>
+	<button class="addItem" id="addLangue">+ Ajouter</button>
   </span>
   <hr>
   <span class="element">
@@ -61,7 +61,7 @@
 	  <?php foreach($sagas as $key => $value) {
 			  echo '<option value="'.$key.'">'.$value.'</option>'.PHP_EOL; } ?>
 	</select>
-	<a href="#" class="addItem" id="addSaga">+ Ajouter</a>
+	<button class="addItem" id="addSaga">+ Ajouter</button>
   </span>
   <hr>
   <span class="element">
@@ -70,7 +70,7 @@
 	  <?php foreach($societes as $key => $value) {
 			  echo '<option value="'.$key.'">'.$value.'</option>'.PHP_EOL; } ?>
 	</select>
-	<a href="#" class="addItem" id="addSociete">+ Ajouter</a>
+	<button class="addItem" id="addSociete">+ Ajouter</button>
   </span>
   <span class="element">
     <p>* obligatoire</p>
@@ -78,5 +78,3 @@
   <span class="element">
     <input type="submit" name="submit" id="submit" value="Ajouter"/>
 </form>
-	
-	

@@ -37,5 +37,5 @@ $("#addToDB").on("click", ".addItem", function() {
 	//on change le +Ajouter par le nouvel élément et on met le +Ajouter à la fin
 		$('#add'+$name).replaceWith(
 			'<select name="'+$name.toLowerCase()+$count+'" id="'+$name.toLowerCase()+$count+'" class="'+$name.toLowerCase()+'s">'+$default.html()+'</select>'+
-			'<a href="#" class="addItem" id="add'+$name+'">'+$add.html()+'</a>');
+			'<button class="addItem" id="add'+$name+'">'+$add.html()+'</button>');
 });
