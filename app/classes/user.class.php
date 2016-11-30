@@ -101,7 +101,7 @@ class User {
 		$req->execute(array($this->level));
 
 		while($x = $req->fetch()) {
-			return $x['nom'];
+			return utf8_encode($x['nom']);
 		}
 	}
 }
