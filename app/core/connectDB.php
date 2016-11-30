@@ -7,7 +7,7 @@ function connectDB() {
 	$pass = MYSQL_PASS;
 
 	try {
-		$database = new PDO("mysql:host=$host;dbname=$name", $user, $pass);
+		$database = new PDO("mysql:host=$host;dbname=$name;charset=UTF8", $user, $pass);
 	} catch(Exception $e) {
 	    echo "Echec de connexion MySQL: " . $e->getMessage();
 	}

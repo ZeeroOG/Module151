@@ -81,5 +81,8 @@ $page_link = $pages[$page];
 	<div class="container footer">
         <p class="muted">&copy; 2017 - Henry Jonas, Sebastiao Cristiano, Mujynya Cédric, Maillard William</p>
 	</div>
+<!-- JQuery 3.1.1 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
