@@ -43,7 +43,7 @@ if($pages->$page->grade == -1 AND $grade != 0) {
 	<div class="container header">
 		<!-- Logo -->
 		<div style="text-align: center; margin-bottom: 20px;">
-			<img style="width: 100%; max-height: 150px; max-width: 1000px;" src="img/logo.png" alt="Logo" />
+			<a href="?p=home"><img style="width: 100%; max-height: 150px; max-width: 1000px;" src="img/logo.png" alt="Logo" /></a>
 		</div>
 		<?php if(isset($_SESSION['user'])) { ?><p>Bienvenue, <?php echo $_SESSION['user']->getUsername(); ?> !</p><?php } ?>
 		<!-- Barre de navigation -->

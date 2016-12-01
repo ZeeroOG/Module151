@@ -21,14 +21,12 @@ class User {
 	public function update()
 	{
 		global $db_acc;
-		// Si utilisateur existe pas encore :
-		// ne rien faire
 
 		$req = $db_acc->prepare("SELECT password FROM t_users WHERE username = ?");
 		$rep = $req->execute(array($this->username));
 
+		// Si utilisateur existe pas encore ne rien faire
 		for($i = 0; $user = $req->fetch(); $i++) {}
-
 		if($i > 0) {
 			$this->getUserInfos();
 		}
@@ -103,6 +101,10 @@ class User {
 		while($x = $req->fetch()) {
 			return utf8_encode($x['nom']);
 		}
+	}
+
+	public function getBirthDate() {
+		return date("d.m.Y", strtotime($this->naissance));
 	}
 }
 

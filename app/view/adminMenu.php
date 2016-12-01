@@ -15,17 +15,15 @@
 		text-align: center;
 	}
 	.adminMenu li {
-		margin-bottom: 4px;
 		width: 95%;
-		border: 1px solid black;
-		border-radius: 3px;
 		padding: 2px;
-		background-color: #B00707;
+	}
+	.adminMenu button {
+		width: 100%;
 	}
 	.adminMenu a {
 		text-decoration: none;
-		color: white;
-
+		color: black;
 	}
 	.adminMenu-top {
 		font-weight: bold;
@@ -40,12 +38,12 @@
 		  margin-right: auto;
 	  }
 	  .adminMenu-left {
-		  width: 45%;
+		  width: 49%;
 		  display:inline-block;
 
 	  }
 	  .adminMenu-right {
-		  width: 45%;
+		  width: 49%;
 		  display:inline-block;
 	  }
   	}
@@ -55,16 +53,16 @@
 	<div class="adminMenu-left">
 		<h3 class="adminMenu-top">Opérateur</h3>
 		<ul>
-			<li><a href="?p=addFilm">Ajouter un film</a></li>
-			<li><a href="?p=viewFilms">Liste des films</a></li>
+			<li><a href="?p=addFilm"><button>Ajouter un film</button></a></li>
+			<li><a href="?p=viewFilms"><button>Liste des films</button></a></li>
 		</ul>
 	</div>
 	<?php if($_SESSION['user']->getLevel() > 2) { ?>
 	<div class="adminMenu-right">
 		<h3 class="adminMenu-top">Administrateur</h3>
 		<ul>
-			<li><a href="?p=addUser">Ajouter un utilisateur</a></li>
-			<li><a href="?p=viewUsers">Liste des utilisateurs</a></li>
+			<li><a href="?p=addUser"><button>Ajouter un utilisateur</button></a></li>
+			<li><a href="?p=viewUsers"><button>Liste des utilisateurs</button></a></li>
 		</ul>
 	</div>
 	<?php } ?>

@@ -13,7 +13,7 @@
 	</tr>
 	<tr>
 		<td>Date de naissance</td>
-		<td><?php echo date("d-m-Y", strtotime($_SESSION['user']->naissance)) . " (age: " . $_SESSION['user']->getAge() . ")"; ?></td>
+		<td><?php echo $_SESSION['user']->getBirthDate() . " (age: " . $_SESSION['user']->getAge() . ")"; ?></td>
 	</tr>
 	<tr>
 		<td>Adresse mail</td>
