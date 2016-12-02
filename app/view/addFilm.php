@@ -1,5 +1,5 @@
 <!-- Création du formulaire -->
-<form action=".?p=DBmanagement" method="POST" accept-charset="UTF-8" id="addToDB">
+<form action=".?p=addFilm" method="POST" accept-charset="UTF-8" id="addToDB">
   <span class="element">
     <h3>Ajouter un film</h3>
   </span>
@@ -55,7 +55,7 @@
   </span>
   <hr>
   <span class="element">
-    <h4>Sagas: <span class="required">*</span><a href="#">(Ajouter une saga)</a></h4>
+    <h4>Sagas: <a href="#">(Ajouter une saga)</a></h4>
     <select name="saga1" id="saga1" class="sagas">
 	  <option value="NULL">-</option>
 	  <?php foreach($sagas as $key => $value) {
@@ -74,6 +74,28 @@
   </span>
   <span class="element">
     <p>* obligatoire</p>
+  </span>
+  <span class="element">
+    <h4>Fromats & prix: <span class="required">*</span><a href="#">(Ajouter un format)</a></h4>
+	<div class="block">
+	  <select name="format1" id="format1" class="formats">
+	    <?php foreach($formats as $key => $value) {
+			  echo '<option value="'.$key.'">'.$value.'</option>'.PHP_EOL; } ?>
+	  </select>
+	  <input type="text" class="prix" id="prix1" name="prix1" placeholder="Prix" required/> CHF
+	</div>
+	<button class="addItem" id="addFormat">+ Ajouter</button>
+  </span>
+  <span class="element">
+    <h4>Personnes & rôles: <span class="required">*</span><a href="#">(Ajouter une personne)</a></h4>
+	<div class="block">
+	  <select name="personne1" id="personne1" class="personnes">
+	    <?php foreach($personnes as $key => $value) {
+			  echo '<option value="'.$key.'">'.$value.'</option>'.PHP_EOL; } ?>
+	  </select>
+	  <input type="text" class="role" id="role1" name="role1" placeholder="Rôle" required/>
+	</div>
+	<button class="addItem" id="addPersonne">+ Ajouter</button>
   </span>
   <span class="element">
     <input type="submit" name="submit" id="submit" value="Ajouter"/>

@@ -155,10 +155,26 @@ body {
 }
 #addToDB select {
 	width: 20%;
-	padding: 3px 3px;
+	padding: 3px;
 	margin-left: 50px;
 	margin-bottom: 5px;
 	display: block;
+}
+#addToDB .block {
+	display: block;
+}
+#addToDB .formats,#addToDB .personnes  {
+	display: inline;
+}
+#addToDB .block > .prix {
+	min-width: 30px;
+	width: 30px;
+	padding: 3px;
+}
+#addToDB .block > .role {
+	min-width: 150px;
+	width: 150px;
+	padding: 3px;
 }
 #addToDB .addItem {
 	margin-left: 50px;

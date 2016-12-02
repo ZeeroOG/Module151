@@ -5,12 +5,17 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 if(isset($_POST['submit'])) {
-	echo '<pre>';
 	print_r($_POST);
-	echo '</pre>';
 }
 
 include('app/model/addFilm.php');
+
+if(isset($_POST['submit'])) {
+	$errors = Array();
+	if(checkError($errors,$_POST)) {
+		sendToDB($db_sql,$_POST);
+	}
+}
 
 $genres = getGenres($db_sql);
 $formats = getFormats($db_sql);
