@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 01 Décembre 2016 à 22:16
+-- Généré le :  Ven 02 Décembre 2016 à 13:21
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.5.31
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `projet151`
 --
-CREATE DATABASE IF NOT EXISTS `projet151` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `projet151`;
 
 -- --------------------------------------------------------
 
@@ -42,8 +40,8 @@ CREATE TABLE `t_commentaire` (
 --
 
 INSERT INTO `t_commentaire` (`id_commentaire`, `fk_film`, `fk_user`, `unixtime`, `commentaire`, `visible`) VALUES
-(1, 1, 1, '2016-12-01 19:54:55', 'Meilleur film de l\'année ! :)', 1),
-(2, 1, 1, '2016-12-01 19:55:08', 'Bof...', 1);
+(1, 1, 1, '2016-12-01 19:54:55', 'Meilleur film de l\'année ! :smile:', 1),
+(2, 1, 1, '2016-12-01 19:55:08', 'Bof... :puke:', 1);
 
 -- --------------------------------------------------------
 
@@ -58,7 +56,7 @@ CREATE TABLE `t_film` (
   `duree` int(11) NOT NULL,
   `dateSortieSuisse` date NOT NULL,
   `description` text NOT NULL,
-  `accordParental` varchar(255) NOT NULL,
+  `accordParental` int(11) NOT NULL,
   `pochetteURL` varchar(255) DEFAULT NULL,
   `bandeAnnonceURL` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -68,7 +66,7 @@ CREATE TABLE `t_film` (
 --
 
 INSERT INTO `t_film` (`id_film`, `titreOriginal`, `titreTraduit`, `duree`, `dateSortieSuisse`, `description`, `accordParental`, `pochetteURL`, `bandeAnnonceURL`) VALUES
-(1, 'Test', 'Test', 10, '2000-01-01', 'Ceci est un test', 'PEGI LA COCHONE', NULL, 'https://www.youtube.com/watch?v=FeFtYgktbls');
+(1, 'Test', 'Test', 10, '2000-01-01', 'Ceci est un test', 10, NULL, 'https://www.youtube.com/watch?v=FeFtYgktbls');
 
 -- --------------------------------------------------------
 
@@ -151,6 +149,7 @@ CREATE TABLE `t_languefilm` (
 CREATE TABLE `t_notefilm` (
   `id_noteFilm` int(11) NOT NULL,
   `fk_film` int(11) NOT NULL,
+  `fk_user` int(11) NOT NULL,
   `note` tinyint(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -289,7 +288,8 @@ ALTER TABLE `t_languefilm`
 --
 ALTER TABLE `t_notefilm`
   ADD PRIMARY KEY (`id_noteFilm`),
-  ADD KEY `fk_film` (`fk_film`);
+  ADD KEY `fk_film` (`fk_film`),
+  ADD KEY `fk_user` (`fk_user`);
 
 --
 -- Index pour la table `t_personne`
