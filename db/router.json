@@ -52,5 +52,11 @@
 			"title": "Ajout film",
 			"menu" : "admin",
 			"grade": 2
+		},
+	"showFilm": {
+			"path" : "app/controler/showFilm.php",
+			"title": "Film",
+			"menu" : "shop",
+			"grade": 0
 		}
 }

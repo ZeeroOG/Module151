@@ -3,6 +3,7 @@
 Class Film {
 	private $filmid;
 	private $titreOriginal, $titreTraduit, $duree, $dateSortieSuisse, $description, $accordParental, $pochetteURL, $bandeAnnonceURL;
+	private $priceDVD, $priceBD;
 
 	function __construct($filmid) {
 		global $db_sql;
@@ -21,6 +22,8 @@ Class Film {
 			$this->accordParental = $x['accordParental'];
 			$this->pochetteURL = $x['pochetteURL'];
 			$this->bandeAnnonceURL = $x['bandeAnnonceURL'];
+			$this->priceBD = "15.-";
+			$this->priceDVD = "9.-";
 		}
 	}
 
@@ -33,6 +36,8 @@ Class Film {
 	public function getAccordParental() { return $this->accordParental; }
 	public function getPochetteURL() { return $this->pochetteURL; }
 	public function getBandeAnnonceURL() { return $this->bandeAnnonceURL; }
+	public function getBdPrice() { return $this->priceBD; }
+	public function getDvdPrice() { return $this->priceDVD; }
 }
 
 ?>
