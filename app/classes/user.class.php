@@ -64,13 +64,6 @@ class User {
 		return false;
 	}
 
-	public function create() {
-		// si nom d'utilisateur non défini retourner code erreur
-
-		// Si le nom d'utilisateur existe déjà retourner code erreur
-		// Sinon créer utilisateur dans la base access
-	}
-
 	public function getUserInfos() {
 		global $db_acc;
 
