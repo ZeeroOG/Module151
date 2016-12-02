@@ -15,4 +15,5 @@
 		<div><button type="submit">Connexion</button></div>
 	</fieldset>
 </form>
+<br />
 </div>

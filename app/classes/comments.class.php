@@ -47,7 +47,7 @@ Class Comments {
 
 			$this->commentid[$i] = $x['id_commentaire'];
 			$this->comment[$i] = $x['commentaire'];
-			$this->unixtime[$i] = $x['unixtime'];
+			$this->time[$i] = $x['unixtime'];
 		}
 	}
 
@@ -73,11 +73,21 @@ Class Comments {
 	}
 
 	public function getComment() {
-		return $this->comment[$this->count];
+		return $this->parseEmotes($this->comment[$this->count]);
 	}
 
 	public function getDateTime() {
 		return date("d.m.Y H:i", strtotime($this->time[$this->count]));
+	}
+
+	private function parseEmotes($comment) {
+		$emotes = json_decode(file_get_contents('db/emotes.json'));
+
+		foreach($emotes as $key => $emote) {
+			$comment = str_replace(":" . $key . ":", "<img src=\"img/emotes/" . $emote . "\" height=\"20\" width=\"20\" />", $comment);
+		}
+
+		return $comment;
 	}
 }
 
