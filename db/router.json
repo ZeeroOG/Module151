@@ -11,6 +11,12 @@
 			"menu" : "shop",
 			"grade": 0
 		},
+	"panier": {
+			"path" : "app/controler/panier.php",
+			"title": "Panier",
+			"menu" : "panier",
+			"grade": 0
+		},
 	"register": {
 			"path" : "app/controler/register.php",
 			"title": "Inscription",

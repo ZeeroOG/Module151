@@ -2,7 +2,7 @@ body {
 	background: url('../img/noise.png') repeat;
 
 	/* Font styles */
-	font-family: sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 11pt;
 	color: #333;
 }
@@ -184,4 +184,9 @@ body {
 	margin-left: 80%;
 	width: 100px;
 	height: 35px;
+}
+
+.welcome-message {
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
 }

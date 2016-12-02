@@ -7,10 +7,15 @@
 	}
 	.showFilm img {
 		width: 300px;
-		height: px;
-		float: left;
-		margin-right: 30px;
+		margin-left: 30px;
 		margin-bottom: 30px;
+		float: right;
+	}
+	.showFilm-left {
+		/*width: 400px;*/
+	}
+	.showFilm-left, .showFilm-right {
+		/*display: inline-block;*/
 	}
 	.showFilm-youtube {
 		text-align: center;
@@ -18,7 +23,9 @@
 		margin-bottom: 30px;
 	}
 	.showFilm-price {
-		text-align: center;
+		border-spacing: 5px;
+    	border-collapse: separate;
+		font-family: 'Roboto', sans-serif;
 	}
 	.commentaires {
 		width: 75%;
@@ -26,49 +33,87 @@
 		margin-right: auto;
 	}
 	.commentaire {
-		/*padding: 0 10px;
-		border: 1px solid black;*/
 		margin-bottom: 3px;
 		display: block;
 		width: 100%;
 		min-height: 100px;
-		/*background-color: white;*/
 	}
 	.commentaire-left, .commentaire-right {
-
+		display: inline-block;
+		line-height: 10px;
+		vertical-align: middle;
+		margin: 10px 0;
 	}
 	.commentaire-left {
-		width: 39%;
-		float: left;
+		width: 200px;
 	}
 	.commentaire-text {
 		text-align: justify;
+		font-family: 'Source Serif Pro', sans-serif;
+		font-size: 18px;
 	}
 	.commentaire-right {
-		width: 59%;
-		float: right;
+		font-family: 'Roboto', sans-serif;
+		font-size: 18px;
+	}
+	.showFilm-notes {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		font-size: 16px;
+	}
+	.showFilm-notes span {
+		font-size: 20px;
+	}
+	#showFilm-titreOriginal {
+		font-size: 25px;
+		color: #808591;
+		font-weight: bold;
+		margin-bottom: 20px;
+		font-family: 'Roboto', sans-serif;
+	}
+
+	#showFilm-titreTraduit {
+		font-family: 'Roboto', sans-serif;
+		font-size: 30px;
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+
+	.showFilm-desc {
+		text-align: justify;
+		font-family: 'Source Serif Pro', sans-serif;
+		font-size: 18px;
 	}
 </style>
 <div class="showFilm">
 	<div class="showFilm-top">
-		<img src="img/noimage.jpg" alt="cover" />
-		<h2><?php echo $film->getTitreTraduit(); ?></h2>
-		<h3><?php echo $film->getTitreOriginal(); ?></h3>
-		<table class="showFilm-price">
-			<tr>
-				<td>DVD</td>
-				<td><?php echo $film->getDvdPrice(); ?></td>
-				<td>CHF</td>
-				<td><button>+ Ajouter au panier</button></td>
-			</tr>
-			<tr>
-				<td>Blu-Ray</td>
-				<td><?php echo $film->getBdPrice(); ?></td>
-				<td>CHF</td>
-				<td><button>+ Ajouter au panier</button></td>
-			</tr>
-		</table>
-		<p style="text-align: justify;"><?php echo $film->getDescription(); ?></p>
+		<div class="showFilm-left">
+			<img src="img/noimage.jpg" alt="cover" />
+		</div>
+		<div class="showFilm-right">
+			<div id="showFilm-titreTraduit">
+				<?php echo $film->getTitreTraduit(); ?>
+			</div>
+			<div id="showFilm-titreOriginal">
+				<?php echo $film->getTitreOriginal(); ?>
+			</div>
+			<table class="showFilm-price">
+				<tr>
+					<td>DVD</td>
+					<td><?php echo $film->getDvdPrice(); ?></td>
+					<td>CHF</td>
+					<td><button>+ Ajouter au panier</button></td>
+				</tr>
+				<tr>
+					<td>Blu-Ray</td>
+					<td><?php echo $film->getBdPrice(); ?></td>
+					<td>CHF</td>
+					<td><button>+ Ajouter au panier</button></td>
+				</tr>
+			</table>
+			<div class="showFilm-notes">Note de la communauté : <b><span><?php echo $film->getNote(); ?></span>/10</b> [<?php echo $film->getNbVotes(); ?> vote(s)]</div>
+			<p class="showFilm-desc"><?php echo $film->getDescription(); ?></p>
+		</div>
 	</div>
 	<br />
 	<hr />
@@ -88,7 +133,14 @@
 			<p><?php echo $comments->getDateTime(); ?></p>
 		</div>
 		<div class="commentaire-right">
-			<div class="commentaire-text"><?php for($i = 0; $i < 10; $i++) { echo $comments->getComment() . " "; } ?></div>
+			<div class="commentaire-text">
+				<?php echo $comments->getComment(); ?>
+			</div>
+		</div>
 	</div>
 	<?php } ?>
+	<hr />
+	<div class="commentaire">
+		<textarea style=""></textarea>
+	</div>
 </div>
