@@ -2,8 +2,7 @@
 
 /*
 
-UTILISATION
-===========
+UTILISATION :
 
 $comments = new Comments($id_film);
 
