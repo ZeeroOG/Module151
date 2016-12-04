@@ -72,7 +72,7 @@ Class Comments {
 	}
 
 	public function getComment() {
-		return $this->parseEmotes($this->comment[$this->count]);
+		return str_replace("\n", "<br/>", $this->parseEmotes(htmlentities($this->comment[$this->count])));
 	}
 
 	public function getDateTime() {

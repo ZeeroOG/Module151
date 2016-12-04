@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 02 Décembre 2016 à 15:12
+-- Généré le :  Dim 04 Décembre 2016 à 21:58
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.5.31
 
@@ -40,8 +40,9 @@ CREATE TABLE `t_commentaire` (
 --
 
 INSERT INTO `t_commentaire` (`id_commentaire`, `fk_film`, `fk_user`, `unixtime`, `commentaire`, `visible`) VALUES
-(1, 1, 1, '2016-12-01 19:54:55', 'Meilleur film de l\'année ! :smile:', 1),
-(2, 1, 1, '2016-12-01 19:55:08', 'Bof... :puke:', 1);
+(1, 1, 1, '2016-12-01 19:54:55', 'Meilleur film de l\'année ! :smile::cool:', 1),
+(2, 1, 1, '2016-12-01 19:55:08', 'Bof... :confused::confused:', 1),
+(3, 1, 6, '2016-12-04 20:54:34', 'Evil comment ! :evil:\r\nScript :\r\n<script>alert("test");</script>', 1);
 
 -- --------------------------------------------------------
 
@@ -66,7 +67,7 @@ CREATE TABLE `t_film` (
 --
 
 INSERT INTO `t_film` (`id_film`, `titreOriginal`, `titreTraduit`, `duree`, `dateSortieSuisse`, `description`, `accordParental`, `pochetteURL`, `bandeAnnonceURL`) VALUES
-(1, 'Jason Bourne', 'Jason Bourne', 666, '2000-01-01', 'Jason Bourne se cache et participe à des combats à mains nues, illégaux, pour assurer sa survie. De son côté, Nicky Parsons collabore avec le hacker et lanceur d\'alerte Christian Dassault. À Reykjavik, en Islande, elle s\'introduit dans les serveurs de la CIA et copie des fichiers sur les opérations noires de l\'agence. Elle trouve également des documents sur le recrutement de Jason Bourne dans l\'opération Treadstone et l\'implication de Richard Webb, le père de Bourne. Son intrusion a cependant été détectée et des agents de la CIA implantent un logiciel espion dans une mémoire de masse qu\'elle emporte. Ignorant la présence du logiciel, elle se rend en Grèce pour montrer à Bourne ses recherches, suivie à distance par Heather Lee, chef de la division sur le cyber-espionnage, qui rapporte ses allées et venues à Robert Dewey, directeur de la CIA.\r\nEn Grèce, Parsons et Bourne se rencontrent sur la place Syntagma, qui est le théâtre d\'une violente manifestation surveillée par des policiers anti-émeute. Ils échappent à l\'équipe envoyée pour les éliminer, mais Parsons est tuée par l\'Atout (seul nom qui lui est donné pendant le film), un ancien tueur de la CIA sous les ordres de Dewey. Avant de mourir sous le coup d\'une seconde balle, elle donne la clé d\'une consigne où se trouvent les documents volés à la CIA. Résolu de trouver des réponses sur son passé, Bourne se rend à Berlin pour voir Dassault. Après que Dassault soit parvenu à déchiffrer les documents, Bourne découvre que son père, Richard Webb, a travaillé pour le compte de l\'agence et est à l\'origine de l\'opération Treadstone. Entretemps, le logiciel espion informe Heather Lee de l\'endroit où se trouve Bourne et Dewey dépêche une équipe pour le supprimer. Quelques instants plus tard, Lee détruit à distance les documents, puis informe Bourne qu\'une équipe est en route, croyant que Bourne veut travailler à nouveau pour l\'agence.\r\nEn se basant sur quelques indices, Bourne se rend à Londres pour retrouver Malcolm Smith, un ancien agent de surveillance ayant agi pour l\'opération Treadstone. Lee défend son projet de « récupérer » Bourne auprès d\'Edwin Russell, le directeur du renseignement national et supérieur de Dewey ; Russell acquiesce et Lee prend ses dispositions pour rencontrer Bourne. Dewey semble se plier à cette décision, mais ordonne en secret à l\'Atout d\'abattre l\'équipe de Lee puis Bourne, parce qu\'il ne partage pas les opinions de Lee. Se sachant sous surveillance, Bourne échappe à l\'équipe de Lee et à l\'Atout suffisamment longtemps pour confronter Smith. Ce dernier admet que Richard Webb a créé l\'opération Treadstone mais s\'est opposé au recrutement de Jason. Il affirme que Dewey a ordonné la mort de Richard, meurtre accompli par l\'Atout, mais maquillé comme une attaque terroriste pour persuader Jason de joindre les rangs de la CIA. L\'Atout tue Smith et blesse Jason, qui parvient à s\'enfuir. Il prend contact avec Lee, qui lui déclare ne pas approuver les méthodes de Dewey ; elle lui donne rendez-vous à un congrès technologique à Las Vegas aux États-Unis.\r\nDewey se rend aussi au même congrès, pour participer à un débat sur le droit à la vie privée avec Aaron Kalloor, PDG de Deep Dream, société qui exploite un réseau social consulté par plus d\'un milliard de personnes. Kalloor se présente comme le champion de la protection de la vie privée, mais tait sa collaboration secrète avec la CIA qui ambitionne d\'utiliser le réseau de Deep Dream comme outil de surveillance de masse en temps réel, pour redonner vigueur aux opérations Treadstone, Blackbriar, Outcome et LARX. Soupçonnant que Kalloor refusera de poursuivre sa collaboration avec la CIA, Dewey ordonne à l\'Atout d\'abattre Kallor et Lee, cette dernière par manque de loyauté aveugle. Au congrès, Bourne contrecarre in extremis les meurtres, puis confronte Dewey dans sa suite. Le directeur de la CIA fait appel au sens du devoir et au patriotisme de Bourne dans le but de le retenir auprès de lui, sachant que des agents de la CIA se rapprochent, dont son bras droit Jeffers. Bourne tue ce dernier, puis Lee tue Dewey avant qu\'il ne tire sur Bourne. Pour protéger Lee, il prend la responsabilité de la mort de Dewey. En quittant l\'hôtel, il aperçoit l\'Atout qui s\'enfuit. Au terme d\'une poursuite automobile dans Las Vegas et d\'un corps à corps intense, Bourne tue l\'Atout.\r\nQuelque temps plus tard, Lee rencontre Edwin Russell et affirme pouvoir être ses oreilles et ses yeux dans l\'agence. Elle a toujours le projet de ramener Bourne dans le giron de la CIA, mais accepte qu\'il soit tué s\'il ne veut pas revenir. Quelques minutes plus tard, Lee rejoint Bourne, promettant de changer la CIA pour le mieux. Bourne demande du temps pour réfléchir à sa proposition, mais en lui laissant dans sa voiture un enregistrement de sa conversation avec Russell, il montre qu\'il n\'a pas confiance en elle, puis il s\'enfuit à nouveau.', 18, NULL, 'https://www.youtube.com/watch?v=FeFtYgktbls');
+(1, 'Jason Bourne', 'Jason Bourne', 123, '2000-01-01', 'Jason Bourne se cache et participe à des combats à mains nues, illégaux, pour assurer sa survie. De son côté, Nicky Parsons collabore avec le hacker et lanceur d\'alerte Christian Dassault. À Reykjavik, en Islande, elle s\'introduit dans les serveurs de la CIA et copie des fichiers sur les opérations noires de l\'agence. Elle trouve également des documents sur le recrutement de Jason Bourne dans l\'opération Treadstone et l\'implication de Richard Webb, le père de Bourne. Son intrusion a cependant été détectée et des agents de la CIA implantent un logiciel espion dans une mémoire de masse qu\'elle emporte. Ignorant la présence du logiciel, elle se rend en Grèce pour montrer à Bourne ses recherches, suivie à distance par Heather Lee, chef de la division sur le cyber-espionnage, qui rapporte ses allées et venues à Robert Dewey, directeur de la CIA.', 18, NULL, 'https://www.youtube.com/watch?v=LuAKjwZ3FN0');
 
 -- --------------------------------------------------------
 
@@ -152,6 +153,16 @@ CREATE TABLE `t_notefilm` (
   `fk_user` int(11) NOT NULL,
   `note` tinyint(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `t_notefilm`
+--
+
+INSERT INTO `t_notefilm` (`id_noteFilm`, `fk_film`, `fk_user`, `note`) VALUES
+(1, 1, 4, 10),
+(2, 1, 1, 10),
+(3, 1, 2, 1),
+(4, 1, 3, 5);
 
 -- --------------------------------------------------------
 
@@ -341,7 +352,7 @@ ALTER TABLE `t_societefilm`
 -- AUTO_INCREMENT pour la table `t_commentaire`
 --
 ALTER TABLE `t_commentaire`
-  MODIFY `id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `t_film`
 --
@@ -381,7 +392,7 @@ ALTER TABLE `t_languefilm`
 -- AUTO_INCREMENT pour la table `t_notefilm`
 --
 ALTER TABLE `t_notefilm`
-  MODIFY `id_noteFilm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_noteFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `t_personne`
 --

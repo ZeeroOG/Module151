@@ -2,6 +2,7 @@
 
 class User {
 	private $username;
+	private $id;
 	public $nom;
 	public $prenom;
 	public $naissance;
@@ -14,15 +15,14 @@ class User {
 		$this->update();
 	}
 
-	public function getUsername() {
-		return $this->username;
-	}
+	public function getUsername() { return $this->username; }
+	public function getUserId() { return $this->id; }
 
 	public function update()
 	{
 		global $db_acc;
-
-		$req = $db_acc->prepare("SELECT password FROM t_users WHERE username = ?");
+		
+		$req = $db_acc->prepare("SELECT id_users FROM t_users WHERE username = ?");
 		$rep = $req->execute(array($this->username));
 
 		// Si utilisateur existe pas encore ne rien faire
@@ -71,6 +71,7 @@ class User {
 		$req->execute(array($this->username));
 
 		while($x = $req->fetch()) {
+			$this->id = utf8_encode($x['id_users']);
 			$this->username = utf8_encode($x['username']);
 			$this->nom = utf8_encode($x['nom']);
 			$this->prenom = utf8_encode($x['prenom']);

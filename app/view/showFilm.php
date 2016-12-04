@@ -46,6 +46,7 @@
 	}
 	.commentaire-left {
 		width: 200px;
+		text-align: center;
 	}
 	.commentaire-text {
 		text-align: justify;
@@ -71,18 +72,31 @@
 		margin-bottom: 20px;
 		font-family: 'Roboto', sans-serif;
 	}
-
 	#showFilm-titreTraduit {
 		font-family: 'Roboto', sans-serif;
 		font-size: 30px;
 		font-weight: bold;
 		margin-bottom: 5px;
 	}
-
 	.showFilm-desc {
 		text-align: justify;
 		font-family: 'Source Serif Pro', sans-serif;
 		font-size: 18px;
+	}
+	#addCommentaire {
+		height: 200px;
+	}
+	#addCommentaireText {
+		width: 90%;
+		height: 97%;
+		resize: none;
+		float: left;
+		text-align: justify;
+	}
+	#addCommentaireButton {
+		width: 9%;
+		height: 100%;
+		float: right;
 	}
 </style>
 <div class="showFilm">
@@ -141,6 +155,30 @@
 	<?php } ?>
 	<hr />
 	<div class="commentaire">
-		<textarea style=""></textarea>
+		<h3>Poster un commentaire</h3>
+		<form id="addCommentaire" action="?p=showFilm&id=<?php echo $film->getFilmId(); ?>" method="post">
+			<textarea id="addCommentaireText" name="text"></textarea>
+			<input id="addCommentaireButton" value="Poster" type="submit">
+		</form>
+		<script>
+			var addEmote = function(key) {
+				var id = "#addCommentaireText";
+				var space;
+
+				if(/\s$/.test($(id).val()) || $(id).val() == "") space = "";
+				else space = " ";
+
+				$(id).val($(id).val() + space + key);
+			}
+		</script>
+		<div id="addEmotes" style="margin-top: 10px;">
+			Insérez des smileys :
+			<?php
+			foreach ($emotes as $key => $emote) {
+					$key = "':" . $key . ":'";
+					echo '<img onClick="addEmote(' . $key . ')" style="margin: 2px;" src="img/emotes/' . $emote . '" height="20" width="20" />';
+				}
+			?>
+		</div>
 	</div>
 </div>
