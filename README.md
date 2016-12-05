@@ -1,12 +1,11 @@
-# EPSIC - Module151
+*TODO list*
 
-Ce qui est déjà fait par William
-================================
+**William**
 
-- Structure fichiers (à confirmer)
-- HTML (Header + Footer)
-- Routeur
-- Connecteur MySQL
-- Connecteur Access
-- Classe Captcha
-- Classe Youtube
+* [Insert smiley on cursor](http://stackoverflow.com/questions/11076975/insert-text-into-textarea-at-cursor-position-javascript)
+* Inscriptions
+* Passage des requêtes SQL dans les models
+* Affichage liste films
+* Tri liste films
+* Recherche liste films
+* Admin panel utilisateurs (add/edit/del)
