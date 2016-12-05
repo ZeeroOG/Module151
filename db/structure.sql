@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 05 Décembre 2016 à 02:45
+-- Généré le :  Lun 05 Décembre 2016 à 15:21
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.5.31
 
@@ -35,20 +35,6 @@ CREATE TABLE `t_commentaire` (
   `visible` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `t_commentaire`
---
-
-INSERT INTO `t_commentaire` (`id_commentaire`, `fk_film`, `fk_user`, `unixtime`, `commentaire`, `visible`) VALUES
-(1, 1, 1, '2016-12-01 19:54:55', 'Meilleur film de l\'année ! :smile::cool:', 1),
-(2, 1, 1, '2016-12-01 19:55:08', 'Bof... :confused::confused:', 1),
-(3, 1, 6, '2016-12-04 20:54:34', 'Evil comment ! :evil:\r\nScript :\r\n<script>alert("test");</script>', 1),
-(4, 1, 6, '2016-12-05 01:39:23', 'test :wink:', 1),
-(5, 1, 6, '2016-12-05 01:41:10', 'encore un test :mrgreen:', 1),
-(6, 1, 6, '2016-12-05 01:41:40', 'gthjehhsj :arrow: :arrow: :evil: :evil:', 1),
-(7, 1, 6, '2016-12-05 01:43:43', 'test\r\nsur\r\nbeaucoup\r\nde\r\nlignes\r\n:wink:\r\nje\r\nsuis\r\nsceptique\r\n:cry:', 1),
-(8, 1, 6, '2016-12-05 01:44:28', 'OUIII !!!! TOUT FONCTIONNE :mrgreen: :mrgreen: :mrgreen:', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -67,13 +53,6 @@ CREATE TABLE `t_film` (
   `bandeAnnonceURL` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `t_film`
---
-
-INSERT INTO `t_film` (`id_film`, `titreOriginal`, `titreTraduit`, `duree`, `dateSortieSuisse`, `description`, `accordParental`, `pochetteURL`, `bandeAnnonceURL`) VALUES
-(1, 'Jason Bourne', 'Jason Bourne', 123, '2000-01-01', 'Jason Bourne se cache et participe à des combats à mains nues, illégaux, pour assurer sa survie. De son côté, Nicky Parsons collabore avec le hacker et lanceur d\'alerte Christian Dassault. À Reykjavik, en Islande, elle s\'introduit dans les serveurs de la CIA et copie des fichiers sur les opérations noires de l\'agence. Elle trouve également des documents sur le recrutement de Jason Bourne dans l\'opération Treadstone et l\'implication de Richard Webb, le père de Bourne. Son intrusion a cependant été détectée et des agents de la CIA implantent un logiciel espion dans une mémoire de masse qu\'elle emporte. Ignorant la présence du logiciel, elle se rend en Grèce pour montrer à Bourne ses recherches, suivie à distance par Heather Lee, chef de la division sur le cyber-espionnage, qui rapporte ses allées et venues à Robert Dewey, directeur de la CIA.', 18, NULL, 'https://www.youtube.com/watch?v=LuAKjwZ3FN0');
-
 -- --------------------------------------------------------
 
 --
@@ -82,7 +61,7 @@ INSERT INTO `t_film` (`id_film`, `titreOriginal`, `titreTraduit`, `duree`, `date
 
 CREATE TABLE `t_format` (
   `id_format` int(11) NOT NULL,
-  `nom` int(11) NOT NULL
+  `nom` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -95,7 +74,7 @@ CREATE TABLE `t_formatfilm` (
   `id_formatFilm` int(11) NOT NULL,
   `fk_film` int(11) NOT NULL,
   `fk_format` int(11) NOT NULL,
-  `prix` int(11) NOT NULL
+  `prix` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -142,8 +121,7 @@ CREATE TABLE `t_langue` (
 CREATE TABLE `t_languefilm` (
   `id_langueFilm` int(11) NOT NULL,
   `fk_film` int(11) NOT NULL,
-  `fk_langue` int(11) NOT NULL,
-  `type` tinyint(1) NOT NULL
+  `fk_langue` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -158,16 +136,6 @@ CREATE TABLE `t_notefilm` (
   `fk_user` int(11) NOT NULL,
   `note` tinyint(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `t_notefilm`
---
-
-INSERT INTO `t_notefilm` (`id_noteFilm`, `fk_film`, `fk_user`, `note`) VALUES
-(1, 1, 4, 10),
-(2, 1, 1, 10),
-(3, 1, 2, 1),
-(4, 1, 3, 5);
 
 -- --------------------------------------------------------
 
@@ -362,37 +330,37 @@ ALTER TABLE `t_commentaire`
 -- AUTO_INCREMENT pour la table `t_film`
 --
 ALTER TABLE `t_film`
-  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `t_format`
 --
 ALTER TABLE `t_format`
-  MODIFY `id_format` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_format` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `t_formatfilm`
 --
 ALTER TABLE `t_formatfilm`
-  MODIFY `id_formatFilm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_formatFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_genre`
 --
 ALTER TABLE `t_genre`
-  MODIFY `id_genre` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_genre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_genrefilm`
 --
 ALTER TABLE `t_genrefilm`
-  MODIFY `id_genreFilm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_genreFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_langue`
 --
 ALTER TABLE `t_langue`
-  MODIFY `id_langue` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_langue` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_languefilm`
 --
 ALTER TABLE `t_languefilm`
-  MODIFY `id_langueFilm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_langueFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_notefilm`
 --
@@ -402,32 +370,32 @@ ALTER TABLE `t_notefilm`
 -- AUTO_INCREMENT pour la table `t_personne`
 --
 ALTER TABLE `t_personne`
-  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_rolefilm`
 --
 ALTER TABLE `t_rolefilm`
-  MODIFY `id_roleFilm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_roleFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_saga`
 --
 ALTER TABLE `t_saga`
-  MODIFY `id_saga` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_saga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_sagafilm`
 --
 ALTER TABLE `t_sagafilm`
-  MODIFY `id_sagaFilm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sagaFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_societe`
 --
 ALTER TABLE `t_societe`
-  MODIFY `id_societe` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_societe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_societefilm`
 --
 ALTER TABLE `t_societefilm`
-  MODIFY `id_societeFilm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_societeFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Contraintes pour les tables exportées
 --

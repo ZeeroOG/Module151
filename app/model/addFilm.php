@@ -1,4 +1,5 @@
 <?php
+	//fonction pour optimiser le code des fonctions ci-dessous (getGenres, getFormats, ...)
 	function get(&$db,$sql,$id) {
 		$stmt = $db->prepare($sql);
 		$stmt->execute();
@@ -8,7 +9,7 @@
 		}
 		return $r;
 	}
-
+	// les fonctions pour récupérer les genres,formats,...
 	function getGenres(&$db) {
 		$sql = 'SELECT * FROM t_genre';
 		$id = 'id_genre';
@@ -39,34 +40,25 @@
 		$id = 'id_societe';
 		return get($db,$sql,$id);
 	}
-	function checkError(&$errors,$post) {
-		// CONTROLE DES ERREURS PHP
-		return TRUE; // aucune erreur
-	}
-	function sendToDB(&$db,$post) {
-		
-		// AJOUT DU FILM
+	function sendToDB(&$db,$post,&$errors) {// AJOUT DU FILM
 		$film = array($post['titreOriginal'],
-					  $post['titreTraduit'],
+					  (empty($post['titreTraduit']) ? NULL : $post['titreTraduit']),
 					  $post['duree'],
 					  $post['dateSortieSuisse'],
 					  $post['description'],
 					  $post['accordParental'],
-					  $post['pochetteURL'],
-					  $post['bandeAnnonceURL']);
+					  (empty($post['pochetteURL']) ? NULL : $post['pochetteURL']),
+					  (empty($post['bandeAnnonceURL']) ? NULL : $post['bandeAnnonceURL']));
 		$stmt = $db->prepare('INSERT INTO t_film (titreOriginal,titreTraduit,duree,dateSortieSuisse,description,accordParental,pochetteURL,bandeAnnonceURL)
 							  VALUES (?,?,?,?,?,?,?,?)');
+		if(!stmt) {
+			array_push($errors,$db->errorInfo()[2]);
+			return FALSE;
+		}
 		$stmt->execute($film);
 		
-		
-		// LIAISON
-		
-		//$stmt = $db->prepare('SELECT id_film FROM t_film WHERE titreOriginal = ?';
-		//$stmt->execute($film['titreOriginal'];
-		//$film_id = $stmt->fetch(PDO::FETCH_ASSOC);
+		// LIAISON genres <> film, formats <> film, ...
 		$film_id = $db->lastInsertId();
-		
-		$lastValue = '';
 		foreach($post as $key => $value) {
 			//GENRE
 			if(preg_match('#^genre.+#',$key)) {
@@ -85,30 +77,24 @@
 			}
 			//SOCIETE
 			else if(preg_match('#^societe.+#',$key)) {
-				$stmt = $db->prepare('INSERT INTO t_societefilm (fk_film,fk_langue) VALUES (?,?)');
+				$stmt = $db->prepare('INSERT INTO t_societefilm (fk_film,fk_societe) VALUES (?,?)');
 				$stmt->execute(array($film_id,$value));
 			}
 			//FORMAT&PRIX
 			else if(preg_match('#^prix.+#',$key)) {
+				$format = $post['format'.substr($key,-1)];
 				$stmt = $db->prepare('INSERT INTO t_formatfilm (fk_film,fk_format,prix) VALUES (?,?,?)');
-				$stmt->execute(array($film_id,$lastValue,$value));
+				$stmt->execute(array($film_id,$format,$value));
 			}
 			//PERSONNE&ROLE
 			else if(preg_match('#^role.+#',$key)) {
+				$personne = $post['personne'.substr($key,-1)];
 				$stmt = $db->prepare('INSERT INTO t_rolefilm (fk_film,fk_personne,role) VALUES (?,?,?)');
-				$stmt->execute(array($film_id,$lastValue,$value));
-			}
-			//RECUP FORMAT
-			else if(preg_match('#^format.+#',$key)) {
-				$lastValue = $value;
-			}
-			//RECUP PERSONNE
-			else if(preg_match('#^personne.+#',$key)) {
-				$lastValue = $value;
+				$stmt->execute(array($film_id,$personne,$value));
 			}
 		}
 		
-		print_r($film);
+		//print_r($film);
 		die();
 	
 	}

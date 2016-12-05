@@ -41,7 +41,7 @@ $("#addToDB").on("click", ".addItem", function() {
 			var $count = $('.formats').length;
 			var $name = 'Format';
 			var $prev = '<div class="block">';
-			var $next = '<input type="text" class="prix" id="prix'+$count+'" name="prix'+$count+'" placeholder="Prix" required/> CHF</div>';
+			var $next = '<input type="text" class="prix" id="prix'+($count + 1)+'" name="prix'+($count + 1)+'" placeholder="Prix" required/> CHF</div>';
 			break;
 		case 'addPersonne':
 			var $default = $("#personne1").clone();
@@ -49,7 +49,7 @@ $("#addToDB").on("click", ".addItem", function() {
 			var $count = $('.personnes').length;
 			var $name = 'Personne';
 			var $prev = '<div class="block">';
-			var $next = '<input type="text" class="role" id="role'+$count+'" name="role'+$count+'" placeholder="Rôle" required/></div>';
+			var $next = '<input type="text" class="role" id="role'+($count + 1)+'" name="role'+($count + 1)+'" placeholder="Rôle" required/></div>';
 			break;
 			
 	}
@@ -59,4 +59,10 @@ $("#addToDB").on("click", ".addItem", function() {
 		$('#add'+$name).replaceWith(
 			$prev+'<select name="'+$name.toLowerCase()+$count+'" id="'+$name.toLowerCase()+$count+'" class="'+$name.toLowerCase()+'s">'+$default.html()+'</select>'+
 			$next+'<button class="addItem" id="add'+$name+'">'+$add.html()+'</button>');
+});
+
+$('.insertItem').click(function() {
+	$id = $(this).attr('id');
+	$('#FullScreenForm').css('visibility', 'visible');
+	$('#FullScreenForm').append('<div><label for="'+$id+'">Nom:</label><input type="text" id="'+$id+'" name="'+$id+'"/><button id="cancel">Annuler</button><input type="submit"/></div>');
 });
