@@ -65,6 +65,11 @@ class Captcha {
 			if(rand(0, 1) == 0) $x = chr(rand(65,90));
 			else $x = rand(0, 9);
 
+			if($x == '0' OR $x == 'O' OR $x == 'L' OR $x == '1') {
+				$i--;
+				continue;
+			}
+
 			$code = $code . $x;
 			$text = $text . $x . " ";
 		}
