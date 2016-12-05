@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Dim 04 Décembre 2016 à 21:58
+-- Généré le :  Lun 05 Décembre 2016 à 02:45
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.5.31
 
@@ -42,7 +42,12 @@ CREATE TABLE `t_commentaire` (
 INSERT INTO `t_commentaire` (`id_commentaire`, `fk_film`, `fk_user`, `unixtime`, `commentaire`, `visible`) VALUES
 (1, 1, 1, '2016-12-01 19:54:55', 'Meilleur film de l\'année ! :smile::cool:', 1),
 (2, 1, 1, '2016-12-01 19:55:08', 'Bof... :confused::confused:', 1),
-(3, 1, 6, '2016-12-04 20:54:34', 'Evil comment ! :evil:\r\nScript :\r\n<script>alert("test");</script>', 1);
+(3, 1, 6, '2016-12-04 20:54:34', 'Evil comment ! :evil:\r\nScript :\r\n<script>alert("test");</script>', 1),
+(4, 1, 6, '2016-12-05 01:39:23', 'test :wink:', 1),
+(5, 1, 6, '2016-12-05 01:41:10', 'encore un test :mrgreen:', 1),
+(6, 1, 6, '2016-12-05 01:41:40', 'gthjehhsj :arrow: :arrow: :evil: :evil:', 1),
+(7, 1, 6, '2016-12-05 01:43:43', 'test\r\nsur\r\nbeaucoup\r\nde\r\nlignes\r\n:wink:\r\nje\r\nsuis\r\nsceptique\r\n:cry:', 1),
+(8, 1, 6, '2016-12-05 01:44:28', 'OUIII !!!! TOUT FONCTIONNE :mrgreen: :mrgreen: :mrgreen:', 1);
 
 -- --------------------------------------------------------
 
@@ -352,7 +357,7 @@ ALTER TABLE `t_societefilm`
 -- AUTO_INCREMENT pour la table `t_commentaire`
 --
 ALTER TABLE `t_commentaire`
-  MODIFY `id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pour la table `t_film`
 --

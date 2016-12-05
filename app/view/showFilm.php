@@ -40,7 +40,6 @@
 	}
 	.commentaire-left, .commentaire-right {
 		display: inline-block;
-		line-height: 10px;
 		vertical-align: middle;
 		margin: 10px 0;
 	}
@@ -154,9 +153,10 @@
 	</div>
 	<?php } ?>
 	<hr />
-	<div class="commentaire">
+	<div class="commentaire" id="lastComment">
+		<?php if(isset($_SESSION['user'])) { ?>
 		<h3>Poster un commentaire</h3>
-		<form id="addCommentaire" action="?p=showFilm&id=<?php echo $film->getFilmId(); ?>" method="post">
+		<form id="addCommentaire" action="?p=showFilm&id=<?php echo $film->getFilmId(); ?>#lastComment" method="post">
 			<textarea id="addCommentaireText" name="text"></textarea>
 			<input id="addCommentaireButton" value="Poster" type="submit">
 		</form>
@@ -180,5 +180,8 @@
 				}
 			?>
 		</div>
+		<?php } else { ?>
+			<p>Vous devez être connecté pour poster des commentaires.</p>
+		<?php } ?>
 	</div>
 </div>
