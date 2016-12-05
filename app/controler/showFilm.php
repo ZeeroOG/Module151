@@ -7,11 +7,12 @@ if(!isset($_GET['id'])) {
 	$filmid = $_GET['id'];
 }
 
+include('app/model/showFilm.php');
+
 $film = new Film($filmid);
 
 if(isset($_POST['text']) AND isset($_SESSION['user'])) {
-	$req = $db_sql->prepare('INSERT INTO t_commentaire (fk_film, fk_user, commentaire) VALUES (?, ?, ?)');
-	$req->execute(array($film->getFilmId(), $_SESSION['user']->getUserId(), $_POST['text']));
+	createComment($film->getFilmId(), $_SESSION['user']->getUserId(), $_POST['text']);
 }
 
 $comments = new Comments($filmid);
