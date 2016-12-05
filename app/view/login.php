@@ -5,7 +5,7 @@
 		<table>
 			<tr>
 				<td>Nom d'utilisateur</td>
-				<td><input type="text" name="username" <?php if(isset($_POST['username'])) { echo "value=" . $_POST['username'] . " "; } ?>placeholder="Nom d'utilisateur" autofocus required></td>
+				<td><input type="text" name="username" <?php if(isset($_GET['newAccount'])) { echo "value=" . $_GET['newAccount'] . " "; } ?><?php if(isset($_POST['username'])) { echo "value=" . $_POST['username'] . " "; } ?>placeholder="Nom d'utilisateur" autofocus required></td>
 			</tr>
 			<tr>
 				<td>Mot de passe</td>

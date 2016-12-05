@@ -10,6 +10,8 @@ if(isset($_POST['username']) AND isset($_POST['password']))
 			$_SESSION['loginCount']++;
 			$doNotLogin = true;
 		}
+
+		if(isset($_POST['captchaId']) AND isset($_SESSION[$_POST['captchaId']])) unset($_SESSION[$_POST['captchaId']]);
 	}
 
 	if(!isset($doNotLogin)) {
@@ -51,6 +53,10 @@ if(isset($_SESSION['loginCount']) AND $_SESSION['loginCount'] >= LOGIN_COUNT_CAP
 
 	// Enregistrement du texte captcha dans la session
 	$_SESSION[$captchaId] = $captcha->getTexte();
+}
+
+if(isset($_GET['newAccount'])) {
+	echo '<p style="color: green; text-align: center;">Compte créé, connectez vous !</p>';
 }
 
 include("app/view/login.php");
