@@ -3,7 +3,9 @@
 function connectUserDB() {
 	// Chemin de la base de données (relatif au dossier du projet)
 	// puis check sur l'existance du fichier
-	$path = PROJECT_PATH . "\db\users.mdb";
+	if(strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') $path = PROJECT_PATH . "\db\users.mdb";
+	else $path = PROJECT_PATH . "/db/users.mdb";
+
 	if(!file_exists($path)) die("Base de données Access non trouvée !");
 
 	try {
