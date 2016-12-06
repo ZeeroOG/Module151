@@ -43,16 +43,16 @@
 	<select name="genre1" id="genre1" class="genres">
 	  <?=getHTMLOptions($genres,'genre1')?>
 	</select>
-	<?php 
+	<?php
 	  // sert à recupérer les valeurs des autres genres si le formulaire à déjà été précédemment remplis. on skip le 1 car déjà décalré juste au dessus
-	  
+
 	  foreach(preg_grep('#^genre.$#',array_keys($_POST)) as $select_key) { // pour chaque clé du tableau $_POST qui correspond à l'expression régulière:
-	  
+
 		if($select_key == 'genre1') continue;//																			on skip le 1
 	    echo '<select name="'.$select_key.'" id="'.$select_key.'" class="genres">';//									on crée la balise select en HTML (par rapport à la clé)
 		  foreach($genres as $key => $value) {//																		Pour chaque options disponibles:
 			  echo '<option value="'.$key.'" '.getHTMLSelected($select_key,$key).'>'.$value.'</option>'.PHP_EOL; }//	  on crée la balise en question et on regarde si c'est celle que l'util. a précédemment choisi
-		echo '</select>';//																								on ferme la balise select																																	
+		echo '</select>';//																								on ferme la balise select
 	  }//																												A NOTER: c'est la même chose pour les autres lisaison, excepté les 2 dernières
 	?>
 	<button class="addItem" id="addGenre">+ Ajouter</button>
@@ -63,7 +63,7 @@
     <select name="langue1" id="langue1" class="langues">
 	  <?=getHTMLOptions($langues,'saga1')?>
 	</select>
-	<?php 
+	<?php
 	  foreach(preg_grep('#^langue.$#',array_keys($_POST)) as $select_key) {
 		if($select_key == 'langue1') continue;
 	    echo '<select name="'.$select_key.'" id="'.$select_key.'" class="langues">';
@@ -81,7 +81,7 @@
 	  <option value="NULL">-</option>
 	  <?=getHTMLOptions($sagas,'saga1')?>
 	</select>
-	<?php 
+	<?php
 	  foreach(preg_grep('#^saga.$#',array_keys($_POST)) as $select_key) {
 		if($select_key == 'saga1') continue;
 	    echo '<select name="'.$select_key.'" id="'.$select_key.'" class="sagas">';
@@ -98,7 +98,7 @@
     <select name="societe1" id="societe1" class="societes">
 	  <?=getHTMLOptions($societes,'societe1')?>
 	</select>
-	<?php 
+	<?php
 	  foreach(preg_grep('#^societe.$#',array_keys($_POST)) as $select_key) {
 		if($select_key == 'societe1') continue;
 	    echo '<select name="'.$select_key.'" id="'.$select_key.'" class="societes">';
@@ -118,7 +118,7 @@
 	  </select>
 	  <input type="text"  id="prix1" name="prix1" placeholder="Prix" <?=getHTMLElements('prix1',$errors,'prix')?> /> CHF
 	</div>
-	<?php 
+	<?php
 	  foreach(preg_grep('#^format.$#',array_keys($_POST)) as $select_key) {
 		if($select_key == 'format1') continue;
 	    echo '<div class="block">';//													Ici on ajoute juste une balise div en +
@@ -141,7 +141,7 @@
 	  </select>
 	  <input type="text" id="role1" name="role1" placeholder="Rôle" <?=getHTMLElements('role1',$errors,'role')?> />
 	</div>
-	<?php 
+	<?php
 	  foreach(preg_grep('#^personne.$#',array_keys($_POST)) as $select_key) {
 		if($select_key == 'personne1') continue;
 	    echo '<div class="block">';

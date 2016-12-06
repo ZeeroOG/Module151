@@ -51,7 +51,7 @@ function getHTMLSuccess($get) {
 		$r = '<div class="success">
 			  <h4>Succès:</h4>';
 		switch($get['success']) {
-			
+
 			case 1:
 			  $r .= '- Le film à été ajouté à la base de donnée';
 			  break;
@@ -63,13 +63,13 @@ function getHTMLSuccess($get) {
 		return $r;
 	}
 }
-//permet de recupérer les différentes options disponibles et de savoir si une avait déjà été sélectionnée par l'utilisateur précédemment 
+//permet de recupérer les différentes options disponibles et de savoir si une avait déjà été sélectionnée par l'utilisateur précédemment
 function getHTMLOptions($type,$default) {
 	$r = '';
 	foreach($type as $key => $value) {
 	$r .= '<option value="'.$key.'" '.getHTMLSelected($default,$key).'>'.$value.'</option>'.PHP_EOL;
 	}
-	return $r;	
+	return $r;
 }
 //contôle des erreurs
 function checkError(&$errors,$post) {
@@ -109,13 +109,11 @@ function checkError(&$errors,$post) {
 
 include('app/model/addFilm.php');
 
+$errors = Array();	// on crée un tableau d'erreur vide
 
-if(isset($_POST['submit']) OR isset($_POST['submitItem'])) {
-	$errors = Array();//						on crée un tableau d'erreur vide
-}
 // si le formulaire "insérer un (...)" à été remplis
 if(isset($_POST['submitItem'])) {
-	
+
 	$item = array();
 	if(isset($_POST['insertGenre'])) {
 		if(empty($_POST['insertGenre']))
