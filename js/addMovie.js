@@ -1,14 +1,14 @@
 // script utilisé pour le formulaire d'ajout/modification dans la DB
 $("#addToDB").on("click", ".addItem", function() {
 	// on déclare les variables
-	
+
 	var $default = '';
 	var $add = '';
 	var $count = '';
 	var $name = '';
 	var $next = ''; //optional
 	var $prev = ''; //optional
-	
+
 	// on récupère les infos utiles pour dupliquer l'élément
 	switch(this.id) {
 		case 'addGenre':
@@ -41,7 +41,7 @@ $("#addToDB").on("click", ".addItem", function() {
 			var $count = $('.formats').length;
 			var $name = 'Format';
 			var $prev = '<div class="block">';
-			var $next = '<input type="text" class="prix" id="prix'+($count + 1)+'" name="prix'+($count + 1)+'" placeholder="Prix" required/> CHF</div>';
+			var $next = '<input type="text" class="prix" id="prix'+($count + 1)+'" name="prix'+($count + 1)+'" placeholder="Prix" /> CHF</div>';
 			break;
 		case 'addPersonne':
 			var $default = $("#personne1").clone();
@@ -49,9 +49,9 @@ $("#addToDB").on("click", ".addItem", function() {
 			var $count = $('.personnes').length;
 			var $name = 'Personne';
 			var $prev = '<div class="block">';
-			var $next = '<input type="text" class="role" id="role'+($count + 1)+'" name="role'+($count + 1)+'" placeholder="Rôle" required/></div>';
+			var $next = '<input type="text" class="role" id="role'+($count + 1)+'" name="role'+($count + 1)+'" placeholder="Rôle" /></div>';
 			break;
-			
+
 	}
 	// on incrémente de 1
 	$count++;

@@ -137,7 +137,7 @@
     <h4>Personnes & rôles: <span class="required">*</span><a href="#" class="insertItem" id="insertPersonne">(Ajouter une personne)</a></h4>
 	<div class="block">
 	  <select name="personne1" id="personne1" class="personnes">
-	    <?=getHTMLOptions($personnes,'personn1')?>
+	    <?=getHTMLOptions($personnes,'personne1')?>
 	  </select>
 	  <input type="text" id="role1" name="role1" placeholder="Rôle" <?=getHTMLElements('role1',$errors,'role')?> />
 	</div>
@@ -149,7 +149,7 @@
 		foreach($personnes as $key => $value) {
 		  echo '<option value="'.$key.'" '.getHTMLSelected($select_key,$key).'>'.$value.'</option>'.PHP_EOL; }
 		echo '</select>';
-		echo '<input type="text" id="role'.substr($select_key,-1).'" name="role'.substr($select_key,-1).'" placeholder="Rôle" '.getHTMLElements('role'.substr($select_key,-1),$errors,'role').' /> CHF';
+		echo '<input type="text" id="role'.substr($select_key,-1).'" name="role'.substr($select_key,-1).'" placeholder="Rôle" '.getHTMLElements('role'.substr($select_key,-1),$errors,'role').' />';
 		echo '</div>';
 	  }
 	?>

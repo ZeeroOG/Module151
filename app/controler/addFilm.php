@@ -131,25 +131,25 @@ if(isset($_POST['submitItem'])) {
 		if(empty($_POST['insertSaga']))
 			$errors['insertSaga'] = 'La saga à ajouter était vide';
 		else
-			$item['langue'] = $_POST['insertSaga'];
+			$item['saga'] = $_POST['insertSaga'];
 	}
 	else if(isset($_POST['insertSociete'])) {
 		if(empty($_POST['insertSociete']))
 			$errors['insertSociete'] = 'La société à ajouter était vide';
 		else
-			$item['langue'] = $_POST['insertSociete'];
+			$item['societe'] = $_POST['insertSociete'];
 	}
 	else if(isset($_POST['insertFormat'])) {
 		if(empty($_POST['insertFormat']))
 			$errors['insertFormat'] = 'Le format à ajouter était vide';
 		else
-			$item['langue'] = $_POST['insertFormat'];
+			$item['format'] = $_POST['insertFormat'];
 	}
 	else if(isset($_POST['insertPersonne'])) {
 		if(empty($_POST['insertPersonne']))
 			$errors['insertPersonne'] = 'La personne à ajouter était vide';
 		else
-			$item['langue'] = $_POST['insertPersonne'];
+			$item['personne'] = $_POST['insertPersonne'];
 	}
 	$r = FALSE;
 	if(empty($errors)) $r = sendItemToDB($db_sql,html_check($item),$errors);
