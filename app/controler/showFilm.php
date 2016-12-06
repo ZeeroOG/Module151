@@ -16,7 +16,7 @@ if(isset($_POST['text']) AND isset($_SESSION['user'])) {
 }
 
 $comments = new Comments($filmid);
-$youtube = new Youtube($film->getBandeAnnonceURL());
+if($film->getBandeAnnonceURL() != NULL) $youtube = new Youtube($film->getBandeAnnonceURL());
 $emotes = json_decode(file_get_contents('db/emotes.json'));
 
 include('app/view/showFilm.php');

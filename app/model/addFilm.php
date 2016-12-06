@@ -40,9 +40,9 @@
 		$id = 'id_societe';
 		return get($db,$table,$id);
 	}
-	
-	
-	
+
+
+
 	function dbError(&$stmt,&$db,&$errors) {
 		if(!$stmt) {
 			array_push($errors,$db->errorInfo()[2]);
@@ -93,9 +93,9 @@
 			//FORMAT&PRIX
 			else if(preg_match('#^prix.+#',$key)) {
 				$format = $post['format'.substr($key,-1)];
-				$stmt = $db->prepare('INSERT INTO t_formatfilm (fk_film,fk_format,prix) VALUES (?,?,?)');
+				$stmt = $db->prepare('INSERT INTO t_formatfilm (fk_film,fk_format,prix,numero_article) VALUES (?,?,?,?)');
 				if(dbError($stmt,$db,$errors)) return FALSE;
-				$stmt->execute(array($film_id,$format,$value));
+				$stmt->execute(array($film_id,$format,$value,uniqid()));
 			}
 			//PERSONNE&ROLE
 			else if(preg_match('#^role.+#',$key)) {
@@ -105,36 +105,36 @@
 				$stmt->execute(array($film_id,$personne,$value));
 			}
 		}
-		
+
 		//print_r($film);
 		header('location: .?p=addFilm&success=1');
-	
+
 	}
 	function sendItemToDB(&$db,$element,$errors) {
 		$key = array_keys($element);
 		$table = '';
 		switch($key[0]) {
-			
+
 			case 'genre':
 				$table = 't_genre';
 				break;
-				
+
 			case 'langue':
 				$table = 't_langue';
 				break;
-			
+
 			case 'saga':
 				$table = 't_saga';
 				break;
-				
+
 			case 'societe':
 				$table = 't_societe';
 				break;
-				
+
 			case 'format':
 				$table = 't_format';
 				break;
-				
+
 			case 'personne':
 				$table = 't_personne';
 				break;

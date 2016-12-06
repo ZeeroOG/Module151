@@ -3,19 +3,14 @@
 		width: 100%;
 	}
 	.showFilm-top {
-		min-height: 370px;
+		min-height: 430px;
 	}
 	.showFilm img {
 		width: 300px;
+		height: 400px;
 		margin-left: 30px;
 		margin-bottom: 30px;
 		float: right;
-	}
-	.showFilm-left {
-		/*width: 400px;*/
-	}
-	.showFilm-left, .showFilm-right {
-		/*display: inline-block;*/
 	}
 	.showFilm-youtube {
 		text-align: center;
@@ -81,6 +76,7 @@
 		text-align: justify;
 		font-family: 'Source Serif Pro', sans-serif;
 		font-size: 18px;
+		margin-top: 30px;
 	}
 	#addCommentaire {
 		height: 200px;
@@ -101,39 +97,105 @@
 <div class="showFilm">
 	<div class="showFilm-top">
 		<div class="showFilm-left">
-			<img src="img/noimage.jpg" alt="cover" />
+			<img src="<?php echo $film->getImage(); ?>" alt="cover" />
 		</div>
 		<div class="showFilm-right">
 			<div id="showFilm-titreTraduit">
-				<?php echo $film->getTitreTraduit(); ?>
+				<?php
+
+				if($film->getTitreTraduit() == NULL) {
+					echo $film->getTitreOriginal();
+				} else {
+					echo $film->getTitreTraduit();
+				}
+
+				?>
 			</div>
 			<div id="showFilm-titreOriginal">
-				<?php echo $film->getTitreOriginal(); ?>
+				<?php
+
+				if($film->getTitreTraduit() != NULL) {
+					echo $film->getTitreOriginal();
+				}
+
+				?>
 			</div>
-			<table class="showFilm-price">
-				<tr>
-					<td>DVD</td>
-					<td><?php echo $film->getDvdPrice(); ?></td>
-					<td>CHF</td>
-					<td><button>+ Ajouter au panier</button></td>
-				</tr>
-				<tr>
-					<td>Blu-Ray</td>
-					<td><?php echo $film->getBdPrice(); ?></td>
-					<td>CHF</td>
-					<td><button>+ Ajouter au panier</button></td>
-				</tr>
-			</table>
-			<div class="showFilm-notes">Note de la communauté : <b><span><?php echo $film->getNote(); ?></span>/10</b> [<?php echo $film->getNbVotes(); ?> vote(s)]</div>
+			<div class="showFilm-notes">
+				Age minimal requis : <b style="margin-left: 10px; margin-right: 5px;"><span><?php if($film->getAccordParental() != 0) { echo $film->getAccordParental() . " ans"; } else { echo "Tout public"; } ?></span></b>
+			</div>
+			<div class="showFilm-notes">
+				Note de la communauté : <b style="margin-left: 10px; margin-right: 5px;"><span><?php if($film->getNote() != NULL) { echo $film->getNote(); } else { echo "?"; } ?></span>/10</b> [<?php if($film->getNbVotes() != NULL) { echo $film->getNbVotes(); } else { echo "0"; } ?> vote(s)]
+			</div>
 			<p class="showFilm-desc"><?php echo $film->getDescription(); ?></p>
+			<h4 style="margin-bottom: 0;">Langue(s)</h4>
+			<table class="showFilm-price">
+				<?php foreach($film->getLangues() as $langue) { ?>
+						<tr>
+							<td><?php echo $langue; ?></td>
+						</tr>
+				<?php } ?>
+			</table>
+			<h4 style="margin-bottom: 0;">Genre(s)</h4>
+			<table class="showFilm-price">
+				<?php foreach($film->getGenres() as $genre) { ?>
+						<tr>
+							<td><?php echo $genre; ?></td>
+						</tr>
+				<?php } ?>
+			</table>
+			<h4 style="margin-bottom: 0;">Contributeur(s)</h4>
+			<table class="showFilm-price">
+				<?php if($film->getPrice() == NULL) { ?>
+				<tr>
+					<td style="font-weight: bold;">Indisponible</td>
+				</tr>
+				<?php } else {
+					foreach($film->getGens() as $personne) { ?>
+						<tr>
+							<td><?php echo $personne['role']; ?></td>
+							<td><?php echo $personne['nom']; ?></td>
+						</tr>
+				<?php }
+				} ?>
+			</table>
+			<h4 style="margin-bottom: 0;">Société(s)</h4>
+			<table class="showFilm-price">
+				<?php foreach($film->getSocietes() as $societe) { ?>
+						<tr>
+							<td><?php echo $societe; ?></td>
+						</tr>
+				<?php } ?>
+			</table>
+			<h4 style="margin-bottom: 0;">Prix</h4>
+			<table class="showFilm-price">
+				<?php if($film->getPrice() == NULL) { ?>
+				<tr>
+					<td style="font-weight: bold;">Indisponible</td>
+				</tr>
+				<?php } else {
+					foreach($film->getPrice() as $numero_article => $data)
+					{
+						?>
+						<tr>
+							<td><?php echo $data['nom']; ?></td>
+							<td><?php echo $data['prix']; ?></td>
+							<td>CHF</td>
+							<td><button onclick="alert('<?php echo $numero_article; ?>');">+ Ajouter au panier</button></td>
+						</tr>
+						<?php
+					}
+				} ?>
+			</table>
 		</div>
 	</div>
 	<br />
+	<?php if($film->getBandeAnnonceURL() != NULL) { ?>
 	<hr />
 	<div class="showFilm-youtube">
 		<h3>Bande d'annonce</h3>
 		<?php $youtube->show(); ?>
 	</div>
+	<?php } ?>
 </div>
 <hr />
 <div class="commentaires">
@@ -142,7 +204,7 @@
 	<hr />
 	<div class="commentaire">
 		<div class="commentaire-left">
-			<p><?php echo $comments->getName(); ?> <!--[<?php echo $comments->getUsername(); ?>]--></p>
+			<p><?php echo $comments->getName(); ?></p><!--[<?php echo $comments->getUsername(); ?>]-->
 			<p><?php echo $comments->getDateTime(); ?></p>
 		</div>
 		<div class="commentaire-right">
