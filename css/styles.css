@@ -101,7 +101,7 @@ body {
 }
 
 /* Style utilisé pour le formulaire d'ajout/modification dans la DB */
-#addToDB, div.error {
+#addToDB, div.error, div.success {
 	margin: 0 auto;
 	min-width: 400px;
 	width: 60%;
@@ -197,6 +197,13 @@ div.error {
 	background-color: rgba(255, 51, 0, .3);
 	
 }
+div.success {
+	margin-bottom: 10px;
+	border: 2px solid green;
+	color: darkgreen;
+	line-height: 1.5;
+	background-color: rgba(15, 186, 0, .3);
+}
 #FullScreenForm {
 	visibility: hidden;
 	position: absolute;
@@ -209,14 +216,32 @@ div.error {
 }
 #FullScreenForm div {
 	position: relative;
-	width: 400px;
-	height: 300px;
+	width: 300px;
+	height: 200px;
 	top: 40%;
 	margin: auto;
 	border:3px solid #666666;
 	border-radius: 5px;
 	background-color: #cccccc;
 }
+#FullScreenForm h4 {
+	text-align: center;
+	font-size: 1.2em;
+	margin-bottom: 30px;
+}
+#FullScreenForm label {
+	margin-left: 20px;
+	width: auto;
+	margin-right: 20px;
+}
+#FullScreenForm input[type=submit], #FullScreenForm button {
+	display: inline-block;
+	width: 30%;
+	margin: 5px;
+	height: 30px;
+	margin-top: 45px;
+}
+
 /*----------------------------------------------*/
 .welcome-message {
 	font-family: 'Roboto', sans-serif;
