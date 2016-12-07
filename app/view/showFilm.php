@@ -125,6 +125,23 @@
 			</div>
 			<div class="showFilm-notes">
 				Note de la communauté : <b style="margin-left: 10px; margin-right: 5px;"><span><?php if($film->getNote() != NULL) { echo $film->getNote(); } else { echo "?"; } ?></span>/10</b> [<?php if($film->getNbVotes() != NULL) { echo $film->getNbVotes(); } else { echo "0"; } ?> vote(s)]
+				<?php if(isset($vote)) { ?>
+					<form style="margin-top: 10px;" action="?p=showFilm&id=<?php echo $film->getFilmId(); ?>" method="post">
+						Votre note :&nbsp;&nbsp;&nbsp;
+						<select name="vote">
+							<option value="0">Choisir...</option>
+							<?php
+
+							for($i = 1; $i < 11; $i++)
+							{
+								?><option value="<?php echo $i; ?>"<?php if($vote->hasVoted() == true AND $vote->getVote() == $i) echo " selected"; ?>><?php echo $i; ?></option><?php
+							}
+
+							?>
+						</select>
+						<input type="submit" name="submit" value="Voter !" />
+					</form>
+				<?php } ?>
 			</div>
 			<p class="showFilm-desc"><?php echo $film->getDescription(); ?></p>
 			<h4 style="margin-bottom: 0;">Langue(s)</h4>
@@ -200,7 +217,11 @@
 <hr />
 <div class="commentaires">
 	<h3>Commentaires des clients</h3>
-	<?php while ($comments->fetch()) { ?>
+	<?php
+
+	if($comments->isEmpty() == true) echo "<p>Aucun commentaire, soyez le premier !</p>";
+
+	while ($comments->fetch()) { ?>
 	<hr />
 	<div class="commentaire">
 		<div class="commentaire-left">

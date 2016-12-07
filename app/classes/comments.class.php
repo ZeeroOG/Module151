@@ -59,6 +59,11 @@ Class Comments {
 		}
 	}
 
+	public function isEmpty() {
+		if(count($this->commentid) == 0) return true;
+		else return false;
+	}
+
 	public function getUsername() {
 		return $this->username[$this->count];
 	}

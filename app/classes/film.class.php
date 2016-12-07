@@ -112,7 +112,7 @@ Class Film {
 		for ($i = 0; $x = $req->fetch(); $i++) {
 			$this->genres[$i] = $x['nom'];
 		}
-		
+
 		$req->CloseCursor();
 	}
 
@@ -133,7 +133,7 @@ Class Film {
 	public function getSocietes() { return $this->societes; }
 
 	public function getImage() {
-		if($this->pochetteURL != NULL) return "img/films/" . $this->pochetteURL;
+		if($this->pochetteURL != NULL) return $this->pochetteURL;
 		else return "img/noimage.jpg";
 	}
 }
