@@ -40,8 +40,8 @@ Class Comments {
 			$req2->execute(array($x['fk_user']));
 
 			while($y = $req2->fetch()) {
-				$this->name[$i] = $y['prenom'] . " " . $y['nom'];
-				$this->username[$i] = $y['username'];
+				$this->name[$i] = utf8_encode($y['prenom'] . " " . $y['nom']);
+				$this->username[$i] = utf8_encode($y['username']);
 			}
 
 			$this->commentid[$i] = $x['id_commentaire'];
