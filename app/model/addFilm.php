@@ -50,14 +50,30 @@
 		}
 		else return FALSE;
 	}
-	function sendToDB(&$db,$post,&$errors) {// AJOUT DU FILM
+	function sendToDB(&$db,$post,$files,&$errors) {// AJOUT DU FILM
+		
+		$pochettePath = '';
+		if(!empty($files['pochetteFile'])) { // si il y a une pochette (aide: http://www.w3schools.com/php/php_file_upload.asp)
+			$unique = FALSE;
+			while(!$unique) {
+				$id = dechex(rand(1,mt_getrandmax()));
+				$target = 'img/films/img_'.$id.'.'.strtolower(pathinfo($files['pochetteFile']['name'],PATHINFO_EXTENSION));
+				if(!file_exists($target)) {
+					
+					$unique = TRUE;
+					$pochettePath = $target;
+				}
+				
+			}
+			move_uploaded_file($files['pochetteFile']['tmp_name'], $pochettePath);
+		}
 		$film = array($post['titreOriginal'],
 					  (empty($post['titreTraduit']) ? NULL : $post['titreTraduit']),
 					  $post['duree'],
 					  $post['dateSortieSuisse'],
 					  $post['description'],
 					  $post['accordParental'],
-					  (empty($post['pochetteURL']) ? NULL : $post['pochetteURL']),
+					  (empty($pochettePath) ? NULL : $pochettePath),
 					  (empty($post['bandeAnnonceURL']) ? NULL : $post['bandeAnnonceURL']));
 		$stmt = $db->prepare('INSERT INTO t_film (titreOriginal,titreTraduit,duree,dateSortieSuisse,description,accordParental,pochetteURL,bandeAnnonceURL)
 							  VALUES (?,?,?,?,?,?,?,?)');

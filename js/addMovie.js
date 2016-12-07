@@ -63,10 +63,12 @@ $("#addToDB").on("click", ".addItem", function() {
 
 $('.insertItem').click(function() {
 	$id = $(this).attr('id');
+	$('body').css('overflow','hidden');
 	$('#FullScreenForm').css('visibility', 'visible');
 	$('#FullScreenForm').append('<div><h4>'+$(this).text().slice(1,-1)+'</h4><label for="'+$id+'">Nom:</label><input type="text" id="'+$id+'" name="'+$id+'"/><button type="button" id="cancel">Annuler</button><input type="submit" name="submitItem" value="Ajouter"/></div>');
 });
 $('#FullScreenForm').on('click','#cancel', function() {
+	$('body').css('overflow','visible');
 	$('#FullScreenForm').contents().remove();
 	$('#FullScreenForm').css('visibility', 'hidden');
 });

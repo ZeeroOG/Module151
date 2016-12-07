@@ -1,7 +1,7 @@
 <!-- Création du formulaire -->
 <?php echo getHTMLErrors($errors); ?>
 <?php echo getHTMLSuccess($_GET); ?>
-<form action=".?p=addFilm" method="POST" accept-charset="UTF-8" id="addToDB">
+<form action=".?p=addFilm" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="addToDB">
   <span class="element">
     <h3>Ajouter un film</h3>
   </span>
@@ -30,8 +30,8 @@
 	<input type="text" id="accordParental" name="accordParental" placeholder="Accord parental" <?=getHTMLElements('accordParental',$errors)?>/>
   </span>
   <span class="element">
-	<label for="pochetteURL">Pochette:</label>
-	<input type="text" id="pochetteURL" name="pochetteURL" placeholder="URL de l'image" <?=getHTMLElements('pochetteURL',$errors)?> />
+	<label for="pochetteFile">Pochette:</label>
+	<input type="file" id="pochetteFile" name="pochetteFile" placeholder="URL de l'image" accept="image/*" <?=getHTMLElements('pochetteFile',$errors)?> />
   </span>
   <span class="element">
 	<label for="bandeAnnonceURL">Vidéo:</label>

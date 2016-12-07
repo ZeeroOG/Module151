@@ -72,7 +72,7 @@ function getHTMLOptions($type,$default) {
 	return $r;
 }
 //contôle des erreurs
-function checkError(&$errors,$post) {
+function checkError(&$errors,$post,$files) {
 		if(empty($post['titreOriginal']) OR strlen($post['titreOriginal']) > 255) {
 			$errors['titreOriginal'] = 'Titre original vide ou trop long';
 		}
@@ -91,6 +91,14 @@ function checkError(&$errors,$post) {
 		if(empty($post['accordParental']) OR !is_numeric($post['accordParental']) OR preg_match('#^.+\..+$#',$post['accordParental']) OR intval($post['accordParental']) > 99) {
 			$errors['accordParental'] = 'Accord parental vide ou format non autorisé (1-99)';
 		}
+		if(!empty($files['pochetteFile'])) {
+			if(strtolower(pathinfo($files['pochetteFile']['name'],PATHINFO_EXTENSION)) != 'jpg' AND strtolower(pathinfo($files['pochetteFile']['name'],PATHINFO_EXTENSION)) != 'jpeg' AND strtolower(pathinfo($files['pochetteFile']['name'],PATHINFO_EXTENSION)) != 'png') {
+				$errors['pochetteFile'] = 'Format de l\'image non accepté (.jpg, .jpeg, .png)';
+			}
+			if($files['pochetteFile']['size'] > 2000000) {
+				$errors['pochetteFile'] = 'Image trop volumineurs (max. 2MB)';
+			}
+		}
 		foreach(preg_grep('#^prix.$#',array_keys($post)) as $value) {// aide pour faire un foreach avec une regex: openclassrooms et http://php.net/manual/fr/function.preg-grep.php
 			if(empty($post[$value]) OR !is_numeric($post[$value])) {
 				$errors[$value] = $value.' vide ou format non autorisé';
@@ -106,10 +114,10 @@ function checkError(&$errors,$post) {
 }
 
 /*-------------------------------------------------------DEBUT -------------------------------------------------------*/
-
 include('app/model/addFilm.php');
 
 $errors = Array();	// on crée un tableau d'erreur vide
+
 
 // si le formulaire "insérer un (...)" à été remplis
 if(isset($_POST['submitItem'])) {
@@ -160,8 +168,9 @@ if(isset($_POST['submitItem'])) {
 
 //si le formulaire à été rempli
 if(isset($_POST['submit'])) {
-	if(checkError($errors,$_POST)) {//			on le remplis en checkant les erreurs
-		if(!sendToDB($db_sql,html_check($_POST),$errors)){ //   si il n'y a pas d'erreur alors on insert les valeurs dans la DB
+	if(checkError($errors,$_POST,$_FILES)) {//			on le remplis en checkant les erreurs
+		
+		if(!sendToDB($db_sql,html_check($_POST),$_FILES,$errors)){ //   si il n'y a pas d'erreur alors on insert les valeurs dans la DB
 			//insérer ici du code pour si jamais il y a une erreur à l'envoi dans la DB...
 		}
 	}
