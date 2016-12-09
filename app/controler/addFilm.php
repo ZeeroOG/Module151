@@ -95,8 +95,11 @@ function checkError(&$errors,$post,$files) {
 			if(strtolower(pathinfo($files['pochetteFile']['name'],PATHINFO_EXTENSION)) != 'jpg' AND strtolower(pathinfo($files['pochetteFile']['name'],PATHINFO_EXTENSION)) != 'jpeg' AND strtolower(pathinfo($files['pochetteFile']['name'],PATHINFO_EXTENSION)) != 'png') {
 				$errors['pochetteFile'] = 'Format de l\'image non accepté (.jpg, .jpeg, .png)';
 			}
-			if($files['pochetteFile']['size'] > 2000000) {
-				$errors['pochetteFile'] = 'Image trop volumineurs (max. 2MB)';
+			else if($files['pochetteFile']['size'] > 2000000 OR $files['pochetteFile']['error'] == UPLOAD_ERR_INI_SIZE OR $files['pochetteFile']['error'] == UPLOAD_ERR_FORM_SIZE) {
+				$errors['pochetteFile'] = 'Image trop volumineuse (max. 2MB)';
+			}
+			else if($files['pochetteFile']['error'] != UPLOAD_ERR_OK) {
+				$errors['pochetteFile'] = 'Erreur inconue lors de l\'envoi de l\'image';
 			}
 		}
 		foreach(preg_grep('#^prix.$#',array_keys($post)) as $value) {// aide pour faire un foreach avec une regex: openclassrooms et http://php.net/manual/fr/function.preg-grep.php
