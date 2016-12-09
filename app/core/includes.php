@@ -1,6 +1,7 @@
 <?php
 
 // Classes
+require_once("app/classes/log.class.php");
 require_once("app/classes/user.class.php");
 require_once("app/classes/comments.class.php");
 require_once("app/classes/film.class.php");
