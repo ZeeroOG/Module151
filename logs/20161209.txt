@@ -1,0 +1,5 @@
+INFO: testing
+INFO: testing
+WARN: testing
+ERROR: testing
+INFO: Un utilisateur à dépassé le nombre de tentatives de connexion (3) avant le captcha. (IP: ::1)

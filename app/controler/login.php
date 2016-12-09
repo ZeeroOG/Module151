@@ -53,6 +53,9 @@ if(isset($_SESSION['loginCount']) AND $_SESSION['loginCount'] >= LOGIN_COUNT_CAP
 
 	// Enregistrement du texte captcha dans la session
 	$_SESSION[$captchaId] = $captcha->getTexte();
+
+	// Logue la tentative de connexion
+	Log::info("Un utilisateur à dépassé le nombre de tentatives de connexion (" . LOGIN_COUNT_CAPTCHA . ") avant le captcha. (IP: " . $_SERVER['REMOTE_ADDR'] . ")");
 }
 
 if(isset($_GET['newAccount'])) {
