@@ -16,7 +16,7 @@ class Log {
 	}
 
 	public static function warn($text) {
-		self::writeToLog("WARN", $text);
+		self::writeToLog("WARNING", $text);
 	}
 
 	public static function error($text) {
@@ -25,13 +25,14 @@ class Log {
 
 	private function writeToLog($level, $text) {
 		$file = PROJECT_PATH . "\logs\\" . date("Ymd") . ".txt";
+		$time = date("H:i:s");
 
 		if(!file_exists($file)) {
 			$handle = fopen($file, 'w');
 			fclose($handle);
 		}
 
-		$data = $level . ": " . $text . "\n";
+		$data = "[$time $level] $text \n";
 		file_put_contents($file, file_get_contents($file) . $data);
 	}
 }
