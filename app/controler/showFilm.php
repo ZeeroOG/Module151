@@ -1,5 +1,19 @@
 <?php
 
+function formatPrice($price) {
+	$price = (string)$price;
+	$price = explode('.', $price);
+
+	if(isset($price[1])) {
+		if((int)$price[1] < 10) $price[1] = $price[1] . '0';
+		$price = $price[0] . '.' . $price[1];
+	} else {
+		$price = $price[0] . '.-';
+	}
+
+	return (string)$price;
+}
+
 if(!isset($_GET['id'])) {
 	header("Location: ?p=home");
 	die();

@@ -195,7 +195,7 @@
 						?>
 						<tr>
 							<td><?php echo $data['nom']; ?></td>
-							<td><?php echo $data['prix']; ?></td>
+							<td><?php echo formatPrice($data['prix']); ?></td>
 							<td>CHF</td>
 							<td><button onclick="alert('<?php echo $numero_article; ?>');">+ Ajouter au panier</button></td>
 						</tr>
