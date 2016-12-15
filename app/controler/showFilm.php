@@ -23,6 +23,11 @@ if(!isset($_GET['id'])) {
 
 include('app/model/showFilm.php');
 
+if(checkFilmExists($filmid) == false) {
+	echo 'Vous êtes perdu ! <br /><a href="?">Retour vers la page d\'accueil</a></div></body></html>';
+	die();
+}
+
 if(isset($_SESSION['user'])) {
 	$vote = new Vote($filmid, $_SESSION['user']->getUserId());
 
