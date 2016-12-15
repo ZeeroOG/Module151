@@ -9,7 +9,9 @@ function connectDB() {
 	try {
 		$database = new PDO("mysql:host=$host;dbname=$name;charset=UTF8", $user, $pass);
 	} catch(Exception $e) {
-	    echo "Echec de connexion MySQL: " . $e->getMessage();
+		echo "Erreur critique ! Vérifiez les logs.";
+		Log::error("Echec de connexion MySQL: " . $e->getMessage());
+		die();
 	}
 
 	return $database; // Retourner l'objet PDO
