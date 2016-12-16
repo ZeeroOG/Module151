@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 09 Décembre 2016 à 15:11
+-- Généré le :  Ven 16 Décembre 2016 à 10:23
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.5.31
 
@@ -34,6 +34,17 @@ CREATE TABLE `t_commentaire` (
   `commentaire` text NOT NULL,
   `visible` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `t_commentaire`
+--
+
+INSERT INTO `t_commentaire` (`id_commentaire`, `fk_film`, `fk_user`, `unixtime`, `commentaire`, `visible`) VALUES
+(12, 5, 1, '2016-12-16 07:56:21', 'Film de l\'année ! :razz:', 1),
+(13, 5, 1, '2016-12-16 07:58:01', 'TEST :biggrin:', 1),
+(14, 5, 1, '2016-12-16 07:58:15', 'TEST :biggrin:', 1),
+(15, 5, 1, '2016-12-16 07:58:50', 'TEST :geek:', 1),
+(16, 5, 1, '2016-12-16 07:59:31', 'TEST ULTIME :evil:', 1);
 
 -- --------------------------------------------------------
 
@@ -199,6 +210,26 @@ CREATE TABLE `t_notefilm` (
   `fk_user` int(11) NOT NULL,
   `note` tinyint(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `t_notefilm`
+--
+
+INSERT INTO `t_notefilm` (`id_noteFilm`, `fk_film`, `fk_user`, `note`) VALUES
+(6, 5, 1, 9);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `t_panier`
+--
+
+CREATE TABLE `t_panier` (
+  `id_panier` int(11) NOT NULL,
+  `article` varchar(50) NOT NULL,
+  `qte` int(11) NOT NULL,
+  `fk_user` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -390,6 +421,13 @@ ALTER TABLE `t_notefilm`
   ADD KEY `fk_user` (`fk_user`);
 
 --
+-- Index pour la table `t_panier`
+--
+ALTER TABLE `t_panier`
+  ADD PRIMARY KEY (`id_panier`),
+  ADD KEY `fk_user` (`fk_user`);
+
+--
 -- Index pour la table `t_personne`
 --
 ALTER TABLE `t_personne`
@@ -439,7 +477,7 @@ ALTER TABLE `t_societefilm`
 -- AUTO_INCREMENT pour la table `t_commentaire`
 --
 ALTER TABLE `t_commentaire`
-  MODIFY `id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT pour la table `t_film`
 --
@@ -479,7 +517,12 @@ ALTER TABLE `t_languefilm`
 -- AUTO_INCREMENT pour la table `t_notefilm`
 --
 ALTER TABLE `t_notefilm`
-  MODIFY `id_noteFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_noteFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT pour la table `t_panier`
+--
+ALTER TABLE `t_panier`
+  MODIFY `id_panier` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `t_personne`
 --

@@ -62,11 +62,21 @@ class Panier
 		return json_encode($json, JSON_FORCE_OBJECT);
 	}
 
+	public function setUserId($userid) {
+		$this->userid = $userid;
+	}
+
 	private function syncPanier() {
 		global $db_sql;
 
 		if($this->userid != null) {
 			// Sync db
+			$req = $db_sql->prepare('SELECT * FROM t_panier WHERE fk_user = ?');
+			$req->execute(array($userid));
+
+			while($x = $req->fetch()) {
+				$this->addItem($x['id'], $x['qte']);
+			}
 		}
 	}
 }
