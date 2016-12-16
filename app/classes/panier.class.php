@@ -23,7 +23,6 @@ class Panier
 		}
 
 		array_push($this->panier, $id . "-" . $qte);
-		$this->syncPanier();
 	}
 
 	public function delItem($id, $qte = null) {
@@ -37,8 +36,6 @@ class Panier
 				}
 			}
 		}
-
-		$this->syncPanier();
 	}
 
 	public function importJSON($json) {
@@ -66,17 +63,47 @@ class Panier
 		$this->userid = $userid;
 	}
 
-	private function syncPanier() {
+	public function emptyPanier() {
+		$this->panier = array();
+	}
+
+	public function syncPanier() {
 		global $db_sql;
 
 		if($this->userid != null) {
-			// Sync db
-			$req = $db_sql->prepare('SELECT * FROM t_panier WHERE fk_user = ?');
-			$req->execute(array($userid));
+			$req = $db_sql->prepare('SELECT * FROM t_panier WHERE fk_user = ? ORDER BY article ASC');
+			$req->execute(array($this->userid));
 
 			while($x = $req->fetch()) {
-				$this->addItem($x['id'], $x['qte']);
+				$check = false;
+
+				foreach($this->panier as $key => $item) {
+					$item = explode('-', $item);
+					if($item[0] == $x['article']) {
+						$this->panier[$key] = $item[0] . '-' . $this->getHighest($x['qte'], $item[1]);
+						$check = true;
+					}
+				}
+
+				if($check == true) $this->addItem($x['article'], $x['qte']);
 			}
+
+			$req3 = $db_sql->prepare('DELETE FROM t_panier WHERE fk_user = ?');
+			$req3->execute(array($this->userid));
+
+			foreach($this->panier as $item) {
+				$item = explode('-', $item);
+				$req2 = $db_sql->prepare('INSERT INTO t_panier (fk_user, article, qte) VALUES (?, ?, ?)');
+				$req2->execute(array($this->userid, $item[0], (int)$item[1]));
+			}
+		}
+	}
+
+	private function getHighest($x, $y) {
+		if($x < $y) {
+			return $y;
+		} else {
+			return $x;
 		}
 	}
 }
