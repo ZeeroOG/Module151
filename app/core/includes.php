@@ -6,6 +6,7 @@ require_once("app/classes/user.class.php");
 require_once("app/classes/comments.class.php");
 require_once("app/classes/film.class.php");
 require_once("app/classes/login.class.php");
+require_once("app/classes/panier.class.php");
 require_once("app/classes/vote.class.php");
 require_once("app/classes/captcha.class.php");
 require_once("app/classes/youtube.class.php");

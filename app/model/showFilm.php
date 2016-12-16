@@ -5,6 +5,9 @@ function createComment($filmid, $userid, $comment) {
 
 	$req = $db_sql->prepare('INSERT INTO t_commentaire (fk_film, fk_user, commentaire) VALUES (?, ?, ?)');
 	$req->execute(array($filmid, $userid, $comment));
+
+	header("Location: ?p=showFilm&id=" . $filmid . "#lastComment");
+	die();
 }
 
 function checkFilmExists($id) {

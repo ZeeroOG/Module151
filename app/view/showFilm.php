@@ -239,7 +239,7 @@
 	<div class="commentaire" id="lastComment">
 		<?php if(isset($_SESSION['user'])) { ?>
 		<h3>Poster un commentaire</h3>
-		<form id="addCommentaire" action="?p=showFilm&id=<?php echo $film->getFilmId(); ?>#lastComment" method="post">
+		<form id="addCommentaire" action="?p=showFilm&id=<?php echo $film->getFilmId(); ?>" method="post">
 			<textarea id="addCommentaireText" name="text"></textarea>
 			<input id="addCommentaireButton" value="Poster" type="submit">
 		</form>
