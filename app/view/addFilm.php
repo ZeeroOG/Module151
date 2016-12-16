@@ -41,6 +41,7 @@
   <span class="element">
     <h4>Genres: <span class="required">*</span><a href="#" class="insertItem" id="insertGenre">(Ajouter un genre)</a></h4>
 	<select name="genre1" id="genre1" class="genres">
+	  <option value="NULL">-</option>
 	  <?=getHTMLOptions($genres,'genre1')?>
 	</select>
 	<?php
@@ -50,6 +51,7 @@
 
 		if($select_key == 'genre1') continue;//																			on skip le 1
 	    echo '<select name="'.$select_key.'" id="'.$select_key.'" class="genres">';//									on crée la balise select en HTML (par rapport à la clé)
+		echo '<option value="NULL">-</option>';
 		  foreach($genres as $key => $value) {//																		Pour chaque options disponibles:
 			  echo '<option value="'.$key.'" '.getHTMLSelected($select_key,$key).'>'.$value.'</option>'.PHP_EOL; }//	  on crée la balise en question et on regarde si c'est celle que l'util. a précédemment choisi
 		echo '</select>';//																								on ferme la balise select
@@ -61,12 +63,14 @@
   <span class="element">
     <h4>Langues: <span class="required">*</span><a href="#" class="insertItem" id="insertLangue">(Ajouter une langue)</a></h4>
     <select name="langue1" id="langue1" class="langues">
+	  <option value="NULL">-</option>
 	  <?=getHTMLOptions($langues,'saga1')?>
 	</select>
 	<?php
 	  foreach(preg_grep('#^langue.$#',array_keys($_POST)) as $select_key) {
 		if($select_key == 'langue1') continue;
 	    echo '<select name="'.$select_key.'" id="'.$select_key.'" class="langues">';
+		echo '<option value="NULL">-</option>';
 		  foreach($langues as $key => $value) {
 			  echo '<option value="'.$key.'" '.getHTMLSelected($select_key,$key).'>'.$value.'</option>'.PHP_EOL; }
 		echo '</select>';
@@ -85,6 +89,7 @@
 	  foreach(preg_grep('#^saga.$#',array_keys($_POST)) as $select_key) {
 		if($select_key == 'saga1') continue;
 	    echo '<select name="'.$select_key.'" id="'.$select_key.'" class="sagas">';
+		echo '<option value="NULL">-</option>';
 		  foreach($sagas as $key => $value) {
 			  echo '<option value="'.$key.'" '.getHTMLSelected($select_key,$key).'>'.$value.'</option>'.PHP_EOL; }
 		echo '</select>';
@@ -96,12 +101,14 @@
   <span class="element">
     <h4>Sociétés: <span class="required">*</span><a href="#" class="insertItem" id="insertSociete">(Ajouter une société)</a></h4>
     <select name="societe1" id="societe1" class="societes">
+	  <option value="NULL">-</option>
 	  <?=getHTMLOptions($societes,'societe1')?>
 	</select>
 	<?php
 	  foreach(preg_grep('#^societe.$#',array_keys($_POST)) as $select_key) {
 		if($select_key == 'societe1') continue;
 	    echo '<select name="'.$select_key.'" id="'.$select_key.'" class="societes">';
+		echo '<option value="NULL">-</option>';
 		  foreach($societes as $key => $value) {
 			  echo '<option value="'.$key.'" '.getHTMLSelected($select_key,$key).'>'.$value.'</option>'.PHP_EOL; }
 		echo '</select>';
@@ -114,6 +121,7 @@
     <h4>Fromats & prix: <span class="required">*</span><a href="#" class="insertItem" id="insertFormat">(Ajouter un format)</a></h4>
 	<div class="block">
 	  <select name="format1" id="format1" class="formats">
+	    <option value="NULL">-</option>
 	    <?=getHTMLOptions($formats,'format1')?>
 	  </select>
 	  <input type="text"  id="prix1" name="prix1" placeholder="Prix" <?=getHTMLElements('prix1',$errors,'prix')?> /> CHF
@@ -123,6 +131,7 @@
 		if($select_key == 'format1') continue;
 	    echo '<div class="block">';//													Ici on ajoute juste une balise div en +
 		echo '<select name="'.$select_key.'" id="'.$select_key.'" class="formats">';
+		echo '<option value="NULL">-</option>';
 		foreach($formats as $key => $value) {
 		  echo '<option value="'.$key.'" '.getHTMLSelected($select_key,$key).'>'.$value.'</option>'.PHP_EOL; }
 		echo '</select>';
@@ -137,6 +146,7 @@
     <h4>Personnes & rôles: <span class="required">*</span><a href="#" class="insertItem" id="insertPersonne">(Ajouter une personne)</a></h4>
 	<div class="block">
 	  <select name="personne1" id="personne1" class="personnes">
+	    <option value="NULL">-</option>
 	    <?=getHTMLOptions($personnes,'personne1')?>
 	  </select>
 	  <input type="text" id="role1" name="role1" placeholder="Rôle" <?=getHTMLElements('role1',$errors,'role')?> />
@@ -146,6 +156,7 @@
 		if($select_key == 'personne1') continue;
 	    echo '<div class="block">';
 		echo '<select name="'.$select_key.'" id="'.$select_key.'" class="personnes">';
+		echo '<option value="NULL">-</option>';
 		foreach($personnes as $key => $value) {
 		  echo '<option value="'.$key.'" '.getHTMLSelected($select_key,$key).'>'.$value.'</option>'.PHP_EOL; }
 		echo '</select>';

@@ -91,7 +91,7 @@ function checkError(&$errors,$post,$files) {
 		if(empty($post['accordParental']) OR !is_numeric($post['accordParental']) OR preg_match('#^.+\..+$#',$post['accordParental']) OR intval($post['accordParental']) > 99) {
 			$errors['accordParental'] = 'Accord parental vide ou format non autorisé (1-99)';
 		}
-		if(!empty($files['pochetteFile'])) {
+		if($files['pochetteFile']['error'] != 4) {
 			if(strtolower(pathinfo($files['pochetteFile']['name'],PATHINFO_EXTENSION)) != 'jpg' AND strtolower(pathinfo($files['pochetteFile']['name'],PATHINFO_EXTENSION)) != 'jpeg' AND strtolower(pathinfo($files['pochetteFile']['name'],PATHINFO_EXTENSION)) != 'png') {
 				$errors['pochetteFile'] = 'Format de l\'image non accepté (.jpg, .jpeg, .png)';
 			}
@@ -102,13 +102,63 @@ function checkError(&$errors,$post,$files) {
 				$errors['pochetteFile'] = 'Erreur inconue lors de l\'envoi de l\'image';
 			}
 		}
+		$emptyGenre = TRUE;
+		foreach(preg_grep('#^genre.$#',array_keys($post)) as $value) {
+			if($post[$value] != 'NULL') {
+				$emptyGenre = FALSE;
+			}
+		}
+		if($emptyGenre) {
+			$errors[$value] = 'Au moins 1 genre doit être choisi';
+		}
+		
+		$emptyLangue = TRUE;
+		foreach(preg_grep('#^langue.$#',array_keys($post)) as $value) {
+			if($post[$value] != 'NULL') {
+				$emptyLangue = FALSE;
+			}
+		}
+		if($emptyLangue) {
+			$errors[$value] = 'Au moins 1 langue doit être choisi';
+		}
+		
+		$emptySociete = TRUE;
+		foreach(preg_grep('#^societe.$#',array_keys($post)) as $value) {
+			if($post[$value] != 'NULL') {
+				$emptySociete = FALSE;
+			}
+		}
+		if($emptySociete) {
+			$errors[$value] = 'Au moins 1 Société doit être choisi';
+		}
+		
+		$emptyFormat = TRUE;
+		foreach(preg_grep('#^format.$#',array_keys($post)) as $value) {
+			if($post[$value] != 'NULL') {
+				$emptyFormat = FALSE;
+			}
+		}
+		if($emptyFormat) {
+			$errors[$value] = 'Au moins 1 format doit être choisi';
+		}
+		
+		$emptyPersonne = TRUE;
+		foreach(preg_grep('#^personne.$#',array_keys($post)) as $value) {
+			if($post[$value] != 'NULL') {
+				$emptyPersonne = FALSE;
+			}
+		}
+		if($emptyPersonne) {
+			$errors[$value] = 'Au moins 1 personne doit être choisi';
+		}
+		
 		foreach(preg_grep('#^prix.$#',array_keys($post)) as $value) {// aide pour faire un foreach avec une regex: openclassrooms et http://php.net/manual/fr/function.preg-grep.php
-			if(empty($post[$value]) OR !is_numeric($post[$value])) {
+			if((empty($post[$value]) OR !is_numeric($post[$value])) AND $post['format'.substr($value,-1)] != 'NULL') {
 				$errors[$value] = $value.' vide ou format non autorisé';
 			}
 		}
 		foreach(preg_grep('#^role.$#',array_keys($post)) as $value) {
-			if(empty($post[$value]) OR strlen($post[$value]) > 255) {
+			if((empty($post[$value]) OR strlen($post[$value]) > 255) AND $post['personne'.substr($value,-1)] != 'NULL') {
 				$errors[$value] = $value.' vide ou trop long';
 			}
 		}

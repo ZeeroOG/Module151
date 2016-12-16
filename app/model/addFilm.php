@@ -53,7 +53,7 @@
 	function sendToDB(&$db,$post,$files,&$errors) {// AJOUT DU FILM
 		
 		$pochettePath = '';
-		if(!empty($files['pochetteFile'])) { // si il y a une pochette (aide: http://www.w3schools.com/php/php_file_upload.asp)
+		if($files['pochetteFile']['error'] != 4) { // si il y a une pochette (aide: http://www.w3schools.com/php/php_file_upload.asp)
 			$unique = FALSE;
 			while(!$unique) {
 				$id = dechex(rand(1,mt_getrandmax()));
@@ -82,6 +82,7 @@
 		// LIAISON genres <> film, formats <> film, ...
 		$film_id = $db->lastInsertId();
 		foreach($post as $key => $value) {
+			if($value == 'NULL') continue;
 			//GENRE
 			if(preg_match('#^genre.+#',$key)) {
 				$stmt = $db->prepare('INSERT INTO t_genrefilm (fk_film,fk_genre) VALUES (?,?)');

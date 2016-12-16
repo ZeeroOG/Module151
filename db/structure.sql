@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 07 Décembre 2016 à 11:07
+-- Généré le :  Ven 16 Décembre 2016 à 15:04
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.5.31
 
@@ -136,6 +136,19 @@ CREATE TABLE `t_notefilm` (
   `fk_user` int(11) NOT NULL,
   `note` tinyint(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `t_panier`
+--
+
+CREATE TABLE `t_panier` (
+  `id_panier` int(11) NOT NULL,
+  `article` varchar(50) NOT NULL,
+  `qte` int(11) NOT NULL,
+  `fk_user` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -276,6 +289,13 @@ ALTER TABLE `t_notefilm`
   ADD KEY `fk_user` (`fk_user`);
 
 --
+-- Index pour la table `t_panier`
+--
+ALTER TABLE `t_panier`
+  ADD PRIMARY KEY (`id_panier`),
+  ADD KEY `fk_user` (`fk_user`);
+
+--
 -- Index pour la table `t_personne`
 --
 ALTER TABLE `t_personne`
@@ -367,6 +387,11 @@ ALTER TABLE `t_languefilm`
 ALTER TABLE `t_notefilm`
   MODIFY `id_noteFilm` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT pour la table `t_panier`
+--
+ALTER TABLE `t_panier`
+  MODIFY `id_panier` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT pour la table `t_personne`
 --
 ALTER TABLE `t_personne`
@@ -399,6 +424,12 @@ ALTER TABLE `t_societefilm`
 --
 -- Contraintes pour les tables exportées
 --
+
+--
+-- Contraintes pour la table `t_commentaire`
+--
+ALTER TABLE `t_commentaire`
+  ADD CONSTRAINT `contFilm_8` FOREIGN KEY (`fk_film`) REFERENCES `t_film` (`id_film`);
 
 --
 -- Contraintes pour la table `t_formatfilm`
