@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 16 Décembre 2016 à 10:23
+-- Généré le :  Ven 16 Décembre 2016 à 18:05
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.5.31
 
@@ -44,7 +44,8 @@ INSERT INTO `t_commentaire` (`id_commentaire`, `fk_film`, `fk_user`, `unixtime`,
 (13, 5, 1, '2016-12-16 07:58:01', 'TEST :biggrin:', 1),
 (14, 5, 1, '2016-12-16 07:58:15', 'TEST :biggrin:', 1),
 (15, 5, 1, '2016-12-16 07:58:50', 'TEST :geek:', 1),
-(16, 5, 1, '2016-12-16 07:59:31', 'TEST ULTIME :evil:', 1);
+(16, 5, 1, '2016-12-16 07:59:31', 'TEST ULTIME :evil:', 1),
+(17, 7, 3, '2016-12-16 13:29:33', 'Ce film était vraiment bien sa m\'a rappelé ma jeunesse merci encore a NEXFLIT pour la proposition de ce film :biggrin: :biggrin: :biggrin:', 1);
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,8 @@ CREATE TABLE `t_film` (
 
 INSERT INTO `t_film` (`id_film`, `titreOriginal`, `titreTraduit`, `duree`, `dateSortieSuisse`, `description`, `accordParental`, `pochetteURL`, `bandeAnnonceURL`) VALUES
 (5, 'Fight Club', NULL, 139, '1999-09-10', 'La vie d\'un employé de bureau est bouleversée lorsqu\'il rencontre Tyler Durden. Ils forment ensemble le Fight Club, un club de lutte clandestine.', 16, 'img/films/img_24190000.jpg', 'https://www.youtube.com/watch?v=SUXWAEX2jlg'),
-(6, 'The Shawshank Redemption', 'Les Evadés', 142, '1994-10-14', 'Andy Dufresne est coupable d’un double meurtre. Il se retrouve dans la prison de Shawshank, où le directeur Norton règne avec le capitaine Hadley.', 16, 'img/films/img_71970000.jpg', 'https://www.youtube.com/watch?v=6hB3S9bIaco');
+(6, 'The Shawshank Redemption', 'Les Evadés', 142, '1994-10-14', 'Andy Dufresne est coupable d’un double meurtre. Il se retrouve dans la prison de Shawshank, où le directeur Norton règne avec le capitaine Hadley.', 16, 'img/films/img_71970000.jpg', 'https://www.youtube.com/watch?v=6hB3S9bIaco'),
+(7, 'Harry Potter and the Philosopher\'s Stone', 'Harry Potter à l\'école des sorciers', 147, '2001-12-05', 'Harry Potter, un jeune orphelin, est élevé par son oncle Vernon et sa tante Pétunia qui le détestent. Alors qu\'il était haut comme trois pommes, ces derniers lui ont raconté que ses parents étaient morts dans un accident de voiture. Le jour de son onzième anniversaire, Harry reçoit la visite inattendue d\'un homme gigantesque se nommant Rubeus Hagrid. Celui-ci lui révèle qu\'il est en fait le fils de deux puissants magiciens et qu\'il possède lui aussi d\'extraordinaires pouvoirs. C\'est avec joie que le garçon accepte de suivre des cours à Poudlard, la célèbre école de sorcellerie. Il a enfin la chance de se faire des amis. Blâmé par le professeur Severus Rogue qui lui enseigne les potions et protégé par Albus Dumbledore, le directeur de l\'établissement, Harry va tenter d\'élucider le mystère de la pierre philosophale.', 6, 'img/films/img_8bb0000.jpg', 'https://www.youtube.com/watch?v=ok3dj8MXC3M');
 
 -- --------------------------------------------------------
 
@@ -114,7 +116,9 @@ INSERT INTO `t_formatfilm` (`id_formatFilm`, `fk_film`, `fk_format`, `prix`, `nu
 (5, 5, 3, 9.9, '584ab37a51168'),
 (6, 5, 5, 17.9, '584ab37a5690b'),
 (7, 6, 3, 9.9, '584ab7a748b8e'),
-(8, 6, 5, 15.9, '584ab7a754c5e');
+(8, 6, 5, 15.9, '584ab7a754c5e'),
+(9, 7, 3, 15, '5853eacc8a0e7'),
+(10, 7, 5, 25, '5853eacc8bca4');
 
 -- --------------------------------------------------------
 
@@ -134,7 +138,9 @@ CREATE TABLE `t_genre` (
 INSERT INTO `t_genre` (`id_genre`, `nom`) VALUES
 (1, 'Action'),
 (4, 'Drame'),
-(5, 'Crime');
+(5, 'Crime'),
+(6, 'Aventure'),
+(7, 'Fantastique');
 
 -- --------------------------------------------------------
 
@@ -155,7 +161,9 @@ CREATE TABLE `t_genrefilm` (
 INSERT INTO `t_genrefilm` (`id_genreFilm`, `fk_film`, `fk_genre`) VALUES
 (5, 5, 1),
 (6, 6, 4),
-(7, 6, 5);
+(7, 6, 5),
+(8, 7, 6),
+(9, 7, 7);
 
 -- --------------------------------------------------------
 
@@ -196,7 +204,9 @@ INSERT INTO `t_languefilm` (`id_langueFilm`, `fk_film`, `fk_langue`) VALUES
 (4, 5, 2),
 (5, 6, 1),
 (6, 5, 1),
-(7, 6, 2);
+(7, 6, 2),
+(8, 7, 1),
+(9, 7, 2);
 
 -- --------------------------------------------------------
 
@@ -216,7 +226,8 @@ CREATE TABLE `t_notefilm` (
 --
 
 INSERT INTO `t_notefilm` (`id_noteFilm`, `fk_film`, `fk_user`, `note`) VALUES
-(6, 5, 1, 9);
+(6, 5, 1, 9),
+(7, 7, 3, 7);
 
 -- --------------------------------------------------------
 
@@ -255,7 +266,11 @@ INSERT INTO `t_personne` (`id_personne`, `nom`) VALUES
 (11, 'Helena Bonham Carter'),
 (12, 'Franck Darabont'),
 (13, 'Tim Robbins'),
-(14, 'Morgan Freeman');
+(14, 'Morgan Freeman'),
+(15, 'Daniel Radcliffe'),
+(16, 'Emma Watson'),
+(17, 'Rupert Grint'),
+(18, 'Chris Colombus');
 
 -- --------------------------------------------------------
 
@@ -281,7 +296,11 @@ INSERT INTO `t_rolefilm` (`id_roleFilm`, `fk_film`, `fk_personne`, `role`) VALUE
 (10, 5, 11, 'Actrice'),
 (11, 6, 12, 'Réalisateur'),
 (12, 6, 13, 'Acteur'),
-(13, 6, 14, 'Acteur');
+(13, 6, 14, 'Acteur'),
+(14, 7, 15, 'Acteur'),
+(15, 7, 16, 'Acteur'),
+(16, 7, 17, 'Acteur'),
+(17, 7, 18, 'Réalisateur');
 
 -- --------------------------------------------------------
 
@@ -313,6 +332,13 @@ CREATE TABLE `t_sagafilm` (
   `fk_saga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `t_sagafilm`
+--
+
+INSERT INTO `t_sagafilm` (`id_sagaFilm`, `fk_film`, `fk_saga`) VALUES
+(1, 7, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -330,7 +356,8 @@ CREATE TABLE `t_societe` (
 
 INSERT INTO `t_societe` (`id_societe`, `nom`) VALUES
 (1, 'Fox'),
-(3, 'Castle Rock Entertainment');
+(3, 'Castle Rock Entertainment'),
+(4, 'Warner Bros');
 
 -- --------------------------------------------------------
 
@@ -350,7 +377,8 @@ CREATE TABLE `t_societefilm` (
 
 INSERT INTO `t_societefilm` (`id_societeFilm`, `fk_film`, `fk_societe`) VALUES
 (5, 5, 1),
-(6, 6, 3);
+(6, 6, 3),
+(7, 7, 4);
 
 --
 -- Index pour les tables exportées
@@ -477,12 +505,12 @@ ALTER TABLE `t_societefilm`
 -- AUTO_INCREMENT pour la table `t_commentaire`
 --
 ALTER TABLE `t_commentaire`
-  MODIFY `id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT pour la table `t_film`
 --
 ALTER TABLE `t_film`
-  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `t_format`
 --
@@ -492,17 +520,17 @@ ALTER TABLE `t_format`
 -- AUTO_INCREMENT pour la table `t_formatfilm`
 --
 ALTER TABLE `t_formatfilm`
-  MODIFY `id_formatFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_formatFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `t_genre`
 --
 ALTER TABLE `t_genre`
-  MODIFY `id_genre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_genre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `t_genrefilm`
 --
 ALTER TABLE `t_genrefilm`
-  MODIFY `id_genreFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_genreFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `t_langue`
 --
@@ -512,27 +540,27 @@ ALTER TABLE `t_langue`
 -- AUTO_INCREMENT pour la table `t_languefilm`
 --
 ALTER TABLE `t_languefilm`
-  MODIFY `id_langueFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_langueFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `t_notefilm`
 --
 ALTER TABLE `t_notefilm`
-  MODIFY `id_noteFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_noteFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `t_panier`
 --
 ALTER TABLE `t_panier`
-  MODIFY `id_panier` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_panier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
 --
 -- AUTO_INCREMENT pour la table `t_personne`
 --
 ALTER TABLE `t_personne`
-  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `t_rolefilm`
 --
 ALTER TABLE `t_rolefilm`
-  MODIFY `id_roleFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_roleFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT pour la table `t_saga`
 --
@@ -542,17 +570,17 @@ ALTER TABLE `t_saga`
 -- AUTO_INCREMENT pour la table `t_sagafilm`
 --
 ALTER TABLE `t_sagafilm`
-  MODIFY `id_sagaFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_sagaFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_societe`
 --
 ALTER TABLE `t_societe`
-  MODIFY `id_societe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_societe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `t_societefilm`
 --
 ALTER TABLE `t_societefilm`
-  MODIFY `id_societeFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_societeFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Contraintes pour les tables exportées
 --
