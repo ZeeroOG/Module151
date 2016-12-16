@@ -17,6 +17,9 @@ session_start();
 // Fichiers de config
 require_once("config.php");
 
+// Fichers de fonctions globales
+require_once('functions.php');
+
 // Fichiers de connexion aux databases
 require_once("connectDB.php");
 require_once("connectUserDB.php");

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 16 Décembre 2016 à 18:05
+-- Généré le :  Ven 16 Décembre 2016 à 21:32
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.5.31
 
@@ -232,19 +232,6 @@ INSERT INTO `t_notefilm` (`id_noteFilm`, `fk_film`, `fk_user`, `note`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `t_panier`
---
-
-CREATE TABLE `t_panier` (
-  `id_panier` int(11) NOT NULL,
-  `article` varchar(50) NOT NULL,
-  `qte` int(11) NOT NULL,
-  `fk_user` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `t_personne`
 --
 
@@ -449,13 +436,6 @@ ALTER TABLE `t_notefilm`
   ADD KEY `fk_user` (`fk_user`);
 
 --
--- Index pour la table `t_panier`
---
-ALTER TABLE `t_panier`
-  ADD PRIMARY KEY (`id_panier`),
-  ADD KEY `fk_user` (`fk_user`);
-
---
 -- Index pour la table `t_personne`
 --
 ALTER TABLE `t_personne`
@@ -546,11 +526,6 @@ ALTER TABLE `t_languefilm`
 --
 ALTER TABLE `t_notefilm`
   MODIFY `id_noteFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT pour la table `t_panier`
---
-ALTER TABLE `t_panier`
-  MODIFY `id_panier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
 --
 -- AUTO_INCREMENT pour la table `t_personne`
 --

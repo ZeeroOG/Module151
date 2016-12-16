@@ -1,7 +1,6 @@
 <?php
 
-class Login
-{
+class Login {
 	private $userid;
 	private $username;
 	private $ip;

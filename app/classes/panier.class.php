@@ -1,7 +1,6 @@
 <?php
 
-class Panier
-{
+class Panier {
 	private $userid = null;
 	private $panier = array();
 
@@ -13,12 +12,17 @@ class Panier
 		}
 	}
 
-	public function addItem($id, $qte = 1) {
+	public function addItem($id, $qte = 1, $merge = false) {
 		foreach ($this->panier as $key => $item) {
 			$item = explode('-', $item);
 			if($item[0] == (string)$id) {
 				unset($this->panier[$key]);
-				$qte = $qte + (int)$item[1];
+
+				if($merge == true) {
+					$qte = $this->getHighest($qte, (int)$item[1]);
+				} else {
+					$qte = $qte + (int)$item[1];
+				}
 			}
 		}
 
@@ -26,6 +30,8 @@ class Panier
 	}
 
 	public function delItem($id, $qte = null) {
+		global $db_acc;
+
 		foreach ($this->panier as $key => $item) {
 			$item = explode('-', $item);
 			if($item[0] == (string)$id) {
@@ -36,15 +42,20 @@ class Panier
 				}
 			}
 		}
+
+		if($this->userid != null) {
+			$req2 = $db_acc->prepare('UPDATE t_users SET panier = ? WHERE id_users = ?');
+			$req2->execute(array($this->exportJSON(), $this->userid));
+		}
 	}
 
-	public function importJSON($json) {
+	public function importJSON($json, $merge = true) {
 		global $db_sql;
 
 		$json = json_decode($json);
 
 		foreach ($json as $value) {
-			$this->addItem($value->id, $value->qte);
+			$this->addItem($value->id, $value->qte, $merge);
 		}
 	}
 
@@ -63,39 +74,27 @@ class Panier
 		$this->userid = $userid;
 	}
 
+	public function getPanier() {
+		sort($this->panier);
+		return $this->panier;
+	}
+
 	public function emptyPanier() {
 		$this->panier = array();
 	}
 
 	public function syncPanier() {
-		global $db_sql;
+		global $db_acc;
 
 		if($this->userid != null) {
-			$req = $db_sql->prepare('SELECT * FROM t_panier WHERE fk_user = ? ORDER BY article ASC');
+			$req = $db_acc->prepare('SELECT panier FROM t_users WHERE id_users = ?');
 			$req->execute(array($this->userid));
 
-			while($x = $req->fetch()) {
-				$check = false;
+			$data = $req->fetch();
+			if($data['panier'] != "" AND $data['panier'] != null AND $data['panier'] != '{}') $this->importJSON($data['panier'], true);
 
-				foreach($this->panier as $key => $item) {
-					$item = explode('-', $item);
-					if($item[0] == $x['article']) {
-						$this->panier[$key] = $item[0] . '-' . $this->getHighest($x['qte'], $item[1]);
-						$check = true;
-					}
-				}
-
-				if($check == true) $this->addItem($x['article'], $x['qte']);
-			}
-
-			$req3 = $db_sql->prepare('DELETE FROM t_panier WHERE fk_user = ?');
-			$req3->execute(array($this->userid));
-
-			foreach($this->panier as $item) {
-				$item = explode('-', $item);
-				$req2 = $db_sql->prepare('INSERT INTO t_panier (fk_user, article, qte) VALUES (?, ?, ?)');
-				$req2->execute(array($this->userid, $item[0], (int)$item[1]));
-			}
+			$req2 = $db_acc->prepare('UPDATE t_users SET panier = ? WHERE id_users = ?');
+			$req2->execute(array($this->exportJSON(), $this->userid));
 		}
 	}
 

@@ -184,7 +184,7 @@
 				<?php } ?>
 			</table>
 			<h4 style="margin-bottom: 0;">Prix</h4>
-			<table class="showFilm-price">
+			<table class="showFilm-price" id="prix">
 				<?php if($film->getPrice() == NULL) { ?>
 				<tr>
 					<td style="font-weight: bold;">Indisponible</td>
@@ -197,7 +197,7 @@
 							<td><?php echo $data['nom']; ?></td>
 							<td><?php echo formatPrice($data['prix']); ?></td>
 							<td>CHF</td>
-							<td><button onclick="alert('<?php echo $numero_article; ?>');">+ Ajouter au panier</button></td>
+							<td><a href="?p=panier&add=<?php echo $numero_article; ?>&callback=<?php echo urlencode('?p=showFilm&id=' . $film->getFilmId() . '#prix'); ?>"><button>+ Ajouter au panier</button></a></td>
 						</tr>
 						<?php
 					}

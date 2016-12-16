@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 16 Décembre 2016 à 15:04
+-- Généré le :  Ven 16 Décembre 2016 à 21:33
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.5.31
 
@@ -136,19 +136,6 @@ CREATE TABLE `t_notefilm` (
   `fk_user` int(11) NOT NULL,
   `note` tinyint(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `t_panier`
---
-
-CREATE TABLE `t_panier` (
-  `id_panier` int(11) NOT NULL,
-  `article` varchar(50) NOT NULL,
-  `qte` int(11) NOT NULL,
-  `fk_user` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -289,13 +276,6 @@ ALTER TABLE `t_notefilm`
   ADD KEY `fk_user` (`fk_user`);
 
 --
--- Index pour la table `t_panier`
---
-ALTER TABLE `t_panier`
-  ADD PRIMARY KEY (`id_panier`),
-  ADD KEY `fk_user` (`fk_user`);
-
---
 -- Index pour la table `t_personne`
 --
 ALTER TABLE `t_personne`
@@ -345,82 +325,77 @@ ALTER TABLE `t_societefilm`
 -- AUTO_INCREMENT pour la table `t_commentaire`
 --
 ALTER TABLE `t_commentaire`
-  MODIFY `id_commentaire` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT pour la table `t_film`
 --
 ALTER TABLE `t_film`
-  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `t_format`
 --
 ALTER TABLE `t_format`
-  MODIFY `id_format` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_format` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `t_formatfilm`
 --
 ALTER TABLE `t_formatfilm`
-  MODIFY `id_formatFilm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_formatFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `t_genre`
 --
 ALTER TABLE `t_genre`
-  MODIFY `id_genre` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_genre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `t_genrefilm`
 --
 ALTER TABLE `t_genrefilm`
-  MODIFY `id_genreFilm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_genreFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `t_langue`
 --
 ALTER TABLE `t_langue`
-  MODIFY `id_langue` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_langue` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `t_languefilm`
 --
 ALTER TABLE `t_languefilm`
-  MODIFY `id_langueFilm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_langueFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `t_notefilm`
 --
 ALTER TABLE `t_notefilm`
-  MODIFY `id_noteFilm` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `t_panier`
---
-ALTER TABLE `t_panier`
-  MODIFY `id_panier` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_noteFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `t_personne`
 --
 ALTER TABLE `t_personne`
-  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `t_rolefilm`
 --
 ALTER TABLE `t_rolefilm`
-  MODIFY `id_roleFilm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_roleFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT pour la table `t_saga`
 --
 ALTER TABLE `t_saga`
-  MODIFY `id_saga` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_saga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_sagafilm`
 --
 ALTER TABLE `t_sagafilm`
-  MODIFY `id_sagaFilm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sagaFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_societe`
 --
 ALTER TABLE `t_societe`
-  MODIFY `id_societe` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_societe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `t_societefilm`
 --
 ALTER TABLE `t_societefilm`
-  MODIFY `id_societeFilm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_societeFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Contraintes pour les tables exportées
 --
