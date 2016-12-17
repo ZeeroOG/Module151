@@ -43,6 +43,11 @@ if(isset($_GET['del'])) {
 
 $showPanier = $panier->getPanier();
 
-include('app/view/panier.php');
+if(count($showPanier) > 0) {
+	include('app/view/panier.php');
+} else {
+	echo '<p><b>Votre panier est vide !</b></p><a href="?p=shop">Faites un tour dans la boutique</a><br /><br />';
+}
+
 
 ?>

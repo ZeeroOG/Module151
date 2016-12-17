@@ -8,5 +8,4 @@ if(isset($_SESSION['user'])) {
 
 if(isset($_COOKIE["panier"])) $panier->importJSON($_COOKIE["panier"]);
 
-
 ?>

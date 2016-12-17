@@ -3,6 +3,9 @@
 // Constantes
 define("PROJECT_PATH", dirname(__FILE__));
 
+// Mettre le HTML en cache
+ob_start();
+
 // Fichiers inclus
 include("app/core/includes.php");
 
@@ -14,5 +17,8 @@ include('app/core/router.php');
 
 // Exporter le panier
 include("app/core/exportPanier.php");
+
+// Envoyer le HTML
+ob_end_flush();
 
 ?>
