@@ -1,2 +1,25 @@
 [18:59:36 ERROR] Echec de connexion MySQL: SQLSTATE[HY000] [2002] No such file or directory 
 [19:00:09 ERROR] Echec de connexion MySQL: SQLSTATE[HY000] [2002] No such file or directory 
+[19:21:09 ERROR] Echec de connexion Access 2002: SQLSTATE[01000] SQLDriverConnect: 0 [unixODBC][Driver Manager]Can't open lib 'Microsoft Access Driver (*.mdb)' : file not found 
+[19:23:31 ERROR] Echec de connexion Access 2002: SQLSTATE[01000] SQLDriverConnect: 0 [unixODBC][Driver Manager]Can't open lib 'Microsoft Access Driver (*.mdb)' : file not found 
+[19:34:57 ERROR] Echec de connexion Access 2002: SQLSTATE[01000] SQLDriverConnect: 0 [unixODBC][Driver Manager]Can't open lib 'Microsoft Access Driver (*.mdb)' : file not found 
+[19:37:16 ERROR] Echec de connexion Access 2002: SQLSTATE[01000] SQLDriverConnect: 0 [unixODBC][Driver Manager]Can't open lib 'Microsoft Access Driver (*.mdb)' : file not found 
+[19:40:02 ERROR] Echec de connexion Access 2002: SQLSTATE[01000] SQLDriverConnect: 0 [unixODBC][Driver Manager]Can't open lib 'Microsoft Access Driver (*.mdb)' : file not found 
+[19:43:07 ERROR] Echec de connexion Access 2002: SQLSTATE[01000] SQLDriverConnect: 0 [unixODBC][Driver Manager]Can't open lib '/opt/local/lib/libmdbodbc.dylib' : file not found 
+[19:44:51 ERROR] Echec de connexion Access 2002: SQLSTATE[01000] SQLDriverConnect: 0 [unixODBC][Driver Manager]Can't open lib '/usr/local/lib/libmdbsql.dyliby' : file not found 
+[19:45:01 ERROR] Echec de connexion Access 2002: SQLSTATE[01000] SQLDriverConnect: 0 [unixODBC][Driver Manager]Can't open lib '/usr/local/lib/libmdbsql.dyliby' : file not found 
+[19:47:42 ERROR] Echec de connexion Access 2002: SQLSTATE[IM004] SQLDriverConnect: 0 [unixODBC][Driver Manager]Driver's SQLAllocHandle on SQL_HANDLE_HENV failed 
+[19:49:09 ERROR] Echec de connexion Access 2002: SQLSTATE[IM004] SQLDriverConnect: 0 [unixODBC][Driver Manager]Driver's SQLAllocHandle on SQL_HANDLE_HENV failed 
+[19:50:44 ERROR] Echec de connexion Access 2002: SQLSTATE[IM004] SQLDriverConnect: 0 [unixODBC][Driver Manager]Driver's SQLAllocHandle on SQL_HANDLE_HENV failed 
+[19:52:34 ERROR] Echec de connexion Access 2002: SQLSTATE[IM004] SQLDriverConnect: 0 [unixODBC][Driver Manager]Driver's SQLAllocHandle on SQL_HANDLE_HENV failed 
+[19:53:20 ERROR] Echec de connexion Access 2002: SQLSTATE[IM004] SQLDriverConnect: 0 [unixODBC][Driver Manager]Driver's SQLAllocHandle on SQL_HANDLE_HENV failed 
+[20:09:34 ERROR] Echec de connexion Access 2002: SQLSTATE[01000] SQLDriverConnect: 0 [unixODBC][Driver Manager]Can't open lib 'MDBTools' : file not found 
+[20:11:18 ERROR] Echec de connexion Access 2002: SQLSTATE[01000] SQLDriverConnect: 0 [unixODBC][Driver Manager]Can't open lib 'MDBTools' : file not found 
+[20:13:56 ERROR] Echec de connexion Access 2002: SQLSTATE[01000] SQLDriverConnect: 0 [unixODBC][Driver Manager]Can't open lib 'MDBTools' : file not found 
+[20:14:34 ERROR] Echec de connexion Access 2002: SQLSTATE[01000] SQLDriverConnect: 0 [unixODBC][Driver Manager]Can't open lib 'MDBTools' : file not found 
+[20:18:07 ERROR] Echec de connexion Access 2002: SQLSTATE[IM004] SQLDriverConnect: 0 [unixODBC][Driver Manager]Driver's SQLAllocHandle on SQL_HANDLE_HENV failed 
+[20:18:41 ERROR] Echec de connexion Access 2002: SQLSTATE[IM004] SQLDriverConnect: 0 [unixODBC][Driver Manager]Driver's SQLAllocHandle on SQL_HANDLE_HENV failed 
+[20:19:05 ERROR] Echec de connexion Access 2002: SQLSTATE[IM004] SQLDriverConnect: 0 [unixODBC][Driver Manager]Driver's SQLAllocHandle on SQL_HANDLE_HENV failed 
+[20:23:20 ERROR] Echec de connexion Access 2002: SQLSTATE[IM004] SQLDriverConnect: 0 [unixODBC][Driver Manager]Driver's SQLAllocHandle on SQL_HANDLE_HENV failed 
+[20:23:47 ERROR] Echec de connexion Access 2002: SQLSTATE[IM004] SQLDriverConnect: 0 [unixODBC][Driver Manager]Driver's SQLAllocHandle on SQL_HANDLE_HENV failed 
+[21:17:00 ERROR] Echec de connexion MySQL: SQLSTATE[HY000] [2002] No such file or directory 
