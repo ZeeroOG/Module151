@@ -23,8 +23,9 @@ class Log {
 		self::writeToLog("ERROR", $text);
 	}
 
-	private function writeToLog($level, $text) {
-		$file = PROJECT_PATH . "\logs\\" . date("Ymd") . ".txt";
+	private static function writeToLog($level, $text) {
+		//$file = PROJECT_PATH . "\logs\\" . date("Ymd") . ".txt";
+		$file = "logs/" . date("Ymd") . ".txt";
 		$time = date("H:i:s");
 
 		if(!file_exists($file)) {

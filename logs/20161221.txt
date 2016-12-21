@@ -1,0 +1,2 @@
+[18:59:36 ERROR] Echec de connexion MySQL: SQLSTATE[HY000] [2002] No such file or directory 
+[19:00:09 ERROR] Echec de connexion MySQL: SQLSTATE[HY000] [2002] No such file or directory 
