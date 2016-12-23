@@ -3,7 +3,7 @@
 function connectUserDB() {
 	// Chemin de la base de données (relatif au dossier du projet)
 	// puis check sur l'existance du fichier
-	$diver = "{Microsoft Access Driver (*.mdb)}";
+	$driver = "{Microsoft Access Driver (*.mdb)}";
 	$path = PROJECT_PATH . "\db\users.mdb";
 
 	if(!file_exists($path)) {
