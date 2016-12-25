@@ -3,6 +3,9 @@
 // Constantes
 define("PROJECT_PATH", dirname(__FILE__));
 
+// Début chargement page
+$loadingTime = microtime();
+
 // Mettre le HTML en cache
 ob_start();
 
@@ -17,6 +20,10 @@ include('app/core/router.php');
 
 // Exporter le panier
 include("app/core/exportPanier.php");
+
+// Fin chargement page
+$loadingTime = microtime() - $loadingTime;
+echo "Page chargée en : " . $loadingTime . "ms";
 
 // Envoyer le HTML
 ob_end_flush();
