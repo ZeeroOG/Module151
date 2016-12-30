@@ -5,6 +5,7 @@ require_once("app/classes/log.class.php");
 require_once("app/classes/user.class.php");
 require_once("app/classes/comments.class.php");
 require_once("app/classes/film.class.php");
+require_once("app/classes/filmList.class.php");
 require_once("app/classes/login.class.php");
 require_once("app/classes/panier.class.php");
 require_once("app/classes/vote.class.php");
