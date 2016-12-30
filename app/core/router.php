@@ -46,7 +46,7 @@ if($pages->$page->grade == -1 AND $grade != 0) {
 		<div style="text-align: center; margin-bottom: 20px;">
 			<a href="?p=home"><img style="width: 100%; max-height: 150px; max-width: 1000px;" src="img/logo.png" alt="Logo" /></a>
 		</div>
-		<?php if(isset($_SESSION['user'])) { ?><p class="welcome-message">Bienvenue, <?php echo $_SESSION['user']->getUsername(); ?> !</p><?php } ?>
+		<?php if(isset($_SESSION['user'])) { ?><p class="welcome-message">Connecté en tant que : <a href="?p=account"><?php echo $_SESSION['user']->getUsername(); ?></a></p><?php } ?>
 		<!-- Barre de navigation -->
 		<div class="navbar">
 			<ul>
