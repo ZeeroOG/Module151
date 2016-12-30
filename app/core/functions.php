@@ -28,4 +28,8 @@ function formatPrice($price) {
 	return (string)$price;
 }
 
+function setVarHTML(&$html, $name, $value) {
+	$html = str_replace("%" . $name . "%", $value, $html);
+}
+
 ?>

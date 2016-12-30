@@ -61,7 +61,7 @@
 		},
 	"showFilm": {
 			"path" : "app/controler/showFilm.php",
-			"title": "Film",
+			"title": "%filmName%",
 			"menu" : "shop",
 			"grade": 0
 		}

@@ -81,6 +81,7 @@ if($pages->$page->grade == -1 AND $grade != 0) {
         echo "\n"; ?>
 	</div>
 	<div class="container footer">
+		<p class="muted">Page générée en : <b>%loadingTime%ms</b> par le serveur <b>%serverName%</b></p>
         <p class="muted">&copy; 2017 - Henry Jonas, Sebastiao Cristiano, Mujynya Cédric, Maillard William</p>
 	</div>
 
