@@ -7,15 +7,15 @@ function checkUsername($username) {
 	$req->execute(array($username));
 
 	if($req->rowCount() > 0) errorMessage('Le nom d\'utilisateur est déjà pris !');
-	elseif(!preg_match('/^[a-zA-Z0-9]{6,20}$/', $username)) errorMessage('Le nom d\'utilisateur ne doit pas comprendre des caractères spéciaux, et faire entre 6 et 20 caractères !');
+	elseif(!preg_match('/^[a-zA-Z0-9\-_]{6,20}$/', $username)) errorMessage('Le nom d\'utilisateur ne doit pas comprendre des caractères spéciaux, et faire entre 6 et 20 caractères !');
 }
 
 function checkNom($nom) {
-	if(!preg_match('/^[a-zA-Z0-9]{1,50}$/', $nom)) errorMessage('Votre nom ne peut pas contenir des caractères spéciaux !');
+	if(!preg_match('/^[\D]{1,50}$/', $nom)) errorMessage('Votre nom ne peut pas contenir de chiffres !');
 }
 
 function checkPrenom($prenom) {
-	if(!preg_match('/^[a-zA-Z0-9]{1,50}$/', $prenom)) errorMessage('Votre prénom ne peut pas contenir des caractères spéciaux !');
+	if(!preg_match('/^[\D]{1,50}$/', $prenom)) errorMessage('Votre prénom ne peut pas contenir de chiffres !');
 }
 
 function checkMail($mail) {
