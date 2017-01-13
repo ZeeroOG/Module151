@@ -19,6 +19,22 @@ class FilmList {
 		while($x = $req->fetch()) {
 			$film = array();
 
+			$req2 = $db_sql->prepare('SELECT t_formatfilm.prix, t_format.nom FROM t_film
+									  INNER JOIN t_formatfilm ON t_film.id_film = t_formatfilm.fk_film
+									  INNER JOIN t_format ON t_formatfilm.fk_format = t_format.id_format
+									  WHERE t_film.id_film = ?
+								  	');
+			$req2->execute(array($x['id_film']));
+			$film['prix'] = array();
+			while($y = $req2->fetch()) {
+				$prixfilm = array();
+
+				$prixfilm['nom'] = $y['nom'];
+				$prixfilm['prix'] = $y['prix'];
+
+				array_push($film, $prixfilm);
+			}
+
 			if($x['titreTraduit'] == NULL) $titre = $x['titreOriginal'];
 			else $titre = $x['titreTraduit'];
 
@@ -44,7 +60,6 @@ class FilmList {
 
 	public function search($str) {
 		foreach ($this->filmList as $key => $value) {
-			//if(!preg_match('/' . strtolower($str) . '/', strtolower($value['titre'])) AND !preg_match('/' . strtolower($str) . '/', strtolower($value['desc']))) {
 			if(!preg_match('/' . strtolower($str) . '/', strtolower($value['titre']))) {
 				unset($this->filmList[$key]);
 			}
