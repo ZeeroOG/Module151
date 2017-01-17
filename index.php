@@ -4,7 +4,7 @@
 define("PROJECT_PATH", dirname(__FILE__));
 
 // Début chargement page
-$loadingTime = microtime();
+$loadingTime = microtime(true);
 
 // Mettre le HTML en cache
 ob_start();
@@ -31,7 +31,7 @@ ob_end_clean();
 // Insérer variables dans le HTML
 if(isset($filmName)) setVarHTML($html, 'filmName', $filmName); // Nom du film dans showFilm
 setVarHTML($html, 'serverName', gethostname()); // Nom du serveur qui a traité la demande
-setVarHTML($html, 'loadingTime', microtime() - $loadingTime); // Temps de chargement de la page
+setVarHTML($html, 'loadingTime', round((microtime(true) - $loadingTime), 5)); // Temps de chargement de la page
 
 // Envoyer le HTML
 echo $html;
