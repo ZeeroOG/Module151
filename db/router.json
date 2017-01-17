@@ -64,5 +64,11 @@
 			"title": "%filmName%",
 			"menu" : "shop",
 			"grade": 0
-		}
+		},
+	"importDB": {
+			"path" : "app/controler/importDB.php",
+			"title" : "Importer une base de donnée .sql",
+			"menu" : "admin",
+			"grade" : 3
+	}
 }

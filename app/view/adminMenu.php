@@ -61,6 +61,7 @@
 	<div class="adminMenu-right">
 		<h3 class="adminMenu-top">Administrateur</h3>
 		<ul>
+			<li><a href="?p=importDB"><button>Mettre à jour la DB</button></a></li>
 			<li><a href="?p=addUser"><button>Ajouter un utilisateur</button></a></li>
 			<li><a href="?p=viewUsers"><button>Liste des utilisateurs</button></a></li>
 		</ul>
