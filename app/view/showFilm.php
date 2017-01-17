@@ -248,7 +248,7 @@
 		<h3>Poster un commentaire</h3>
 		<form id="addCommentaire" action="?p=showFilm&id=<?php echo $film->getFilmId(); ?>" method="post">
 			<textarea id="addCommentaireText" name="text"></textarea>
-			<input class="btn btn-gd btn-primary" id="addCommentaireButton" value="Poster" type="submit">
+			<input class="btn btn-gd btn-default" id="addCommentaireButton" value="Poster" type="submit">
 		</form>
 		<script>
 			var addEmote = function(key) {
