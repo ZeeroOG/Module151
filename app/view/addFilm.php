@@ -23,7 +23,7 @@
   </span>
   <span class="element">
 	<label for="description">Description: <span class="required">*</span></label>
-	<input type="textarea" id="description" name="description" placeholder="Description" <?=getHTMLElements('description',$errors)?> />
+	<textarea id="description" name="description" placeholder="Description" rows="4" <?=getHTMLElements('description',$errors)?>><?=((isset($_POST['description']) AND !empty($_POST['description'])) ? htmlspecialchars($_POST['description']) : '')?></textarea>
   </span>
   <span class="element">
 	<label for="accordParental">PEGI: <span class="required">*</span></label>

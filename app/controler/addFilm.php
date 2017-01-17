@@ -16,7 +16,7 @@ function getHTMLSelected($select,$id) {
 // permet de recup les infos + erreur d'un élément du formulaire (sauf pour les select, c'est la fonction en dessus qui s'en occupe)
 function getHTMLElements($id,$errors,$add_class = '') {
 	$html = '';
-	if(isset($_POST[$id]) AND !empty($_POST[$id])) {
+	if(isset($_POST[$id]) AND !empty($_POST[$id]) AND $id != 'description') {
 		$html .= 'value="'.htmlspecialchars($_POST[$id]).'" ';
 	}
 	if(isset($errors[$id])) {

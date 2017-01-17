@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.5.3.1
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 13 Janvier 2017 à 15:13
+-- Généré le :  Mar 17 Janvier 2017 à 14:40
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.5.31
 
