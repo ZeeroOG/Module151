@@ -32,7 +32,7 @@ class FilmList {
 				$prixfilm['nom'] = $y['nom'];
 				$prixfilm['prix'] = $y['prix'];
 
-				array_push($film, $prixfilm);
+				array_push($film['prix'], $prixfilm);
 			}
 
 			if($x['titreTraduit'] == NULL) $titre = $x['titreOriginal'];

@@ -1,0 +1,2 @@
+[18:06:14 INFO] La base de donnée à été vidée par william 
+[18:06:15 INFO] La base de donnée importée par william 

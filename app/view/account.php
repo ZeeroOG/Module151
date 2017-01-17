@@ -1,4 +1,5 @@
-<table>
+<h2>Mon compte</h2>
+<table class="table table-striped">
 	<tr>
 		<td>Nom d'utilisateur</td>
 		<td><?php echo $_SESSION['user']->getUsername(); ?></td>
@@ -22,5 +23,32 @@
 	<tr>
 		<td>Grade</td>
 		<td><?php echo $_SESSION['user']->getLevelName(); ?></td>
+	</tr>
+</table>
+<h2>Adresse(s)</h2>
+<table class="table table-striped">
+	<tr style="font-weight: bold;">
+		<td>Rue & Numéro</td>
+		<td>NPA & Ville</td>
+		<td>Pays</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Chemin des Tests 666</td>
+		<td>1000 Lausanne</td>
+		<td>Suisse</td>
+		<td><a class="btn btn-sm btn-primary">Editer</a></td>
+	</tr>
+	<tr>
+		<td>Chemin des Tests 666</td>
+		<td>1000 Lausanne</td>
+		<td>Suisse</td>
+		<td><a class="btn btn-sm btn-primary">Editer</a></td>
+	</tr>
+	<tr>
+		<td>Chemin des Tests 666</td>
+		<td>1000 Lausanne</td>
+		<td>Suisse</td>
+		<td><a class="btn btn-sm btn-primary">Editer</a></td>
 	</tr>
 </table>

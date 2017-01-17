@@ -37,6 +37,7 @@ if($pages->$page->grade == -1 AND $grade != 0) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><?php echo $pages->$page->title; ?> | Nexflit | Achetez vos DVD et Blu-Ray en ligne !</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -87,6 +88,7 @@ if($pages->$page->grade == -1 AND $grade != 0) {
 
 	<!-- Javascript -->
 	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<script src="js/addMovie.js"></script>
 </body>
 </html>

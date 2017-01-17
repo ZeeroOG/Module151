@@ -27,6 +27,7 @@
 	}
 	.adminMenu-top {
 		font-weight: bold;
+		font-size: 13pt;
 	}
 	@media screen and (max-width: 1000px) {
 	  .adminMenu {
@@ -51,7 +52,7 @@
 <div class="adminMenu">
 	<p>~~~ Menu ~~~</p>
 	<div class="adminMenu-left">
-		<h3 class="adminMenu-top">Opérateur</h3>
+		<p class="adminMenu-top">Opérateur</p>
 		<ul>
 			<li><a href="?p=addFilm"><button>Ajouter un film</button></a></li>
 			<li><a href="?p=listFilms"><button>Liste des films</button></a></li>
@@ -59,7 +60,7 @@
 	</div>
 	<?php if($_SESSION['user']->getLevel() > 2) { ?>
 	<div class="adminMenu-right">
-		<h3 class="adminMenu-top">Administrateur</h3>
+		<p class="adminMenu-top">Administrateur</p>
 		<ul>
 			<li><a href="?p=importDB"><button>Mettre à jour la DB</button></a></li>
 			<li><a href="?p=addUser"><button>Ajouter un utilisateur</button></a></li>

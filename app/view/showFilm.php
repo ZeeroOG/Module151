@@ -17,11 +17,6 @@
 		margin-top: 30px;
 		margin-bottom: 30px;
 	}
-	.showFilm-price {
-		border-spacing: 5px;
-    	border-collapse: separate;
-		font-family: 'Roboto', sans-serif;
-	}
 	.commentaires {
 		width: 75%;
 		margin-left: auto;
@@ -90,122 +85,134 @@
 	}
 	#addCommentaireButton {
 		width: 9%;
-		height: 100%;
+		height: 97%;
 		float: right;
 	}
+	h3 {
+		font-weight: bold;
+	}
+	h4 {
+		font-weight: bold;
+	}
 </style>
+<span id="film"></span>
+<a onclick="window.history.back();"><i class="glyphicon glyphicon-chevron-left"></i> Retour vers la liste des films</a><hr />
 <div class="showFilm">
 	<div class="showFilm-top">
 		<div class="showFilm-left">
 			<img src="<?php echo $film->getImage(); ?>" alt="cover" />
 		</div>
 		<div class="showFilm-right">
-			<div id="showFilm-titreTraduit">
-				<?php
-
-				if($film->getTitreTraduit() == NULL) {
-					echo $film->getTitreOriginal();
-				} else {
-					echo $film->getTitreTraduit();
-				}
-
-				?>
-			</div>
-			<div id="showFilm-titreOriginal">
-				<?php
-
-				if($film->getTitreTraduit() != NULL) {
-					echo $film->getTitreOriginal();
-				}
-
-				?>
-			</div>
-			<div class="showFilm-notes">
-				Age minimal requis : <b style="margin-left: 10px; margin-right: 5px;"><span><?php if($film->getAccordParental() != 0) { echo $film->getAccordParental() . " ans"; } else { echo "Tout public"; } ?></span></b>
-			</div>
-			<div class="showFilm-notes">
-				Note de la communauté : <b style="margin-left: 10px; margin-right: 5px;"><span><?php if($film->getNote() != NULL) { echo $film->getNote(); } else { echo "?"; } ?></span>/10</b> [<?php if($film->getNbVotes() != NULL) { echo $film->getNbVotes(); } else { echo "0"; } ?> vote(s)]
-				<?php if(isset($vote)) { ?>
-					<form style="margin-top: 10px;" action="?p=showFilm&id=<?php echo $film->getFilmId(); ?>" method="post">
-						Votre note :&nbsp;&nbsp;&nbsp;
-						<select name="vote">
-							<option value="0">Choisir...</option>
-							<?php
-
-							for($i = 1; $i < 11; $i++)
-							{
-								?><option value="<?php echo $i; ?>"<?php if($vote->hasVoted() == true AND $vote->getVote() == $i) echo " selected"; ?>><?php echo $i; ?></option><?php
-							}
-
-							?>
-						</select>
-						<input type="submit" name="submit" value="Voter !" />
-					</form>
+			<div style="min-height: 400px;">
+				<?php if(isset($_GET['panier']) AND $_GET['panier'] == 'ok') { ?>
+				<div class="alert alert-success alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+					<strong>Succés !</strong> Le film a été ajouté à votre <a href="?p=panier&return=1">panier</a>.
+				</div>
 				<?php } ?>
+				<div id="showFilm-titreTraduit">
+					<?php
+						if($film->getTitreTraduit() == NULL) echo $film->getTitreOriginal();
+						else echo $film->getTitreTraduit();
+					?>
+				</div>
+				<div id="showFilm-titreOriginal"><?php if($film->getTitreTraduit() != NULL) echo $film->getTitreOriginal(); ?></div>
+				<div class="showFilm-notes">
+					Age minimal requis : <b style="margin-left: 10px; margin-right: 5px;"><span><?php if($film->getAccordParental() != 0) { echo $film->getAccordParental() . " ans"; } else { echo "Tout public"; } ?></span></b>
+				</div>
+				<div class="showFilm-notes">
+					Note de la communauté : <b style="margin-left: 10px; margin-right: 5px;"><span><?php if($film->getNote() != NULL) { echo $film->getNote(); } else { echo "?"; } ?></span>/10</b> [<?php if($film->getNbVotes() != NULL) { echo $film->getNbVotes(); } else { echo "0"; } ?> vote(s)]
+					<?php if(isset($vote)) { ?>
+						<form style="margin-top: 10px;" action="?p=showFilm&id=<?php echo $film->getFilmId(); ?>" method="post">
+							Votre note :&nbsp;&nbsp;&nbsp;
+							<select class="btn-sm" name="vote">
+								<option value="0">Choisir...</option>
+								<?php
+
+								for($i = 1; $i < 11; $i++)
+								{
+									?><option value="<?php echo $i; ?>"<?php if($vote->hasVoted() == true AND $vote->getVote() == $i) echo " selected"; ?>><?php echo $i; ?></option><?php
+								}
+
+								?>
+							</select>
+							<input class="btn btn-sm btn-primary" type="submit" name="submit" value="Voter !" />
+						</form>
+					<?php } ?>
+				</div>
+				<hr />
+				<p class="showFilm-desc"><?php echo $film->getDescription(); ?></p>
 			</div>
-			<p class="showFilm-desc"><?php echo $film->getDescription(); ?></p>
-			<h4 style="margin-bottom: 0;">Langue(s)</h4>
-			<table class="showFilm-price">
-				<?php foreach($film->getLangues() as $langue) { ?>
-						<tr>
-							<td><?php echo $langue; ?></td>
-						</tr>
-				<?php } ?>
-			</table>
-			<h4 style="margin-bottom: 0;">Genre(s)</h4>
-			<table class="showFilm-price">
-				<?php foreach($film->getGenres() as $genre) { ?>
-						<tr>
-							<td><?php echo $genre; ?></td>
-						</tr>
-				<?php } ?>
-			</table>
-			<h4 style="margin-bottom: 0;">Contributeur(s)</h4>
-			<table class="showFilm-price">
-				<?php if($film->getPrice() == NULL) { ?>
-				<tr>
-					<td style="font-weight: bold;">Indisponible</td>
-				</tr>
-				<?php } else {
-					foreach($film->getGens() as $personne) { ?>
-						<tr>
-							<td><?php echo $personne['role']; ?></td>
-							<td><?php echo $personne['nom']; ?></td>
-						</tr>
-				<?php }
-				} ?>
-			</table>
-			<h4 style="margin-bottom: 0;">Société(s)</h4>
-			<table class="showFilm-price">
-				<?php foreach($film->getSocietes() as $societe) { ?>
-						<tr>
-							<td><?php echo $societe; ?></td>
-						</tr>
-				<?php } ?>
-			</table>
-			<h4 style="margin-bottom: 0;">Prix</h4>
-			<table class="showFilm-price" id="prix">
-				<?php if($film->getPrice() == NULL) { ?>
-				<tr>
-					<td style="font-weight: bold;">Indisponible</td>
-				</tr>
-				<?php } else {
-					foreach($film->getPrice() as $numero_article => $data)
-					{
-						?>
-						<tr>
-							<td><?php echo $data['nom']; ?></td>
-							<td><?php echo formatPrice($data['prix']); ?></td>
-							<td>CHF</td>
-							<td><a href="?p=panier&add=<?php echo $numero_article; ?>&callback=<?php echo urlencode('?p=showFilm&id=' . $film->getFilmId() . '#prix'); ?>"><button>+ Ajouter au panier</button></a></td>
-						</tr>
-						<?php
-					}
-				} ?>
-			</table>
+			<hr />
+			<!-- Détails -->
+			<div style="max-width: 400px;">
+				<!-- Droite -->
+				<div style="float: right; max-width: 400px;">
+					<!-- Genres -->
+					<h4>Genre(s)</h4>
+					<ul>
+					<?php foreach($film->getGenres() as $genre) { ?>
+							<li><?php echo $genre; ?></li>
+					<?php } ?>
+					</ul>
+
+					<!-- Sociétés -->
+					<h4>Société(s)</h4>
+					<ul style="max-width: 400px;">
+						<?php foreach($film->getSocietes() as $societe) { ?>
+							<li><?php echo $societe; ?></li>
+						<?php } ?>
+					</ul>
+				</div>
+
+				<!-- Langues -->
+				<h4>Langue(s)</h4>
+				<ul style="max-width: 400px;">
+					<?php foreach($film->getLangues() as $langue) { ?>
+						<li><?php echo $langue; ?></li>
+					<?php } ?>
+				</ul>
+
+				<!-- Contributeurs -->
+				<h4>Contributeur(s)</h4>
+				<ul>
+					<?php if($film->getPrice() == NULL) { ?>
+						<li style="font-weight: bold;">Indisponible</li>
+					<?php } else {
+						foreach($film->getGens() as $personne) { ?>
+							<li><b><?php echo $personne['nom']; ?></b> (<?php echo $personne['role']; ?>)</li>
+					<?php }
+					} ?>
+				</ul>
+			</div>
 		</div>
 	</div>
-	<br />
+	<hr />
+
+	<!-- Prix -->
+	<div class="showFilm-youtube">
+		<h3>Prix</h3>
+		<table class="table" id="prix" style="max-width: 500px; margin-left: auto; margin-right: auto;">
+			<?php if($film->getPrice() == NULL) { ?>
+			<tr>
+				<td style="font-weight: bold;">Indisponible</td>
+			</tr>
+			<?php } else {
+				foreach($film->getPrice() as $numero_article => $data)
+				{
+					?>
+					<tr>
+						<td><?php echo $data['nom']; ?></td>
+						<td style="text-align: center;"><b><?php echo formatPrice($data['prix']); ?> CHF</b></td>
+						<td style="text-align: right;"><a class="btn btn-primary" href="?p=panier&add=<?php echo $numero_article; ?>&callback=<?php echo urlencode('?p=showFilm&id=' . $film->getFilmId() . '&panier=ok#film'); ?>"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;&nbsp;Ajouter au panier</a></td>
+					</tr>
+					<?php
+				}
+			} ?>
+		</table>
+	</div>
+
+	<!-- Bande annonce -->
 	<?php if($film->getBandeAnnonceURL() != NULL) { ?>
 	<hr />
 	<div class="showFilm-youtube">
@@ -241,7 +248,7 @@
 		<h3>Poster un commentaire</h3>
 		<form id="addCommentaire" action="?p=showFilm&id=<?php echo $film->getFilmId(); ?>" method="post">
 			<textarea id="addCommentaireText" name="text"></textarea>
-			<input id="addCommentaireButton" value="Poster" type="submit">
+			<input class="btn btn-gd btn-primary" id="addCommentaireButton" value="Poster" type="submit">
 		</form>
 		<script>
 			var addEmote = function(key) {
