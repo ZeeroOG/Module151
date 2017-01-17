@@ -49,7 +49,7 @@
   </div>
   <div>
     <input type="checkbox" id="eraseBefore" name="eraseBefore" checked/>
-	<label for="eraseBefore">Supprimmer les données et déjà présentes</label>
+	<label for="eraseBefore">Supprimer les données et déjà présentes</label>
   </div>
   <div>
     <input type="submit" id="send" name="send" value="Importer"/>

@@ -102,12 +102,17 @@ body {
 
 /* Style utilisé pour le formulaire d'ajout/modification dans la DB */
 #addToDB, div.error, div.success {
-	margin: 0 auto;
+	margin: 0 auto 0 230px;
 	min-width: 400px;
-	width: 60%;
+	width: 65%;
 	border: 3px solid #4d4d4d;
 	border-radius: 5px;
 	padding: 15px 25px 15px 25px;
+}
+@media (max-width: 1000px) {
+	#addToDB, div.error, div.success {
+		margin: 0 auto;
+	}
 }
 #addToDB h3 {
 	text-align: center;

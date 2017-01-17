@@ -54,7 +54,7 @@
 		<h3 class="adminMenu-top">Opérateur</h3>
 		<ul>
 			<li><a href="?p=addFilm"><button>Ajouter un film</button></a></li>
-			<li><a href="?p=viewFilms"><button>Liste des films</button></a></li>
+			<li><a href="?p=listFilms"><button>Liste des films</button></a></li>
 		</ul>
 	</div>
 	<?php if($_SESSION['user']->getLevel() > 2) { ?>

@@ -46,6 +46,7 @@
 	function dbError(&$stmt,&$db,&$errors) {
 		if(!$stmt) {
 			array_push($errors,$db->errorInfo()[2]);
+			Log::warn('Erreur SQL lors de l\'insertion d\'un film dans la base de donnée: '.$db->errorInfo()[2]);
 			return TRUE;
 		}
 		else return FALSE;
@@ -123,7 +124,7 @@
 			}
 		}
 
-		//print_r($film);
+		Log::info('Un nouveau film à été ajouté par '.$_SESSION['user']->getUsername().' : '. (empty($post['titreTraduit']) ? $post['titreOriginal'] : $post['titreTraduit']));
 		header('location: .?p=addFilm&success=1');
 
 	}

@@ -1,7 +1,7 @@
 <?php
 //	aide: 	http://stackoverflow.com/questions/19751354/how-to-import-sql-file-in-mysql-database-using-php
 //			http://dev.mysql.com/doc/refman/5.7/en/show-table-status.html
-			http://stackoverflow.com/questions/12403662/how-to-remove-all-mysql-tables-from-the-command-line-without-drop-database-permi je n'ai pas utilis� cette m�thode
+//			http://stackoverflow.com/questions/12403662/how-to-remove-all-mysql-tables-from-the-command-line-without-drop-database-permi je n'ai pas utilisé cette méthode
 
 	function import(&$db,$sql,&$errors,$delete = TRUE) {
 		
@@ -20,6 +20,7 @@
 			}
 		  }
 		  $db->query('SET foreign_key_checks = 1');
+		  Log::info('La base de donnée à été vidée par '.$_SESSION['user']->getUsername());
 	  }
 	  foreach($sql as $line) {
 		if (substr($line, 0, 2) == '--' || $line == '') {
@@ -34,5 +35,6 @@
 		  $query = '';
 		}
 	  }
+	  Log::info('La base de donnée importée par '.$_SESSION['user']->getUsername());
 	}
 ?>

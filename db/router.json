@@ -70,5 +70,11 @@
 			"title" : "Importer une base de donnée .sql",
 			"menu" : "admin",
 			"grade" : 3
+	},
+	"listFilms": {
+			"path" : "app/controler/listFilms.php",
+			"title" : "Liste des films",
+			"menu" : "admin",
+			"grade" : 2
 	}
 }
