@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.5.3.1
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 13 Janvier 2017 à 15:13
+-- Généré le :  Mar 17 Janvier 2017 à 14:43
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.5.31
 
@@ -81,7 +81,14 @@ INSERT INTO `t_film` (`id_film`, `titreOriginal`, `titreTraduit`, `duree`, `date
 (12, 'The Hateful Eight', 'Les 8 Salopards', 162, '2016-05-08', 'Après la Guerre de Sécession, huit voyageurs se retrouvent coincés dans un refuge au milieu des montagnes. Alors que la tempête s\'abat au-dessus du massif, ils réalisent qu\'ils n\'arriveront peut-être pas à rallier Red Rock comme prévu...', 16, 'img/films/img_a550000.jpg', 'https://www.youtube.com/watch?v=gnRbXn4-Yis'),
 (13, 'Django Unchained', NULL, 159, '2015-03-11', 'Dans le sud des États-Unis, le Dr King Schultz, un chasseur de primes allemand, fait l`acquisition de Django, un esclave qui peut l`aider à traquer les frères Brittle, les meurtriers qu`il recherche. Schultz promet à Django de lui rendre sa liberté lorsqu`il aura capturé les Brittle - morts ou vifs. Alors que les deux hommes pistent les dangereux criminels, Django n`oublie pas que son seul but est de retrouver sa femme...', 16, 'img/films/img_77f60000.jpg', 'https://www.youtube.com/watch?v=eUdM9vrCbow'),
 (14, 'Pulp Fiction', NULL, 145, '2011-10-07', 'Pulp Fiction décrit l`odyssée sanglante et burlesque de petits malfrats pas très doués et perdus dans la jungle de Hollywood. On y croise volontiers les destins de deux petits tueurs, d`un dangereux gangster marié sans le savoir à une vraie camée, d`un boxeur roublard, de prêteurs sur gages sadiques et sans pitié, d`un caïd élégant qui n`y paraît pas, d`un dealer honnête...et ce n`est pas tout. A vous de reconstituer le puzzle maintenant.', 16, 'img/films/img_37f70000.jpg', 'https://www.youtube.com/watch?v=s7EdQ4FqbhY'),
-(15, 'Harry Potter et la Chambre des secrets', 'Harry Potter and the Chamber of Secrets', 161, '2002-12-04', 'Alors que l\'oncle Vernon, la tante Pétunia et son cousin Dudley reçoivent d\'importants invités à dîner, Harry Potter est contraint de passer la soirée dans sa chambre. Dobby, un elfe, fait alors son apparition. Il lui annonce que de terribles dangers menacent l\'école de Poudlard et qu\'il ne doit pas y retourner en septembre. Harry refuse de le croire. Mais sitôt la rentrée des classes effectuée, ce dernier entend une voix malveillante. Celle-ci lui dit que la redoutable et légendaire Chambre des secrets est à nouveau ouverte, permettant ainsi à l\'héritier de Serpentard de semer le chaos à Poudlard. Les victimes, retrouvées pétrifiées par une force mystérieuse, se succèdent dans les couloirs de l\'école, sans que les professeurs - pas même le populaire Gilderoy Lockhart - ne parviennent à endiguer la menace. Aidé de Ron et Hermione, Harry doit agir au plus vite pour sauver Poudlard. ', 6, 'img/films/img_80f0000.jpg', NULL);
+(15, 'Harry Potter et la Chambre des secrets', 'Harry Potter and the Chamber of Secrets', 161, '2002-12-04', 'Alors que l\'oncle Vernon, la tante Pétunia et son cousin Dudley reçoivent d\'importants invités à dîner, Harry Potter est contraint de passer la soirée dans sa chambre. Dobby, un elfe, fait alors son apparition. Il lui annonce que de terribles dangers menacent l\'école de Poudlard et qu\'il ne doit pas y retourner en septembre. Harry refuse de le croire. Mais sitôt la rentrée des classes effectuée, ce dernier entend une voix malveillante. Celle-ci lui dit que la redoutable et légendaire Chambre des secrets est à nouveau ouverte, permettant ainsi à l\'héritier de Serpentard de semer le chaos à Poudlard. Les victimes, retrouvées pétrifiées par une force mystérieuse, se succèdent dans les couloirs de l\'école, sans que les professeurs - pas même le populaire Gilderoy Lockhart - ne parviennent à endiguer la menace. Aidé de Ron et Hermione, Harry doit agir au plus vite pour sauver Poudlard. ', 6, 'img/films/img_80f0000.jpg', NULL),
+(16, 'Harry Potter and the Prisoner of Azkaban', 'Harry Potter et le Prisonnier d\'Azkaban', 142, '2004-06-02', 'Sirius Black, un dangereux sorcier criminel, s\'échappe de la sombre prison d\'Azkaban avec un seul et unique but : retrouver Harry Potter, en troisième année à l\'école de Poudlard. Selon la légende, Black aurait jadis livré les parents du jeune sorcier à leur assassin, Lord Voldemort, et serait maintenant déterminé à tuer Harry...', 6, 'img/films/img_1cba0000.jpg', 'https://www.youtube.com/watch?v=CLncEeVf4ks'),
+(17, 'Harry Potter and the Goblet of Fire', 'Harry Potter et la Coupe de feu', 157, '2005-11-30', 'La quatrième année à l\'école de Poudlard est marquée par le &quot;Tournoi des trois sorciers&quot;. Les participants sont choisis par la fameuse &quot;coupe de feu&quot; qui est à l\'origine d\'un scandale. Elle sélectionne Harry Potter alors qu\'il n\'a pas l\'âge légal requis ! Accusé de tricherie et mis à mal par une série d\'épreuves physiques de plus en plus difficiles, ce dernier sera enfin confronté à Celui dont on ne doit pas prononcer le nom, Lord V.', 6, NULL, 'https://www.youtube.com/watch?v=XO9rqIgzDL0'),
+(18, 'Harry Potter and the Order of the Phoenix', 'Harry Potter et l\'Ordre du phénix', 138, '2007-07-11', 'Alors qu\'il entame sa cinquième année d\'études à Poudlard, Harry Potter découvre que la communauté des sorciers ne semble pas croire au retour de Voldemort, convaincue par une campagne de désinformation orchestrée par le Ministre de la Magie Cornelius Fudge. Afin de le maintenir sous surveillance, Fudge impose à Poudlard un nouveau professeur de Défense contre les Forces du Mal, Dolorès Ombrage, chargée de maintenir l\'ordre à l\'école et de surveiller les faits et gestes de Dumbledore. Prodiguant aux élèves des cours sans grand intérêt, celle qui se fait appeler la Grande Inquisitrice de Poudlard semble également décidée à tout faire pour rabaisser Harry. Entouré de ses amis Ron et Hermione, ce dernier met sur pied un groupe secret, &quot;L\'Armée de Dumbledore&quot;, pour leur enseigner l\'art de la défense contre les forces du Mal et se préparer à la guerre qui s\'annonce...', 10, NULL, 'https://www.youtube.com/watch?v=S8-SXEGMmi4'),
+(19, 'Harry Potter and the Half-Blood Prince', 'Harry Potter et le Prince de sang-mêlé', 154, '2009-07-15', 'L\'étau démoniaque de Voldemort se resserre sur l\'univers des Moldus et le monde de la sorcellerie. Poudlard a cessé d\'être un havre de paix, le danger rode au coeur du château... Mais Dumbledore est plus décidé que jamais à préparer Harry à son combat final, désormais imminent. Ensemble, le vieux maître et le jeune sorcier vont tenter de percer à jour les défenses de Voldemort. Pour les aider dans cette délicate entreprise, Dumbledore va relancer et manipuler son ancien collègue, le Professeur Horace Slughorn, qu\'il croit en possession d\'informations vitales sur le jeune Voldemort. Mais un autre &quot;mal&quot; hante cette année les étudiants : le démon de l\'adolescence ! Harry est de plus en plus attiré par Ginny, qui ne laisse pas indifférent son rival, Dean Thomas ; Lavande Brown a jeté son dévolu sur Ron, mais oublié le pouvoir &quot;magique&quot; des chocolats de Romilda Vane ; Hermione, rongée par la jalousie, a décidé de cacher ses sentiments, vaille que vaille. L\'amour est dans tous les coeurs - sauf un. Car un étudiant reste étrangement sourd à son appel. Dans l\'ombre, il poursuit avec acharnement un but aussi mystérieux qu\'inquiétant... jusqu\'à l\'inévitable tragédie qui bouleversera à jamais Poudlard...', 10, 'img/films/img_47f00000.jpg', 'https://www.youtube.com/watch?v=yb-VYG3x5E8'),
+(20, 'Harry Potter and the Deathly Hallows', 'Harry Potter et les Reliques de la Mort pt.1', 146, '2010-11-24', 'Le pouvoir de Voldemort s\'étend. Celui-ci contrôle maintenant le Ministère de la Magie et Poudlard. Harry, Ron et Hermione décident de terminer le travail commencé par Dumbledore, et de retrouver les derniers Horcruxes pour vaincre le Seigneur des Ténèbres. Mais il reste bien peu d\'espoir aux trois sorciers, qui doivent réussir à tout prix.', 10, 'img/films/img_71690000.jpg', 'https://www.youtube.com/watch?v=HgZZsnleZJQ'),
+(21, 'Harry Potter and the Deathly Hallows', 'Harry Potter et les Reliques de la Mort pt.2', 130, '2011-07-13', 'Dans la 2e Partie de cet épisode final, le combat entre les puissances du bien et du mal de l’univers des sorciers se transforme en guerre sans merci. Les enjeux n’ont jamais été si considérables et personne n’est en sécurité. Mais c’est Harry Potter qui peut être appelé pour l’ultime sacrifice alors que se rapproche l’ultime épreuve de force avec Voldemort.', 10, 'img/films/img_77ee0000.jpg', 'https://www.youtube.com/watch?v=aiaIfICU-Tk'),
+(22, 'Avatar', NULL, 162, '2009-12-16', 'Malgré sa paralysie, Jake Sully, un ancien marine immobilisé dans un fauteuil roulant, est resté un combattant au plus profond de son être. Il est recruté pour se rendre à des années-lumière de la Terre, sur Pandora, où de puissants groupes industriels exploitent un minerai rarissime destiné à résoudre la crise énergétique sur Terre. Parce que l\'atmosphère de Pandora est toxique pour les humains, ceux-ci ont créé le Programme Avatar, qui permet à des &quot; pilotes &quot; humains de lier leur esprit à un avatar, un corps biologique commandé à distance, capable de survivre dans cette atmosphère létale. Ces avatars sont des hybrides créés génétiquement en croisant l\'ADN humain avec celui des Na\'vi, les autochtones de Pandora. Sous sa forme d\'avatar, Jake peut de nouveau marcher. On lui confie une mission d\'infiltration auprès des Na\'vi, devenus un obstacle trop conséquent à l\'exploitation du précieux minerai. Mais tout va changer lorsque Neytiri, une très belle Na\'vi, sauve la vie de Jake...', 12, NULL, 'https://www.youtube.com/watch?v=62jWz1dacSM');
 
 -- --------------------------------------------------------
 
@@ -143,7 +150,20 @@ INSERT INTO `t_formatfilm` (`id_formatFilm`, `fk_film`, `fk_format`, `prix`, `nu
 (23, 14, 3, 15.9, '5878d740256e4'),
 (24, 14, 5, 20.9, '5878d7402a7c9'),
 (25, 15, 3, 12, '5878dba8a6974'),
-(26, 15, 5, 19, '5878dba8abd0c');
+(26, 15, 5, 19, '5878dba8abd0c'),
+(27, 16, 3, 15, '587de3d2f2f85'),
+(28, 16, 5, 22, '587de3d30acad'),
+(29, 17, 3, 15, '587dfd7ce7af2'),
+(30, 17, 5, 23, '587dfd7cf134a'),
+(31, 18, 3, 15, '587dfd8171c3a'),
+(32, 18, 5, 23, '587dfd818a2da'),
+(33, 19, 3, 15, '587dfdc215c5a'),
+(34, 19, 5, 23, '587dfdc21d572'),
+(35, 20, 3, 15, '587dfe7ce80ce'),
+(36, 20, 5, 25, '587dfe7cf3c4e'),
+(37, 21, 3, 15, '587dfe7fd2076'),
+(38, 21, 5, 25, '587dfe7fe6896'),
+(39, 22, 5, 27, '587e1eefe7726');
 
 -- --------------------------------------------------------
 
@@ -206,7 +226,14 @@ INSERT INTO `t_genrefilm` (`id_genreFilm`, `fk_film`, `fk_genre`) VALUES
 (18, 13, 4),
 (19, 14, 12),
 (20, 14, 13),
-(21, 15, 7);
+(21, 15, 7),
+(22, 16, 6),
+(23, 17, 6),
+(24, 18, 6),
+(25, 19, 6),
+(26, 20, 6),
+(27, 21, 6),
+(28, 22, 8);
 
 -- --------------------------------------------------------
 
@@ -264,7 +291,20 @@ INSERT INTO `t_languefilm` (`id_langueFilm`, `fk_film`, `fk_langue`) VALUES
 (21, 14, 2),
 (22, 14, 1),
 (23, 15, 1),
-(24, 15, 2);
+(24, 15, 2),
+(25, 16, 1),
+(26, 16, 2),
+(27, 17, 1),
+(28, 17, 2),
+(29, 18, 1),
+(30, 18, 2),
+(31, 19, 1),
+(32, 19, 2),
+(33, 20, 1),
+(34, 20, 2),
+(35, 21, 1),
+(36, 21, 2),
+(37, 22, 2);
 
 -- --------------------------------------------------------
 
@@ -333,7 +373,8 @@ INSERT INTO `t_personne` (`id_personne`, `nom`) VALUES
 (32, 'Kurt Russel'),
 (33, 'Jennifer jason Leigh'),
 (34, 'Jamie Foxx'),
-(35, 'Uma Thurman');
+(35, 'Uma Thurman'),
+(36, 'James Cameron');
 
 -- --------------------------------------------------------
 
@@ -391,7 +432,33 @@ INSERT INTO `t_rolefilm` (`id_roleFilm`, `fk_film`, `fk_personne`, `role`) VALUE
 (42, 15, 17, 'Acteur'),
 (43, 15, 16, 'Acteur'),
 (44, 15, 15, 'Acteur'),
-(45, 15, 18, 'Réalisateur');
+(45, 15, 18, 'Réalisateur'),
+(46, 16, 15, 'Acteur'),
+(47, 16, 16, 'Acteur'),
+(48, 16, 17, 'Acteur'),
+(49, 16, 18, 'Realisateur'),
+(50, 17, 15, 'Acteur'),
+(51, 17, 16, 'Acteur'),
+(52, 17, 17, 'Acteur'),
+(53, 17, 18, 'Realisateur'),
+(54, 18, 15, 'Acteur'),
+(55, 18, 16, 'Acteur'),
+(56, 18, 17, 'Acteur'),
+(57, 18, 18, 'Realisateur'),
+(58, 19, 15, 'Acteur'),
+(59, 19, 16, 'Acteur'),
+(60, 19, 17, 'Acteur'),
+(61, 19, 18, 'Realisateur'),
+(62, 20, 15, 'Acteur'),
+(63, 20, 16, 'Actrisse'),
+(64, 20, 17, 'Acteur'),
+(65, 20, 17, 'Réalisateur'),
+(66, 21, 15, 'Acteur'),
+(67, 21, 16, 'Acteur'),
+(68, 21, 17, 'Acteur'),
+(69, 21, 18, 'Realisateur'),
+(70, 22, 1, 'Realisateur'),
+(71, 22, 8, 'Acteur');
 
 -- --------------------------------------------------------
 
@@ -433,7 +500,13 @@ INSERT INTO `t_sagafilm` (`id_sagaFilm`, `fk_film`, `fk_saga`) VALUES
 (1, 7, 1),
 (2, 9, 2),
 (3, 10, 3),
-(4, 15, 1);
+(4, 15, 1),
+(5, 16, 1),
+(6, 17, 1),
+(7, 18, 1),
+(8, 19, 1),
+(9, 20, 1),
+(10, 21, 1);
 
 -- --------------------------------------------------------
 
@@ -488,7 +561,14 @@ INSERT INTO `t_societefilm` (`id_societeFilm`, `fk_film`, `fk_societe`) VALUES
 (12, 12, 9),
 (13, 13, 9),
 (14, 14, 10),
-(15, 15, 4);
+(15, 15, 4),
+(16, 16, 4),
+(17, 17, 4),
+(18, 18, 4),
+(19, 19, 4),
+(20, 20, 4),
+(21, 21, 4),
+(22, 22, 5);
 
 --
 -- Index pour les tables exportées
@@ -613,7 +693,7 @@ ALTER TABLE `t_commentaire`
 -- AUTO_INCREMENT pour la table `t_film`
 --
 ALTER TABLE `t_film`
-  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT pour la table `t_format`
 --
@@ -623,7 +703,7 @@ ALTER TABLE `t_format`
 -- AUTO_INCREMENT pour la table `t_formatfilm`
 --
 ALTER TABLE `t_formatfilm`
-  MODIFY `id_formatFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_formatFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT pour la table `t_genre`
 --
@@ -633,7 +713,7 @@ ALTER TABLE `t_genre`
 -- AUTO_INCREMENT pour la table `t_genrefilm`
 --
 ALTER TABLE `t_genrefilm`
-  MODIFY `id_genreFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_genreFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT pour la table `t_langue`
 --
@@ -643,7 +723,7 @@ ALTER TABLE `t_langue`
 -- AUTO_INCREMENT pour la table `t_languefilm`
 --
 ALTER TABLE `t_languefilm`
-  MODIFY `id_langueFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_langueFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT pour la table `t_notefilm`
 --
@@ -653,12 +733,12 @@ ALTER TABLE `t_notefilm`
 -- AUTO_INCREMENT pour la table `t_personne`
 --
 ALTER TABLE `t_personne`
-  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT pour la table `t_rolefilm`
 --
 ALTER TABLE `t_rolefilm`
-  MODIFY `id_roleFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_roleFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 --
 -- AUTO_INCREMENT pour la table `t_saga`
 --
@@ -668,7 +748,7 @@ ALTER TABLE `t_saga`
 -- AUTO_INCREMENT pour la table `t_sagafilm`
 --
 ALTER TABLE `t_sagafilm`
-  MODIFY `id_sagaFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_sagaFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `t_societe`
 --
@@ -678,7 +758,7 @@ ALTER TABLE `t_societe`
 -- AUTO_INCREMENT pour la table `t_societefilm`
 --
 ALTER TABLE `t_societefilm`
-  MODIFY `id_societeFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_societeFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- Contraintes pour les tables exportées
 --
