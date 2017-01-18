@@ -10,7 +10,7 @@ function html_check($p) {
 }
 // permet de savoir si une option d'un select à été choisie par l'utilisateur. Pas de gestion d'erreur car l'utilisateur ne peut pas changer l'id (BON a moins de modifier le code HTML avec un éditeur mais voila)
 function getHTMLSelected($select,$id) {
-	if($_POST[$select] == $id)
+	if(isset($_POST[$select]) AND $_POST[$select] == $id)
 		return 'selected';
 }
 // permet de recup les infos + erreur d'un élément du formulaire (sauf pour les select, c'est la fonction en dessus qui s'en occupe)

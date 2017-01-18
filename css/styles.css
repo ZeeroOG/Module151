@@ -142,6 +142,12 @@
 	position: absolute;
 	transform: translateX(5px);
 }
+#addToDB h4 {
+	display: inline-block;
+	margin-bottom: 5px;
+	font-weight: 700;
+	font-size: 1.2em;
+}
 #addToDB h4 > .required, #addToDB p > .required {
 	position: relative;
 	transform: none;
@@ -155,6 +161,9 @@
 	margin-left: 50px;
 	margin-top: 40px;
 	color: red;
+}
+#addToDB .genres, #addToDB .langues, #addToDB .sagas, #addToDB .societes, #addToDB .formats, #addToDB .personnes {
+	margin: 3px 2px;
 }
 /*#addToDB select {
 	width: 20%;
@@ -193,7 +202,11 @@
 	height: 35px;
 }*/
 input.error,textarea.error {
-	outline: 1px solid red;
+	border: 1px solid #ff9999;
+}
+input.error:focus,textarea.error:focus {
+	border-color: red;
+	outline: 0;
 }
 div.error {
 	margin-bottom: 10px;

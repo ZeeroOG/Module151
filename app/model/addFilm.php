@@ -110,14 +110,14 @@
 			}
 			//FORMAT&PRIX
 			else if(preg_match('#^prix.+#',$key)) {
-				$format = $post['format'.substr($key,-1)];
+				$format = $post['format'.substr($key,4)];
 				$stmt = $db->prepare('INSERT INTO t_formatfilm (fk_film,fk_format,prix,numero_article) VALUES (?,?,?,?)');
 				if(dbError($stmt,$db,$errors)) return FALSE;
 				$stmt->execute(array($film_id,$format,$value,uniqid()));
 			}
 			//PERSONNE&ROLE
 			else if(preg_match('#^role.+#',$key)) {
-				$personne = $post['personne'.substr($key,-1)];
+				$personne = $post['personne'.substr($key,4)];
 				$stmt = $db->prepare('INSERT INTO t_rolefilm (fk_film,fk_personne,role) VALUES (?,?,?)');
 				if(dbError($stmt,$db,$errors)) return FALSE;
 				$stmt->execute(array($film_id,$personne,$value));
