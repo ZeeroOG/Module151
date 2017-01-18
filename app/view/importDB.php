@@ -16,7 +16,6 @@
   }
   #importDB #send {
 	width: 100%;
-	height: 30px;
 	margin-top: 20px;
   }
   #errors {
@@ -34,7 +33,7 @@
 </style>
 <div id="errors">
   <?php foreach($errors as $line) {
-	  echo $line.PHP_EOL;
+	  echo $line.'<br/>';
   }?>
 </div>
 <?php if(isset($_POST['send']) AND empty($errors)) :?>
@@ -52,6 +51,6 @@
 	<label for="eraseBefore">Supprimer les données et déjà présentes</label>
   </div>
   <div>
-    <input type="submit" id="send" name="send" value="Importer"/>
+    <input type="submit" id="send" name="send" value="Importer" class="btn btn-primary"/>
   </div>
  </form>

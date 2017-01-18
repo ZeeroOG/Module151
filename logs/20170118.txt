@@ -1,0 +1,16 @@
+[11:22:40 INFO] Un nouveau film à été ajouté par cedric : Ntm OK ? 
+[11:28:31 INFO] Un nouveau film à été ajouté par cedric : kkk 
+[11:31:13 INFO] Un nouveau film à été ajouté par cedric : 1 
+[11:34:55 INFO] Un nouveau film à été ajouté par cedric : la grosse bite a papa 
+[11:38:05 INFO] La base de donnée à été vidée par cedric 
+[11:38:09 INFO] La base de donnée importée par cedric 
+[11:42:51 INFO] La base de donnée importée par cedric 
+[11:44:25 INFO] La base de donnée importée par cedric 
+[11:45:17 INFO] La base de donnée importée par cedric 
+[11:46:03 INFO] La base de donnée importée par cedric 
+[11:46:25 INFO] La base de donnée importée par cedric 
+[11:47:01 INFO] La base de donnée importée par cedric 
+[11:47:28 INFO] La base de donnée importée par cedric 
+[11:48:11 INFO] La base de donnée importée par cedric 
+[11:48:25 INFO] La base de donnée à été vidée par cedric 
+[11:48:29 INFO] La base de donnée importée par cedric 

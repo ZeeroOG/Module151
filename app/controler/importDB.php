@@ -23,7 +23,7 @@
 		else {
 
 		  $sql = file($file['tmp_name']);
-		  import($db_sql,$sql,$errors,$_POST['eraseBefore']);
+		  import($db_sql,$sql,$errors,(isset($_POST['eraseBefore']) ? $_POST['eraseBefore'] : 0));
 	    }
 	  }
 	}

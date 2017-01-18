@@ -8,11 +8,10 @@ class FilmList {
 		$this->getData();
 	}
 
-	private function getData() {
+	private function getData() {	//ce serait possible de mettre dans model vu qu'il y a interaction avec la DB ? en créant une fonction par ex. que la classe va chercher :) -> j'utilise également la classe pour listFilms
 		global $db_sql;
 
-		$req = $db_sql->prepare('SELECT * FROM t_film');
-		$req->execute();
+		$req = $db_sql->query('SELECT * FROM t_film');
 
 		$this->filmList = array();
 
