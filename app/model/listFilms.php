@@ -20,14 +20,15 @@ function removeFilm($id, &$db, &$errors) {
 		} else {
 			$req = $db->query("DELETE FROM $table WHERE fk_film = $id");
 		}
+
+		if(!$req) {
+			array_push($errors, $db->errorInfo()[2]);
+			Log::warn('Erreur SQL lors de la supression des attributs d\'un film dans la base de données: ' . $db->errorInfo()[2]);
+		}
+
+		$req->closeCursor();
 	}
 
-	if(!$req) {
-		array_push($errors, $db->errorInfo()[2]);
-		Log::warn('Erreur SQL lors de la supression des attributs d\'un film dans la base de données: ' . $db->errorInfo()[2]);
-	}
-
-	$req->closeCursor();
 	header('Location: ?p=listFilms');
 }
 
