@@ -1,0 +1,10 @@
+[09:06:00 INFO] Un nouveau film Ã  Ã©tÃ© ajoutÃ© par cedric : ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 
+[17:07:09 WARNING] Erreur SQL lors de la supression d'un film dans la base de donnée: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE fk_film = 22;
+DELETE FROMt_formatfilm WHERE fk_film = 22;
+DELETE FROMt_g' at line 1 
+[17:07:34 WARNING] Erreur SQL lors de la supression d'un film dans la base de donnée: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE fk_film = 22;
+DELETE FROMt_formatfilm WHERE fk_film = 22;
+DELETE FROMt_g' at line 1 
+[17:09:53 WARNING] Erreur SQL lors de la supression d'un film dans la base de donnée: Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute. 
+[17:15:40 WARNING] Erreur SQL lors de la supression d'un film dans la base de donnée: Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute. 
+[17:20:38 WARNING] Erreur SQL lors de la supression d'un film dans la base de donnée: Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute. 

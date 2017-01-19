@@ -77,15 +77,16 @@ if($pages->$page->grade == -1 AND $grade != 0) {
 			</ul>
 		</div>
 	</div>
-    <div class="container">
+    <div class="main container">
         <?php include($pages->$page->path);
         echo "\n"; ?>
 	</div>
-	<div class="container footer">
-		<p class="muted">Page générée en : <b>%loadingTime%ms</b> par le serveur <b>%serverName%</b></p>
+	<footer class="footer">
+	  <div class="container">
+	    <p class="muted">Page générée en : <b>%loadingTime%ms</b> par le serveur <b>%serverName%</b></p>
         <p class="muted">&copy; 2017 - Henry Jonas, Sebastiao Cristiano, Mujynya Cédric, Maillard William</p>
-	</div>
-
+	  </div>
+	</footer>
 	<!-- Javascript -->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
