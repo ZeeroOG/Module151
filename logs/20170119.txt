@@ -10,3 +10,5 @@ DELETE FROMt_g' at line 1
 [17:20:38 WARNING] Erreur SQL lors de la supression d'un film dans la base de donn�e: Cannot execute queries while other unbuffered queries are active.  Consider using PDOStatement::fetchAll().  Alternatively, if your code is only ever going to run against mysql, you may enable query buffering by setting the PDO::MYSQL_ATTR_USE_BUFFERED_QUERY attribute. 
 [19:09:42 INFO] Un nouveau film à été ajouté par william : TEST 
 [20:05:13 INFO] Un nouveau film à été ajouté par william : TEST 
+[20:32:11 INFO] La base de donnée à été vidée par william 
+[20:32:11 INFO] La base de donnée importée par william 

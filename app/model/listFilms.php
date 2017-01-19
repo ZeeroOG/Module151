@@ -2,6 +2,16 @@
 
 function removeFilm($id, &$db, &$errors) {
 
+	$req = $db->query("SELECT pochetteURL FROM t_film WHERE id_film = $id");
+	$image = $req->fetch();
+	$image = $image['pochetteURL'];
+	
+	if($image != null AND file_exists($image)) {
+		unlink($image);
+	}
+
+	$req->closeCursor();
+
 	$tables = array(
 		't_commentaire',
 		't_formatfilm',
