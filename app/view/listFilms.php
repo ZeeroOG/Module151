@@ -20,7 +20,7 @@
 	  padding-right: 0;
   }
   #columnNames {
-	  
+
 	  font-weight: 700;
 	  margin-bottom: 20px;
   }
@@ -58,9 +58,9 @@
 	  <div class="col-xs-1"><?=date('G\hi',mktime(0,$value['duree']))?></div>
 	  <div class="col-xs-2 right"><?=date('d.m.Y',strtotime($value['sortie']))?></div>
 	  <div class="col-xs-2 col-xs-offset-1">
-	    <a href=".?p=editFilm&id=<?=$value['id']?>" title="Modifier le film"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-		<a href=".?p=listFilms&removeFilm=true&id=<?=$value['id']?>" title="Supprimer le film"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-		<a href=".?p=showFilm&id=<?=$value['id']?>" title="Afficher le film"><span class="glyphicon glyphicon-film" aria-hidden="true"></span></a>
+		<a class="btn btn-xs btn-primary" href="?p=showFilm&id=<?=$value['id']?>" title="Afficher le film"><span class="glyphicon glyphicon-film" aria-hidden="true"></span></a>
+	    <a class="btn btn-xs btn-warning" href="?p=editFilm&id=<?=$value['id']?>" title="Modifier le film"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+		<a class="btn btn-xs btn-danger" onclick="return confirm('Etes-vous sûr de vouloir supprimer ce film ?');" href="?p=listFilms&removeFilm=true&id=<?=$value['id']?>" title="Supprimer le film"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 	  </div>
 	</div>
   <?php endforeach;?>
