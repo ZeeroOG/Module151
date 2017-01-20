@@ -1,84 +1,84 @@
 {
 	"home": {
-			"path" : "app/controler/home.php",
+			"path" : "app/controller/home.php",
 			"title": "Accueil",
 			"menu" : "home",
 			"grade": 0
 		},
 	"shop": {
-			"path" : "app/controler/shop.php",
+			"path" : "app/controller/shop.php",
 			"title": "Boutique",
 			"menu" : "shop",
 			"grade": 0
 		},
 	"panier": {
-			"path" : "app/controler/panier.php",
+			"path" : "app/controller/panier.php",
 			"title": "Panier",
 			"menu" : "panier",
 			"grade": 0
 		},
 	"register": {
-			"path" : "app/controler/register.php",
+			"path" : "app/controller/register.php",
 			"title": "Inscription",
 			"menu" : "register",
 			"grade": -1
 		},
 	"login": {
-			"path" : "app/controler/login.php",
+			"path" : "app/controller/login.php",
 			"title": "Connexion",
 			"menu" : "login",
 			"grade": -1
 		},
 	"orders": {
-			"path" : "app/controler/orders.php",
+			"path" : "app/controller/orders.php",
 			"title": "Commandes",
 			"menu" : "orders",
 			"grade": 1
 		},
 	"account": {
-			"path" : "app/controler/account.php",
+			"path" : "app/controller/account.php",
 			"title": "Mon compte",
 			"menu" : "account",
 			"grade": 1
 		},
 	"logout": {
-			"path" : "app/controler/logout.php",
+			"path" : "app/controller/logout.php",
 			"title": "Déconnexion",
 			"menu" : "logout",
 			"grade": 1
 		},
 	"admin": {
-			"path" : "app/controler/admin.php",
+			"path" : "app/controller/admin.php",
 			"title": "Administration",
 			"menu" : "admin",
 			"grade": 2
 		},
 	"addFilm": {
-			"path" : "app/controler/addFilm.php",
+			"path" : "app/controller/addFilm.php",
 			"title": "Ajout film",
 			"menu" : "admin",
 			"grade": 2
 		},
 	"editFilm": {
-			"path" : "app/controler/editFilm.php",
+			"path" : "app/controller/editFilm.php",
 			"title": "Edit film",
 			"menu" : "admin",
 			"grade": 2
 		},
 	"showFilm": {
-			"path" : "app/controler/showFilm.php",
+			"path" : "app/controller/showFilm.php",
 			"title": "%filmName%",
 			"menu" : "shop",
 			"grade": 0
 		},
 	"importDB": {
-			"path" : "app/controler/importDB.php",
+			"path" : "app/controller/importDB.php",
 			"title" : "Importer une base de donnée .sql",
 			"menu" : "admin",
 			"grade" : 3
 	},
 	"listFilms": {
-			"path" : "app/controler/listFilms.php",
+			"path" : "app/controller/listFilms.php",
 			"title" : "Liste des films",
 			"menu" : "admin",
 			"grade" : 2
