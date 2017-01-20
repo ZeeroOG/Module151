@@ -1,3 +1,9 @@
+<?php if(isset($_GET['panier']) AND $_GET['panier'] == 'ok') { ?>
+<div class="alert alert-success alert-dismissible" role="alert">
+	<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+	<strong>Succés !</strong> Le film a été ajouté à votre <a href="?p=panier&return=1">panier</a>.
+</div>
+<?php } ?>
 <table class="table table-striped">
 	<tr style="font-weight: bold;">
 		<td style="width: 60px;">Couverture</td>
@@ -19,7 +25,7 @@
 				<ul>
 				<?php
 					foreach ($value['prix'] as $prix) {
-						echo '<li><b>' . $prix['nom'] . ':</b>&nbsp;' . formatPrice($prix['prix']) . ' CHF</li>';
+						echo '<li><b>' . $prix['nom'] . ':</b>&nbsp;' . formatPrice($prix['prix']) . ' CHF<a style="float: right; margin: 0;" href="?p=panier&add=' . $prix['numero'] . '&callback=' . urlencode("?p=shop&panier=ok") . '"><i class="glyphicon glyphicon-shopping-cart"></i> Ajouter panier</a></li>';
 					}
 				?>
 				</ul>

@@ -18,7 +18,7 @@ class FilmList {
 		while($x = $req->fetch()) {
 			$film = array();
 
-			$req2 = $db_sql->prepare('SELECT t_formatfilm.prix, t_format.nom FROM t_film
+			$req2 = $db_sql->prepare('SELECT t_formatfilm.prix, t_format.nom, t_formatfilm.numero_article FROM t_film
 									  INNER JOIN t_formatfilm ON t_film.id_film = t_formatfilm.fk_film
 									  INNER JOIN t_format ON t_formatfilm.fk_format = t_format.id_format
 									  WHERE t_film.id_film = ?
@@ -30,6 +30,7 @@ class FilmList {
 
 				$prixfilm['nom'] = $y['nom'];
 				$prixfilm['prix'] = $y['prix'];
+				$prixfilm['numero'] = $y['numero_article'];
 
 				array_push($film['prix'], $prixfilm);
 			}
