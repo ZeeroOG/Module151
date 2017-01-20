@@ -8,7 +8,7 @@ class FilmList {
 		$this->getData();
 	}
 
-	private function getData() {	//ce serait possible de mettre dans model vu qu'il y a interaction avec la DB ? en créant une fonction par ex. que la classe va chercher :) -> j'utilise également la classe pour listFilms
+	private function getData() {
 		global $db_sql;
 
 		$req = $db_sql->query('SELECT * FROM t_film');
@@ -66,7 +66,7 @@ class FilmList {
 		}
 	}
 
-	public function orderByTitle() {
+	public function orderByTitle($invert = 1) {
 		$temp = array();
 		$temp2 = array();
 
@@ -80,10 +80,12 @@ class FilmList {
 			$temp2[$key] = $this->filmList[$key];
 		}
 
+		if($invert == 1) $temp2 = array_reverse($temp2);
+
 		$this->filmList = $temp2;
 	}
 
-	public function orderByDate() {
+	public function orderByDate($invert = 1) {
 		$temp = array();
 		$temp2 = array();
 
@@ -96,6 +98,8 @@ class FilmList {
 		foreach ($temp as $key => $value) {
 			$temp2[$key] = $this->filmList[$key];
 		}
+
+		if($invert == 1) $temp2 = array_reverse($temp2);
 
 		$this->filmList = $temp2;
 	}
