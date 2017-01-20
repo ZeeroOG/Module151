@@ -136,6 +136,11 @@ Class Film {
 		if($this->pochetteURL != NULL) return $this->pochetteURL;
 		else return "img/noimage.jpg";
 	}
+
+	public function getImageBool() {
+		if($this->pochetteURL != NULL) return true;
+		else return false;
+	}
 }
 
 ?>
