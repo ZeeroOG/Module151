@@ -1,46 +1,29 @@
 <div style="max-width: 500px; margin-right: auto; margin-left: auto; margin-top: 40px; margin-bottom: 20px;">
-<form action="?p=login" method="post" class="loginForm">
-	<fieldset>
-  		<legend>Connexion</legend>
-		<table>
-			<tr>
-				<td>Nom d'utilisateur</td>
-				<td><input class="form-control" type="text" name="username" <?php if(isset($_GET['newAccount'])) { echo "value=" . $_GET['newAccount'] . " "; } ?><?php if(isset($_POST['username'])) { echo "value=" . $_POST['username'] . " "; } ?>placeholder="Nom d'utilisateur" autofocus required></td>
-			</tr>
-			<tr>
-				<td>Mot de passe</td>
-				<td><input class="form-control" type="password" name="password" placeholder="Mot de passe" required></td>
-			</tr>
-		</table>
-		<?php
-		if(isset($_SESSION['loginCount']) AND $_SESSION['loginCount'] >= LOGIN_COUNT_CAPTCHA) {
-			?>
-			<style>
-				.login-captcha {
-					width: 300px;
-					text-align: center;
-					margin-left: auto;
-					margin-right: auto;
-					margin-bottom: 20px;
-				}
-				.login-captcha input {
-					/*width: 98%;*/
-				}
-				.login-captcha p {
-					color: red;
-				}
-			</style>
-			<div class="login-captcha">
-				<p>Veuillez saisir le Captcha : </p>
-				<img src="<?php echo $captcha->getImage(); ?>" />
-				<input class="form-control" type="text" name="captcha" placeholder="Entrez le Captcha..." required>
-				<input type="hidden" name="captchaId" value="<?php echo $captchaId; ?>">
-			</div>
-			<?php
-		}
-		?>
-		<div><button class="btn btn-block btn-primary"type="submit">Connexion</button></div>
-	</fieldset>
+<form action="?p=login" method="post" class="form-signin">
+  		<h2 class="form-signin-heading">Connexion</h2>
+
+		<label for="username" class="sr-only">Nom d'utilisateur</label>
+		<input class="form-control" type="text" id="username" name="username" <?php if(isset($_GET['newAccount'])) {
+				echo "value=" . $_GET['newAccount'] . " "; } ?><?php if(isset($_POST['username'])) { echo "value=" . $_POST['username'] . " ";
+			} ?>placeholder="Nom d'utilisateur" required<?php if(!isset($_GET['newAccount']) AND !isset($_POST['username'])) {
+				echo " autofocus";
+			} ?>>
+
+		<label for="password" class="sr-only">Mot de passe</label>
+		<input class="form-control" id="password" type="password" name="password" placeholder="Mot de passe" required<?php
+			if(isset($_GET['newAccount']) OR isset($_POST['username'])) {
+				echo " autofocus";
+			} ?>>
+
+		<?php if(isset($_SESSION['loginCount']) AND $_SESSION['loginCount'] >= LOGIN_COUNT_CAPTCHA) { ?>
+		<div class="login-captcha">
+			<p>Veuillez saisir le Captcha : </p>
+			<img src="<?php echo $captcha->getImage(); ?>" />
+			<input class="form-control" type="text" name="captcha" placeholder="Entrez le Captcha..." required>
+			<input type="hidden" name="captchaId" value="<?php echo $captchaId; ?>">
+		</div>
+		<?php } ?>
+		<input class="form-control btn btn-block btn-danger" type="submit" value="Connexion">
+	</div>
 </form>
-<br />
 </div>

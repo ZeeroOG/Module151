@@ -1,0 +1,2 @@
+[00:01:23 INFO] Un utilisateur à dépassé le nombre de tentatives de connexion (3) avant le captcha. (IP: ::1) 
+[00:01:34 INFO] Un utilisateur à dépassé le nombre de tentatives de connexion (3) avant le captcha. (IP: ::1) 

@@ -25,6 +25,8 @@
 		<td><?php echo $_SESSION['user']->getLevelName(); ?></td>
 	</tr>
 </table>
+<a class="btn btn-danger btn-block">Editer</a>
+
 <h2>Adresse(s)</h2>
 <table class="table table-striped">
 	<tr style="font-weight: bold;">
@@ -37,18 +39,10 @@
 		<td>Chemin des Tests 666</td>
 		<td>1000 Lausanne</td>
 		<td>Suisse</td>
-		<td><a class="btn btn-sm btn-primary">Editer</a></td>
-	</tr>
-	<tr>
-		<td>Chemin des Tests 666</td>
-		<td>1000 Lausanne</td>
-		<td>Suisse</td>
-		<td><a class="btn btn-sm btn-primary">Editer</a></td>
-	</tr>
-	<tr>
-		<td>Chemin des Tests 666</td>
-		<td>1000 Lausanne</td>
-		<td>Suisse</td>
-		<td><a class="btn btn-sm btn-primary">Editer</a></td>
+		<td>
+			<a class="btn btn-xs btn-primary">Editer</a>
+			<a class="btn btn-xs btn-danger">Supprimer</a>
+		</td>
 	</tr>
 </table>
+<a class="btn btn-danger btn-block">Ajouter</a>

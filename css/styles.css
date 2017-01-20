@@ -79,23 +79,49 @@ html,body {
 }
 
 /* Style pour le formulaire de login */
-.loginForm table, .loginForm button {
-	width: 80%;
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.login-captcha {
+	width: 300px;
+	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 20px;
 }
-
-.loginForm div {
-	text-align: center;
-}
-
-.loginForm input {
-	width: 100%;
-}
-
-.loginForm table {
-	border-spacing: 5px;
-    border-collapse: separate;
+.login-captcha p {
+	color: red;
 }
 
 /* Style utilisé pour le formulaire d'ajout/modification dans la DB */

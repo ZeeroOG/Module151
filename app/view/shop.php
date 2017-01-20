@@ -13,7 +13,7 @@
 		<label for="search">Recherche :</label>
 		<div>
 			<input style="width: 78%; display: inline;"  class="form-control" id="search" type="text" name="search" placeholder="Recherche..." <?php if(isset($_GET['search'])) echo 'value="' . $_GET['search'] . '"'; ?>/>
-			<input style="width: 20%; display: inline; float: right;" class="form-control btn btn-primary" type="submit" value="Rechercher" />
+			<input style="width: 20%; display: inline; float: right;" class="form-control btn btn-danger" type="submit" value="Rechercher" />
 		</div>
 	</div>
 </form>
