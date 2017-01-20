@@ -8,6 +8,7 @@
 		<td>Nom</td>
 		<td>Format</td>
 		<td>Quantité</td>
+		<td>Prix unitaire</td>
 		<td>Prix</td>
 		<td></td>
 	</tr>
@@ -34,6 +35,7 @@
 			<a class="btn btn-sm btn-default"><b><?php echo $value[1]; ?></b></a>
 			<a class="btn btn-sm btn-primary" href="?p=panier&add=<?php echo $value[0]; ?>"><i class="glyphicon glyphicon-plus"></i></a>
 		</td>
+		<td><?php echo formatPrice($data['prix']); ?> CHF</td>
 		<td><?php echo formatPrice($prix); ?> CHF</td>
 		<td>
 			<a class="btn btn-sm btn-danger" href="?p=panier&del=<?php echo $value[0]; ?>"><i class="glyphicon glyphicon-trash"></i>&nbsp;&nbsp;Supprimer</a>
