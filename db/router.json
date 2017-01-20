@@ -59,6 +59,12 @@
 			"menu" : "admin",
 			"grade": 2
 		},
+	"editFilm": {
+			"path" : "app/controler/editFilm.php",
+			"title": "Edit film",
+			"menu" : "admin",
+			"grade": 2
+		},
 	"showFilm": {
 			"path" : "app/controler/showFilm.php",
 			"title": "%filmName%",
@@ -77,4 +83,5 @@
 			"menu" : "admin",
 			"grade" : 2
 	}
+	
 }
