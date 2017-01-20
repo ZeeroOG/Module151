@@ -10,8 +10,8 @@ Oui, on utilise une base de donnée MS Access en 2017, c'est triste...
 * ~~Inscriptions~~
 * ~~Passage des requêtes SQL dans les models~~
 * ~~Affichage liste films~~
-* Tri liste films ***en cours***
-* Recherche liste films ***en cours***
+* ~~Tri liste films~~
+* ~~Recherche liste films~~
 * Admin panel utilisateurs (add/edit/del)
 * Gestion des adresses
 * ~~Panier~~
@@ -21,15 +21,13 @@ Oui, on utilise une base de donnée MS Access en 2017, c'est triste...
 
 **Cédric**
 
-* Upload d'images dans le formulaire d'ajout (nom des images: 'img_' . uniqid() . '.jpg')
+* ~~Upload d'images dans le formulaire d'ajout (nom des images: 'img_' . uniqid() . '.jpg')~~
 * Pouvoir éditer les films dans le même formulaire que l'ajout
-* Tous les trucs chiants quoi...
 
 **Jonas**
 
-* ~~Faire un MLD~~ <- en tout cas j'éspère pour toi que c'est fait
+* ~~Faire un MLD~~
 * Faire le rapport
-* Détailler cette liste à ma place
 
 **Cristiano**
 
