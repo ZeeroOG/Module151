@@ -1,5 +1,19 @@
 <?php
 
+function disconnectDeletedUser() {
+	global $db_acc;
+
+	if(isset($_SESSION['user'])) {
+		$req = $db_acc->prepare('SELECT deleted FROM t_users WHERE id_users = ?');
+		$req->execute(array($_SESSION['user']->getUserId()));
+		$data = $req->fetch();
+
+		if($data['deleted'] == 1) {
+			include('app/controller/logout.php');
+		}
+	}
+}
+
 function getURL() {
 	$url = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
 

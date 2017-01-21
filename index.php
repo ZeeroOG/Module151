@@ -15,6 +15,9 @@ include("app/core/includes.php");
 // Démarrage de la session
 session_start();
 
+// Déconnecter l'utilisateur si il est supprimé
+disconnectDeletedUser();
+
 // Importer le panier
 include("app/core/importPanier.php");
 
