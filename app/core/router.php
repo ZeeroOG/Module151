@@ -84,7 +84,7 @@ if($pages->$page->grade == -1 AND $grade != 0) {
 	<footer class="footer">
 	  <div class="container">
 	    <p class="muted">Page générée en : <b>%loadingTime%ms</b> par le serveur <b>%serverName%</b></p>
-        <p class="muted">&copy; 2017 - Henry Jonas, Sebastiao Cristiano, Mujynya Cédric, Maillard William</p>
+        <p class="muted"><b>&copy; 2016-<?php echo date('Y'); ?></b> - Henry Jonas, Sebastiao Cristiano, Mujynya Cédric, Maillard William</p>
 	  </div>
 	</footer>
 	<!-- Javascript -->

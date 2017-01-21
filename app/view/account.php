@@ -1,3 +1,21 @@
+<?php if(isset($_GET['return'])) {
+	if ($_GET['return'] == 'del-success') { ?>
+	<div class="alert alert-success alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+		<strong>Succés !</strong> L'adresse a été supprimée de votre compte.
+	</div>
+	<?php } elseif ($_GET['return'] == 'edit-success') { ?>
+	<div class="alert alert-success alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+		<strong>Succés !</strong> L'adresse a été mise à jour.
+	</div>
+	<?php } elseif ($_GET['return'] == 'add-success') { ?>
+	<div class="alert alert-success alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+		<strong>Succés !</strong> L'adresse a été ajoutée à votre compte.
+	</div>
+	<?php }
+} ?>
 <h2>Mon compte</h2>
 <table class="table table-striped">
 	<tr>
@@ -30,19 +48,31 @@
 <h2>Adresse(s)</h2>
 <table class="table table-striped">
 	<tr style="font-weight: bold;">
+		<td>Nom</td>
 		<td>Rue & Numéro</td>
 		<td>NPA & Ville</td>
 		<td>Pays</td>
 		<td></td>
 	</tr>
+	<?php foreach ($adresses->get() as $data) { ?>
 	<tr>
-		<td>Chemin des Tests 666</td>
-		<td>1000 Lausanne</td>
+		<td><?php echo $data['nom']; ?></td>
+		<td><?php echo $data['rue'] . " " . $data['numero']; ?></td>
+		<td><?php echo $data['npa'] . " " . $data['ville']; ?></td>
 		<td>Suisse</td>
 		<td>
-			<a class="btn btn-xs btn-primary">Editer</a>
-			<a class="btn btn-xs btn-danger">Supprimer</a>
+			<a href="?p=editAdresse&id=<?php echo $data['id']; ?>&callback=<?php echo urlencode('?p=account&return=edit-success'); ?>" class="btn btn-xs btn-primary">Editer</a>
+			<a href="?p=delAdresse&id=<?php echo $data['id']; ?>&callback=<?php echo urlencode('?p=account&return=del-success'); ?>" class="btn btn-xs btn-danger">Supprimer</a>
 		</td>
 	</tr>
+	<?php } ?>
 </table>
-<a class="btn btn-danger btn-block">Ajouter</a>
+<?php if(count($adresses->get()) < 1) { ?>
+<center>
+	<p>
+		<b>Aucune adresse</b>
+	</p>
+	<br />
+</center>
+<?php } ?>
+<a href="?p=addAdresse&callback=<?php echo urlencode('?p=account&return=add-success'); ?>" class="btn btn-danger btn-block">Ajouter</a>

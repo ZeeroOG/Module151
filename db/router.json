@@ -82,6 +82,23 @@
 			"title" : "Liste des films",
 			"menu" : "admin",
 			"grade" : 2
+	},
+	"delAdresse": {
+			"path" : "app/controller/delAdresse.php",
+			"title" : "Suppression adresse",
+			"menu" : "account",
+			"grade" : 1
+	},
+	"editAdresse": {
+			"path" : "app/controller/editAdresse.php",
+			"title" : "Editer adresse",
+			"menu" : "account",
+			"grade" : 1
+	},
+	"addAdresse": {
+			"path" : "app/controller/addAdresse.php",
+			"title" : "Ajouter adresse",
+			"menu" : "account",
+			"grade" : 1
 	}
-	
 }
