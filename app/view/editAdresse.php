@@ -32,6 +32,7 @@
 
 			<br />
 			<input type="submit" value="Mettre à jour" name="send" class="btn btn-danger btn-block">
+			<button onclick="window.history.back();" class="btn btn-primary btn-block">Annuler</button>
 		</div>
 	</form>
 </div>

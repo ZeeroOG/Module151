@@ -20,10 +20,15 @@ if(isset($_POST['search']) OR isset($_POST['order'])) {
 	header('Location: ' . $url);
 }
 
-if(isset($_GET['search'])) $filmList->search($_GET['search']);
-if(isset($_GET['order'])) {
+if(isset($_GET['search'])) {
+	$filmList->search($_GET['search']);
+}
+
+if(isset($_GET['order'], $_GET['invert'])) {
 	if($_GET['order'] == 'title') $filmList->orderByTitle($_GET['invert']);
 	elseif($_GET['order'] == 'date') $filmList->orderByDate($_GET['invert']);
+} else {
+	$filmList->orderByDate(1);
 }
 
 include('app/view/shop.php');

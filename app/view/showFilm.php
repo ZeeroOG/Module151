@@ -118,6 +118,9 @@
 				</div>
 				<div id="showFilm-titreOriginal"><?php if($film->getTitreTraduit() != NULL) echo $film->getTitreOriginal(); ?></div>
 				<div class="showFilm-notes">
+					Date de sortie : <b style="margin-left: 10px; margin-right: 5px;"><?php echo date('d.m.Y', strtotime($film->getDateSortie())); ?></b>
+				</div>
+				<div class="showFilm-notes">
 					Age minimal requis : <b style="margin-left: 10px; margin-right: 5px;"><span><?php if($film->getAccordParental() != 0) { echo $film->getAccordParental() . " ans"; } else { echo "Tout public"; } ?></span></b>
 				</div>
 				<div class="showFilm-notes">

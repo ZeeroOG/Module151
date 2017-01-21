@@ -18,6 +18,9 @@ session_start();
 // Déconnecter l'utilisateur si il est supprimé
 disconnectDeletedUser();
 
+// Mettre à jour infos  compte
+updateUserInfos();
+
 // Importer le panier
 include("app/core/importPanier.php");
 

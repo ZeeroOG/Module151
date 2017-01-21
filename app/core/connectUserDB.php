@@ -16,6 +16,7 @@ function connectUserDB() {
 		// Création de l'objet PDO avec le driver ODBC
 		// Les strings de connexion sont disponibles ici : https://www.connectionstrings.com/microsoft-access-accdb-odbc-driver/
 		$database = new PDO("odbc:Driver=$driver;Dbq=$path;Uid=Admin;Pwd=;");
+		$database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	} catch(Exception $e) {
 		echo "Erreur critique ! Vérifiez les logs.";
 		Log::error("Echec de connexion Access 2002: " . $e->getMessage());

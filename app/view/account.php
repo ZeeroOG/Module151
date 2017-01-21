@@ -14,6 +14,16 @@
 		<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
 		<strong>Succés !</strong> L'adresse a été ajoutée à votre compte.
 	</div>
+	<?php } elseif ($_GET['return'] == 'account-success') { ?>
+	<div class="alert alert-success alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+		<strong>Succés !</strong> Le compte a été mis à jour.
+	</div>
+	<?php } elseif ($_GET['return'] == 'password-success') { ?>
+	<div class="alert alert-success alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+		<strong>Succés !</strong> Le mot de passe a été mis à jour.
+	</div>
 	<?php }
 } ?>
 <h2>Mon compte</h2>
@@ -43,7 +53,13 @@
 		<td><?php echo $_SESSION['user']->getLevelName(); ?></td>
 	</tr>
 </table>
-<a class="btn btn-danger btn-block">Editer</a>
+<a href="?p=editAccount&callback=<?php echo urlencode('?p=account&return=account-success'); ?>" class="btn btn-danger btn-block">Editer</a>
+<hr />
+
+<h2>Mot de passe</h2>
+<br />
+<a href="?p=editPassword&callback=<?php echo urlencode('?p=account&return=password-success'); ?>" class="btn btn-danger btn-block">Modifier mot de passe</a>
+<hr />
 
 <h2>Adresse(s)</h2>
 <table class="table table-striped">

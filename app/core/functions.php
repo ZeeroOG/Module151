@@ -14,6 +14,12 @@ function disconnectDeletedUser() {
 	}
 }
 
+function updateUserInfos() {
+	if(isset($_SESSION['user'])) {
+		$_SESSION['user']->update();
+	}
+}
+
 function getURL() {
 	$url = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
 

@@ -5,7 +5,7 @@ function checkUsername($username) {
 
 	$req = $db_acc->prepare("SELECT id_users FROM t_users WHERE LCase(username) = ?");
 	$req->execute(array(strtolower($username)));
-	
+
 	if(count($req->fetchAll()) > 0) errorMessage('Le nom d\'utilisateur est déjà pris !');
 	elseif(!preg_match('/^[a-zA-Z0-9\-_]{6,20}$/', $username)) errorMessage('Le nom d\'utilisateur ne doit pas comprendre des caractères spéciaux, et faire entre 6 et 20 caractères !');
 }
@@ -52,7 +52,7 @@ function createAccount($username, $nom, $prenom, $mail, $birthdate, $password) {
 	global $db_acc;
 
 	$req = $db_acc->prepare("INSERT INTO t_users (username, nom, prenom, naissance, email, password, fk_level) VALUES (?, ?, ?, ?, ?, ?, 1)");
-	$req->execute(array($username, $nom, $prenom, $birthdate, $mail, hashPassword($password)));
+	$req->execute(array($username, utf8_decode($nom), utf8_decode($prenom), $birthdate, $mail, hashPassword($password)));
 }
 
 function hashPassword($password) {

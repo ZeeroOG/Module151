@@ -52,7 +52,7 @@
 <div class="adminMenu">
 	<p>~~~ Menu ~~~</p>
 	<div class="adminMenu-left">
-		<p class="adminMenu-top">Opérateur</p>
+		<p class="adminMenu-top">Gestion</p>
 		<ul>
 			<li><a href="?p=addFilm"><button>Ajouter un film</button></a></li>
 			<li><a href="?p=listFilms"><button>Liste des films</button></a></li>
@@ -60,11 +60,10 @@
 	</div>
 	<?php if($_SESSION['user']->getLevel() > 2) { ?>
 	<div class="adminMenu-right">
-		<p class="adminMenu-top">Administrateur</p>
+		<p class="adminMenu-top">Admin</p>
 		<ul>
 			<li><a href="?p=importDB"><button>Mettre à jour la DB</button></a></li>
-			<!--<li><a href="?p=addUser"><button>Ajouter un utilisateur</button></a></li>-->
-			<li><a href="?p=listUsers"><button>Liste des utilisateurs</button></a></li>
+			<li><a href="?p=listUsers"><button>Gestion des utilisateurs</button></a></li>
 		</ul>
 	</div>
 	<?php } ?>

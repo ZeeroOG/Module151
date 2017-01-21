@@ -113,4 +113,11 @@
 			"menu" : "admin",
 			"grade" : 3
 	}
+	,
+	"editAccount": {
+			"path" : "app/controller/editAccount.php",
+			"title" : "Modifier le compte",
+			"menu" : "account",
+			"grade" : 1
+	}
 }
