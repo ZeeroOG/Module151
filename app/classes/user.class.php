@@ -21,7 +21,7 @@ class User {
 	public function update()
 	{
 		global $db_acc;
-		
+
 		$req = $db_acc->prepare("SELECT id_users FROM t_users WHERE username = ?");
 		$rep = $req->execute(array($this->username));
 
@@ -54,7 +54,7 @@ class User {
 		// si ok retourner TRUE
 		// si pas ok retourner FALSE
 
-		$req = $db_acc->prepare("SELECT password FROM t_users WHERE username = ?");
+		$req = $db_acc->prepare("SELECT password FROM t_users WHERE username = ? AND deleted = 0");
 		$rep = $req->execute(array($this->username));
 
 		while($user = $req->fetch()) {

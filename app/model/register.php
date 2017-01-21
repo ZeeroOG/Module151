@@ -3,10 +3,10 @@
 function checkUsername($username) {
 	global $db_acc;
 
-	$req = $db_acc->prepare("SELECT id_users FROM t_users WHERE username = ?");
-	$req->execute(array($username));
-
-	if($req->rowCount() > 0) errorMessage('Le nom d\'utilisateur est déjà pris !');
+	$req = $db_acc->prepare("SELECT id_users FROM t_users WHERE LCase(username) = ?");
+	$req->execute(array(strtolower($username)));
+	
+	if(count($req->fetchAll()) > 0) errorMessage('Le nom d\'utilisateur est déjà pris !');
 	elseif(!preg_match('/^[a-zA-Z0-9\-_]{6,20}$/', $username)) errorMessage('Le nom d\'utilisateur ne doit pas comprendre des caractères spéciaux, et faire entre 6 et 20 caractères !');
 }
 

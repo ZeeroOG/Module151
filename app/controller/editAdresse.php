@@ -25,7 +25,7 @@ if(isset($_POST['id'], $_POST['nom'], $_POST['rue'], $_POST['numero'], $_POST['n
 	} else {
 		$callback = "?p=home";
 	}
-	//die($callback);
+	
 	header('Location: ' . $callback);
 	die();
 }

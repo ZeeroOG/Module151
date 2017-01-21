@@ -100,5 +100,17 @@
 			"title" : "Ajouter adresse",
 			"menu" : "account",
 			"grade" : 1
+	},
+	"delUser": {
+			"path" : "app/controller/delUser.php",
+			"title" : "Supprimer utilisateur",
+			"menu" : "admin",
+			"grade" : 3
+	},
+	"listUsers": {
+			"path" : "app/controller/listUsers.php",
+			"title" : "Gestion des utilisateurs",
+			"menu" : "admin",
+			"grade" : 3
 	}
 }

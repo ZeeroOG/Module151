@@ -22,7 +22,7 @@
 			<label for="password1">Mot de passe</label>
 			<input id="password1" class="form-control" id="password1" type="password" name="password1" placeholder="Mot de passe" required>
 
-			<label for="password2">Mot de passe</label>
+			<label for="password2">Répétez le mot de passe</label>
 			<input id="password2" class="form-control" id="password2" type="password" name="password2" placeholder="Mot de passe" required>
 
 			<div class="login-captcha">

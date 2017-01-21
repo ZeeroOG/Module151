@@ -63,8 +63,8 @@
 		<p class="adminMenu-top">Administrateur</p>
 		<ul>
 			<li><a href="?p=importDB"><button>Mettre à jour la DB</button></a></li>
-			<li><a href="?p=addUser"><button>Ajouter un utilisateur</button></a></li>
-			<li><a href="?p=viewUsers"><button>Liste des utilisateurs</button></a></li>
+			<!--<li><a href="?p=addUser"><button>Ajouter un utilisateur</button></a></li>-->
+			<li><a href="?p=listUsers"><button>Liste des utilisateurs</button></a></li>
 		</ul>
 	</div>
 	<?php } ?>
