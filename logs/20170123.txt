@@ -1,0 +1,2 @@
+[10:38:53 INFO] La base de donnée à été vidée par Cedric 
+[10:38:53 INFO] La base de donnée importée par Cedric 

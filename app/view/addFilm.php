@@ -38,7 +38,7 @@
 		<label for="bandeAnnonceURL">Vidéo</label>
 		<input type="text" id="bandeAnnonceURL" name="bandeAnnonceURL" placeholder="URL de la vidéo" <?=getHTMLElements('bandeAnnonceURL',$errors,'form-control')?> />
 	  </span>
-	  <hr>
+	  <hr/>
 	  <span class="element">
 	    <h4>Genres: <span class="required">*</span><a href="#" class="insertItem" id="insertGenre">(Ajouter un genre)</a></h4>
 		<select name="genre1" id="genre1" class="genres form-control">

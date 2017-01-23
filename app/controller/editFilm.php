@@ -4,6 +4,17 @@
 	}
 	
 	$film = new Film($_GET['id']);
-	die($film->getDescription());
+	$errors = Array();
+	
+	function getHTMLClasses($errors,$name,$add_class = '') {
+		if(isset($errors[$name])) {
+			return 'error '.$add_class;
+		}
+		else if(!empty($add_class)) {
+			return $add_class;
+		}
+		return -1;
+	}
 	include('app/model/editFilm.php');
+	include('app/view/editFilm.php');
 ?>

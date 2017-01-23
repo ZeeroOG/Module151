@@ -94,9 +94,12 @@
 	h4 {
 		font-weight: bold;
 	}
+	#back {
+		cursor: pointer;
+	}
 </style>
 <span id="film"></span>
-<a onclick="window.history.back();"><i class="glyphicon glyphicon-chevron-left"></i> Retour vers la liste des films</a><hr />
+<a id="back" onclick="window.history.back();"><i class="glyphicon glyphicon-chevron-left"></i> Retour vers la liste des films</a><hr />
 <div class="showFilm">
 	<div class="showFilm-top">
 		<div class="showFilm-left">
