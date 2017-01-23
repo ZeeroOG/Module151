@@ -12,10 +12,10 @@ Oui, on utilise une base de donnée MS Access en 2017, c'est triste...
 * ~~Affichage liste films~~
 * ~~Tri liste films~~
 * ~~Recherche liste films~~
-* Admin panel utilisateurs (add/edit/del)
+* Admin panel utilisateurs (add/~~edit~~/~~del~~)
 * ~~Gestion des adresses~~
 * ~~Panier~~
-* Rendre la page "Mon Compte" éditable par l'utilisateur
+* ~~Rendre la page "Mon Compte" éditable par l'utilisateur~~
 * ~~Synchro panier~~
 * Commandes
 
