@@ -16,6 +16,7 @@ Class Film {
 	private $nbVotes;
 	private $gens;
 	private $genres;
+	private $genresID = array();
 
 	function __construct($filmid) {
 		global $db_sql;
@@ -112,7 +113,17 @@ Class Film {
 		for ($i = 0; $x = $req->fetch(); $i++) {
 			$this->genres[$i] = $x['nom'];
 		}
-
+		
+		$req->CloseCursor();
+		
+		// Récup les id de la table t_genrefilm en liaison avec le film
+		$req = $db_sql->prepare('SELECT id_genreFilm FROM t_genrefilm WHERE fk_film = ?');
+		$req->execute(array($filmid));
+		
+		while($val = $req->fetch()[0]) { // j'aime pas la boucle for, désolé c'est plus fort que moi :P
+			array_push($this->genresID,$val);
+		}
+		
 		$req->CloseCursor();
 	}
 
@@ -130,6 +141,7 @@ Class Film {
 	public function getPrice() { return $this->price; }
 	public function getGens() { return $this->gens; }
 	public function getGenres() { return $this->genres; }
+	public function getGenresID() { return $this->genresID; }
 	public function getSocietes() { return $this->societes; }
 
 	public function getImage() {

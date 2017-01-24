@@ -1,4 +1,18 @@
 <!-- modofication du formulaire -->
+<style>
+#oldImage {
+	display: block;
+}
+#oldImage span {
+	*float: left;
+}
+#oldImage img {
+	margin: 7px;
+	max-width: 150px;
+	max-height: 150px;
+	float: left;
+}
+</style>
 <form action=".?p=editFilm" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="addToDB">
   <div class="form-group">
 	  <span class="element">
@@ -22,7 +36,7 @@
 	  </span>
 	  <span class="element">
 		<label for="description">Description<span class="required">*</span></label>
-		<textarea id="description" name="description" placeholder="Description" rows="4" <?=getHTMLClasses($errors,'description','form-control')?>><?=$film->getDescription()?></textarea>
+		<textarea id="description" name="description" placeholder="Description" rows="4" class="<?=getHTMLClasses($errors,'description','form-control')?>"><?=$film->getDescription()?></textarea>
 	  </span>
 	  <span class="element">
 		<label for="accordParental">PEGI<span class="required">*</span></label>
@@ -30,6 +44,7 @@
 	  </span>
 	  <span class="element">
 		<label for="pochetteFile">Pochette</label>
+		<?=getOldPochette($film->getImage())?>
 		<input type="file" id="pochetteFile" name="pochetteFile" placeholder="URL de l'image" accept="image/*"  value="<?=$film->getImage()?>" class="<?=getHTMLClasses($errors,'pochetteFile','form-control')?>" />
 	  </span>
 	  <span class="element">
@@ -37,6 +52,13 @@
 		<input type="text" id="bandeAnnonceURL" name="bandeAnnonceURL" placeholder="URL de la vidéo"  value="<?=$film->getBandeAnnonceURL()?>" class="<?=getHTMLClasses($errors,'bandeAnnonceURL','form-control')?>" />
 	  </span>
 	  <hr>
+	  <span class="element">
+	    <h4>Genres: <span class="required">*</span><a href="#" class="insertItem" id="insertGenre">(Ajouter un genre)</a></h4>
+		<?php foreach($film->getGenresID() as $i):?>
+		<input type="hidden" name="oldGenre1" value="<?=$i?>"/>
+		<?php endforeach;?>
+		<select name="genre1" id="genre1" class="genres form-control">
+		  <option value="NULL">-</option>
   </div>
 </form>
   

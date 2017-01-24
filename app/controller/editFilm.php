@@ -15,6 +15,15 @@
 		}
 		return -1;
 	}
+	
+	function getOldPochette($path) {
+		$html = '';
+		if($path != 'img/noimage.jpg') {
+			$html .= '<span id="oldImage"><img src="'.$path.'" alt="ancienne image"/><span>(pochette actuelle)</span></span>';
+		}
+		return $html;
+	}
+	
 	include('app/model/editFilm.php');
 	include('app/view/editFilm.php');
 ?>
