@@ -54,11 +54,17 @@
 	  <hr>
 	  <span class="element">
 	    <h4>Genres: <span class="required">*</span><a href="#" class="insertItem" id="insertGenre">(Ajouter un genre)</a></h4>
-		<?php foreach($film->getGenresID() as $i):?>
-		<input type="hidden" name="oldGenre1" value="<?=$i?>"/>
+		<?php foreach($film->getGenresID() as $key => $value):?>
+		<input type="hidden" name="oldGenre<?=($key+1)?>" value="<?=$value?>"/>
 		<?php endforeach;?>
-		<select name="genre1" id="genre1" class="genres form-control">
+		<?php foreach($film->getGenres() as $key => $value):?>
+		<select name="genre<?=($key+1)?>" id="genre<?=($key+1)?>" class="genres form-control">
 		  <option value="NULL">-</option>
+		  <?=getHTMLOptions($genres,$value)?>
+		</select>
+		<?php endforeach;?>
+		<button class="btn btn-default btn-block addItem" id="addGenre">+ Ajouter</button>
+	  </span>
   </div>
 </form>
   

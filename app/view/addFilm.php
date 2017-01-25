@@ -101,7 +101,7 @@
 	  <hr>
 	  <span class="element">
 	    <h4>Sociétés: <span class="required">*</span><a href="#" class="insertItem" id="insertSociete">(Ajouter une société)</a></h4>
-	    <select class="form-control" name="societe1" id="societe1" class="societes form-control">
+	    <select name="societe1" id="societe1" class="societes form-control">
 		  <option value="NULL">-</option>
 		  <?=getHTMLOptions($societes,'societe1')?>
 		</select>
