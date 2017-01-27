@@ -11,7 +11,7 @@ if(isset($_POST['username']) AND isset($_POST['password']))
 			$doNotLogin = true;
 		}
 
-		if(isset($_POST['captchaId']) AND isset($_SESSION[$_POST['captchaId']])) unset($_SESSION[$_POST['captchaId']]);
+		if(isset($_POST['captchaId'], $_SESSION[$_POST['captchaId']])) unset($_SESSION[$_POST['captchaId']]);
 	}
 
 	if(!isset($doNotLogin)) {

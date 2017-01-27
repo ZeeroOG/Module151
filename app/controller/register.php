@@ -48,7 +48,7 @@ if(isset($_POST['captcha']) AND isset($_POST['captchaId']) AND isset($_SESSION[$
 	errorMessage('Veuillez remplir tous les champs !');
 }
 
-if(isset($_POST['captchaId']) AND isset($_SESSION[$_POST['captchaId']])) unset($_SESSION[$_POST['captchaId']]);
+if(isset($_POST['captchaId'], $_SESSION[$_POST['captchaId']])) unset($_SESSION[$_POST['captchaId']]);
 
 include('app/view/register.php');
 

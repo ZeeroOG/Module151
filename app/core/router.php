@@ -95,6 +95,7 @@ if($pages->$page->title == 'RSS') {
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/addMovie.js"></script>
+	<script src="js/emotes.js"></script>
 </body>
 </html>
 <?php } ?>

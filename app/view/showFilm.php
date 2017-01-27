@@ -74,19 +74,17 @@
 		margin-top: 30px;
 	}
 	#addCommentaire {
-		height: 200px;
+		/*height: 200px;*/
 	}
 	#addCommentaireText {
-		width: 90%;
-		height: 97%;
+		height: 100px;
 		resize: none;
-		float: left;
 		text-align: justify;
 	}
 	#addCommentaireButton {
-		width: 9%;
+		/*width: 9%;
 		height: 97%;
-		float: right;
+		float: right;*/
 	}
 	h3 {
 		font-weight: bold;
@@ -252,30 +250,31 @@
 	<div class="commentaire" id="lastComment">
 		<?php if(isset($_SESSION['user'])) { ?>
 		<h3>Poster un commentaire</h3>
+		<?php
+
+		if($commentFail != NULL) {
+			echo '<p style="color: red;">' . $commentFail . '</p>';
+		}
+
+		?>
 		<form id="addCommentaire" action="?p=showFilm&id=<?php echo $film->getFilmId(); ?>" method="post">
-			<textarea id="addCommentaireText" name="text"></textarea>
-			<input class="btn btn-gd btn-default" id="addCommentaireButton" value="Poster" type="submit">
+			<textarea id="addCommentaireText" class="form-control" name="text" placeholder="Commentaire..."><?php echo $commentText; ?></textarea>
+			<input type="hidden" name="id-captcha" value="<?php echo $captchaId; ?>">
+			<div id="addEmotes" style="margin-top: 10px;">
+				Insérez des smileys :
+				<?php
+				foreach ($emotes as $key => $emote) {
+						$key = "':" . $key . ":'";
+						echo '<img onClick="addEmote(' . $key . ')" style="margin: 2px;" src="img/emotes/' . $emote . '" height="20" width="20" />';
+					}
+				?>
+			</div>
+			<div style="margin: 10px 0; width: 100%; text-align: center;">
+				<img src="<?php echo $captcha->getImage(); ?>" />
+				<input style="width: 300px; margin-left: auto; margin-right: auto;" type="text" name="captcha" placeholder="Captcha..." class="form-control">
+			</div>
+			<input class="btn btn-block btn-danger" id="addCommentaireButton" value="Poster" type="submit">
 		</form>
-		<script>
-			var addEmote = function(key) {
-				var id = "#addCommentaireText";
-				var space;
-
-				if(/\s$/.test($(id).val()) || $(id).val() == "") space = "";
-				else space = " ";
-
-				$(id).val($(id).val() + space + key);
-			}
-		</script>
-		<div id="addEmotes" style="margin-top: 10px;">
-			Insérez des smileys :
-			<?php
-			foreach ($emotes as $key => $emote) {
-					$key = "':" . $key . ":'";
-					echo '<img onClick="addEmote(' . $key . ')" style="margin: 2px;" src="img/emotes/' . $emote . '" height="20" width="20" />';
-				}
-			?>
-		</div>
 		<?php } else { ?>
 			<p>Vous devez être connecté pour poster des commentaires.</p>
 		<?php } ?>
