@@ -73,51 +73,57 @@
 		},
 	"importDB": {
 			"path" : "app/controller/importDB.php",
-			"title" : "Importer une base de donnée .sql",
+			"title": "Importer une base de donnée .sql",
 			"menu" : "admin",
-			"grade" : 3
+			"grade": 3
 	},
 	"listFilms": {
 			"path" : "app/controller/listFilms.php",
-			"title" : "Liste des films",
+			"title": "Liste des films",
 			"menu" : "admin",
-			"grade" : 2
+			"grade": 2
 	},
 	"delAdresse": {
 			"path" : "app/controller/delAdresse.php",
-			"title" : "Suppression adresse",
+			"title": "Suppression adresse",
 			"menu" : "account",
-			"grade" : 1
+			"grade": 1
 	},
 	"editAdresse": {
 			"path" : "app/controller/editAdresse.php",
-			"title" : "Editer adresse",
+			"title": "Editer adresse",
 			"menu" : "account",
-			"grade" : 1
+			"grade": 1
 	},
 	"addAdresse": {
 			"path" : "app/controller/addAdresse.php",
-			"title" : "Ajouter adresse",
+			"title": "Ajouter adresse",
 			"menu" : "account",
-			"grade" : 1
+			"grade": 1
 	},
 	"delUser": {
 			"path" : "app/controller/delUser.php",
-			"title" : "Supprimer utilisateur",
+			"title": "Supprimer utilisateur",
 			"menu" : "admin",
-			"grade" : 3
+			"grade": 3
 	},
 	"listUsers": {
 			"path" : "app/controller/listUsers.php",
-			"title" : "Gestion des utilisateurs",
+			"title": "Gestion des utilisateurs",
 			"menu" : "admin",
-			"grade" : 3
+			"grade": 3
 	}
 	,
 	"editAccount": {
 			"path" : "app/controller/editAccount.php",
-			"title" : "Modifier le compte",
+			"title": "Modifier le compte",
 			"menu" : "account",
-			"grade" : 1
+			"grade": 1
+	},
+	"rss": {
+			"path" : "app/controller/rss.php",
+			"title": "RSS",
+			"menu" : "RSS",
+			"grade": 0
 	}
 }

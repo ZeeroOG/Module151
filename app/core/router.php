@@ -30,7 +30,10 @@ if($pages->$page->grade == -1 AND $grade != 0) {
     die();
 }
 
-?>
+if($pages->$page->title == 'RSS') {
+	header("Content-type: text/xml");
+	include($pages->$page->path);
+} else { ?>
 <!doctype html>
 <html>
 <head>
@@ -62,6 +65,7 @@ if($pages->$page->grade == -1 AND $grade != 0) {
 				<!-- Opérateur / Administrateur -->
 				<li<?php checkActive("admin"); ?>><a href="?p=admin">Administration</a></li>
 				<?php } ?>
+				<li><a target="_blank" href="?p=rss">Flux RSS</a></li>
 				<div class="right">
 					<?php if(!isset($_SESSION['user'])) { ?>
 					<!-- Utilisateur déconnecté -->
@@ -93,3 +97,4 @@ if($pages->$page->grade == -1 AND $grade != 0) {
 	<script src="js/addMovie.js"></script>
 </body>
 </html>
+<?php } ?>
