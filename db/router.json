@@ -131,5 +131,11 @@
 			"title": "Reset mot de passe utilisateur",
 			"menu" : "admin",
 			"grade": 3
+	},
+	"editPassword": {
+			"path" : "app/controller/editPassword.php",
+			"title": "Changement mot de passe",
+			"menu" : "account",
+			"grade": 1
 	}
 }
