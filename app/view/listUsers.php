@@ -24,6 +24,7 @@
 			<td><?php echo $user['username'] ?></td>
 			<td>
 				<a href="?p=editAccount&username=<?php echo $user['username']; ?>&callback=<?php echo urlencode('?p=listUsers&return=edit-success'); ?>" class="btn btn-xs btn-primary">Editer</a>
+				<a href="?p=resetPassword&username=<?php echo $user['username']; ?>&" class="btn btn-xs btn-warning">Mot de passe</a>
 				<a href="?p=delUser&id=<?php echo $user['id_users']; ?>&callback=<?php echo urlencode('?p=listUsers&return=delete-success'); ?>" class="btn btn-xs btn-danger">Supprimer</a>
 			</td>
 		</tr>
@@ -50,6 +51,7 @@
 			<td><?php echo $user['username'] ?></td>
 			<td>
 				<a href="?p=editAccount&username=<?php echo $user['username']; ?>&callback=<?php echo urlencode('?p=listUsers&return=edit-success'); ?>" class="btn btn-xs btn-primary">Editer</a>
+				<a href="?p=resetPassword&username=<?php echo $user['username']; ?>&" class="btn btn-xs btn-warning">Mot de passe</a>
 				<a href="?p=delUser&id=<?php echo $user['id_users']; ?>&restore=yes&callback=<?php echo urlencode('?p=listUsers&return=restore-success'); ?>" class="btn btn-xs btn-success">Restaurer</a>
 			</td>
 		</tr>

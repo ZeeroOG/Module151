@@ -125,5 +125,11 @@
 			"title": "RSS",
 			"menu" : "RSS",
 			"grade": 0
+	},
+	"resetPassword": {
+			"path" : "app/controller/resetPassword.php",
+			"title": "Reset mot de passe utilisateur",
+			"menu" : "admin",
+			"grade": 3
 	}
 }
