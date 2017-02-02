@@ -144,10 +144,10 @@
 	  </span>
 	  <hr>
 	  <span class="element">
-	    <h4>Personnes & rôles: <span class="required">*</span><a href="#" class="insertItem" id="insertPersonne">(Ajouter une personne)</a></h4>
+		<h4>Personnes & rôles: <span class="required">*</span><a href="#" class="insertItem" id="insertPersonne">(Ajouter une personne)</a></h4>
 		<div class="block">
 		  <select name="personne1" id="personne1" class="personnes form-control">
-		    <option value="NULL">-</option>
+			<option value="NULL">-</option>
 		    <?=getHTMLOptions($personnes,'personne1')?>
 		  </select>
 		  <input type="text" id="role1" name="role1" placeholder="Rôle" <?=getHTMLElements('role1',$errors,'role')?> />
@@ -173,6 +173,7 @@
 	  </span>
 	  <span class="element">
 	    <input type="submit" class="form-control btn btn-block btn-primary" name="submit" id="submit" value="Ajouter"/>
+	  </span>
 		<div id="FullScreenForm"></div>
 	</div>
 </form>

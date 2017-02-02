@@ -16,7 +16,14 @@ Class Film {
 	private $nbVotes;
 	private $gens;
 	private $genres;
+	private $sagas;
+	
 	private $genresID = array();
+	private $languesID = array();
+	private $sagasID = array();
+	private $societesID = array();
+	private $formatsID = array();
+	private $personnesID = array();
 
 	function __construct($filmid) {
 		global $db_sql;
@@ -116,15 +123,76 @@ Class Film {
 		
 		$req->CloseCursor();
 		
+		// Récup des infos sur le(s) genre(s) du film
+		$req = $db_sql->prepare("SELECT t_saga.nom FROM t_sagafilm INNER JOIN t_saga ON t_saga.id_saga = t_sagafilm.fk_saga WHERE t_sagafilm.fk_film = ? ORDER BY t_saga.nom ASC");
+		$req->execute(array($filmid));
+
+		for ($i = 0; $x = $req->fetch(); $i++) {
+			$this->sagas[$i] = $x['nom'];
+		}
+		
+		$req->CloseCursor();
+		
 		// Récup les id de la table t_genrefilm en liaison avec le film
-		$req = $db_sql->prepare('SELECT id_genreFilm FROM t_genrefilm WHERE fk_film = ?');
+		$req = $db_sql->prepare('SELECT fk_genre FROM t_genrefilm WHERE fk_film = ?');
 		$req->execute(array($filmid));
 		
-		while($val = $req->fetch()[0]) { // j'aime pas la boucle for, désolé c'est plus fort que moi :P
+		while($val = $req->fetch()[0]) {
 			array_push($this->genresID,$val);
 		}
 		
 		$req->CloseCursor();
+		
+		// Récup les id de la table t_languefilm en liaison avec le film
+		$req = $db_sql->prepare('SELECT fk_langue FROM t_languefilm WHERE fk_film = ?');
+		$req->execute(array($filmid));
+		
+		while($val = $req->fetch()[0]) {
+			array_push($this->languesID,$val);
+		}
+		
+		$req->CloseCursor();
+		
+		// Récup les id de la table t_sagafilm en liaison avec le film
+		$req = $db_sql->prepare('SELECT fk_saga FROM t_sagafilm WHERE fk_film = ?');
+		$req->execute(array($filmid));
+		
+		while($val = $req->fetch()[0]) {
+			array_push($this->sagasID,$val);
+		}
+		
+		$req->CloseCursor();
+		
+		// Récup les id de la table t_societefilm en liaison avec le film
+		$req = $db_sql->prepare('SELECT fk_societe FROM t_societefilm WHERE fk_film = ?');
+		$req->execute(array($filmid));
+		
+		while($val = $req->fetch()[0]) {
+			array_push($this->societesID,$val);
+		}
+		
+		$req->CloseCursor();
+		
+		// Récup les id de la table t_formatfilm en liaison avec le film
+		$req = $db_sql->prepare('SELECT fk_format FROM t_formatfilm WHERE fk_film = ?');
+		$req->execute(array($filmid));
+		
+		while($val = $req->fetch()[0]) {
+			array_push($this->formatsID,$val);
+		}
+		
+		$req->CloseCursor();
+		
+		// Récup les id de la table t_roleFilm en liaison avec le film
+		$req = $db_sql->prepare('SELECT fk_personne FROM t_rolefilm WHERE fk_film = ?');
+		$req->execute(array($filmid));
+		
+		while($val = $req->fetch()[0]) {
+			array_push($this->personnesID,$val);
+		}
+		
+		$req->CloseCursor();
+		
 	}
 
 	public function getFilmId() { return $this->filmid; }
@@ -137,12 +205,20 @@ Class Film {
 	public function getBandeAnnonceURL() { return $this->bandeAnnonceURL; }
 	public function getNote() { return $this->note; }
 	public function getNbVotes() { return $this->nbVotes; }
-	public function getLangues() { return $this->langues; }
-	public function getPrice() { return $this->price; }
-	public function getGens() { return $this->gens; }
 	public function getGenres() { return $this->genres; }
 	public function getGenresID() { return $this->genresID; }
+	public function getLangues() { return $this->langues; }
+	public function getLanguesID() { return $this->languesID; }
+	public function getSagas() { return $this->sagas; }
+	public function getSagasID() { return $this->sagasID; }
 	public function getSocietes() { return $this->societes; }
+	public function getSocietesID() { return $this->societesID; }
+	public function getPrice() { return $this->price; }
+	public function getFormatsID() { return $this->formatsID; }
+	public function getGens() { return $this->gens; }
+	public function getPersonnesID() { return $this->personnesID; }
+	
+	
 
 	public function getImage() {
 		if($this->pochetteURL != NULL) return $this->pochetteURL;
