@@ -127,7 +127,7 @@
 				<div class="showFilm-notes">
 					Note de la communauté : <b style="margin-left: 10px; margin-right: 5px;"><span><?php if($film->getNote() != NULL) { echo $film->getNote(); } else { echo "?"; } ?></span>/10</b> [<?php if($film->getNbVotes() != NULL) { echo $film->getNbVotes(); } else { echo "0"; } ?> vote(s)]
 					<?php if(isset($vote)) { ?>
-						<form style="margin-top: 10px;" action="?p=showFilm&id=<?php echo $film->getFilmId(); ?>" method="post">
+						<form style="margin-top: 10px;" action="?p=showFilm&id=<?=$film->getFilmId()?>" method="post">
 							Votre note :&nbsp;&nbsp;&nbsp;
 							<select class="btn-sm" name="vote">
 								<option value="0">Choisir...</option>
@@ -135,7 +135,7 @@
 
 								for($i = 1; $i < 11; $i++)
 								{
-									?><option value="<?php echo $i; ?>"<?php if($vote->hasVoted() == true AND $vote->getVote() == $i) echo " selected"; ?>><?php echo $i; ?></option><?php
+									?><option value="<?=$i?>"<?php if($vote->hasVoted() == true AND $vote->getVote() == $i) echo " selected"; ?>><?=$i?></option><?php
 								}
 
 								?>
@@ -145,7 +145,7 @@
 					<?php } ?>
 				</div>
 				<hr />
-				<p class="showFilm-desc"><?php echo $film->getDescription(); ?></p>
+				<p class="showFilm-desc"><?=$film->getDescription()?></p>
 			</div>
 			<hr />
 			<!-- Détails -->
@@ -156,7 +156,7 @@
 					<h4>Genre(s)</h4>
 					<ul>
 					<?php foreach($film->getGenres() as $genre) { ?>
-							<li><?php echo $genre; ?></li>
+							<li><?=$genre?></li>
 					<?php } ?>
 					</ul>
 
@@ -164,7 +164,7 @@
 					<h4>Société(s)</h4>
 					<ul style="max-width: 400px;">
 						<?php foreach($film->getSocietes() as $societe) { ?>
-							<li><?php echo $societe; ?></li>
+							<li><?=$societe?></li>
 						<?php } ?>
 					</ul>
 				</div>
@@ -173,7 +173,7 @@
 				<h4>Langue(s)</h4>
 				<ul style="max-width: 400px;">
 					<?php foreach($film->getLangues() as $langue) { ?>
-						<li><?php echo $langue; ?></li>
+						<li><?=$langue?></li>
 					<?php } ?>
 				</ul>
 
@@ -184,7 +184,7 @@
 						<li style="font-weight: bold;">Indisponible</li>
 					<?php } else {
 						foreach($film->getGens() as $personne) { ?>
-							<li><b><?php echo $personne['nom']; ?></b> (<?php echo $personne['role']; ?>)</li>
+							<li><b><?=$personne['nom']?></b> (<?=$personne['role']?>)</li>
 					<?php }
 					} ?>
 				</ul>
@@ -208,7 +208,7 @@
 					<tr>
 						<td><?php echo $data['nom']; ?></td>
 						<td style="text-align: center;"><b><?php echo formatPrice($data['prix']); ?> CHF</b></td>
-						<td style="text-align: right;"><a class="btn btn-primary" href="?p=panier&add=<?php echo $numero_article; ?>&callback=<?php echo urlencode('?p=showFilm&id=' . $film->getFilmId() . '&panier=ok#film'); ?>"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;&nbsp;Ajouter au panier</a></td>
+						<td style="text-align: right;"><a class="btn btn-primary" href="?p=panier&add=<?=$numero_article?>&callback=<?=urlencode('?p=showFilm&id=' . $film->getFilmId() . '&panier=ok#film')?>"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;&nbsp;Ajouter au panier</a></td>
 					</tr>
 					<?php
 				}
