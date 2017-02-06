@@ -80,7 +80,19 @@ class Panier {
 	}
 
 	public function emptyPanier() {
+		global $db_acc;
+
 		$this->panier = array();
+
+		if($this->userid != null) {
+			$req = $db_acc->prepare('UPDATE t_users SET panier = ? WHERE id_users = ?');
+
+			try {
+				$req->execute(array("{}", $this->userid));
+			} catch(PDOException $e) {
+				die($e);
+			}
+		}
 	}
 
 	public function syncPanier() {

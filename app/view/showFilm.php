@@ -73,23 +73,12 @@
 		font-size: 18px;
 		margin-top: 30px;
 	}
-	#addCommentaire {
-		/*height: 200px;*/
-	}
 	#addCommentaireText {
 		height: 100px;
 		resize: none;
 		text-align: justify;
 	}
-	#addCommentaireButton {
-		/*width: 9%;
-		height: 97%;
-		float: right;*/
-	}
-	h3 {
-		font-weight: bold;
-	}
-	h4 {
+	h3, h4 {
 		font-weight: bold;
 	}
 	#back {
