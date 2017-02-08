@@ -38,7 +38,12 @@ if(isset($_POST['username']) AND isset($_POST['password']))
 			new Login($user->getUsername());
 
 			// Redirection & fin du script non nécessaire
-			header('Location: ?p=home');
+			if(isset($_POST['callback'])) {
+				header('Location: ' . $_POST['callback']);
+			} else {
+				header('Location: ?p=home');
+			}
+
 			die();
 		}
 	}

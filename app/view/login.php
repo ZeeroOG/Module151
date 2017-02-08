@@ -2,6 +2,10 @@
 <form action="?p=login" method="post" class="form-signin">
   		<h2 class="form-signin-heading">Connexion</h2>
 
+		<?php if(isset($_GET['callback'])) { ?>
+			<p style="font-weight: bold;">Vous devez vous connecter pour effectuer cette action.</p>
+		<?php } ?>
+
 		<label for="username" class="sr-only">Nom d'utilisateur</label>
 		<input class="form-control" type="text" id="username" name="username" <?php if(isset($_GET['newAccount'])) {
 				echo "value=" . $_GET['newAccount'] . " "; } ?><?php if(isset($_POST['username'])) { echo "value=" . $_POST['username'] . " ";
@@ -22,6 +26,9 @@
 			<input class="form-control" type="text" name="captcha" placeholder="Entrez le Captcha..." required>
 			<input type="hidden" name="captchaId" value="<?php echo $captchaId; ?>">
 		</div>
+		<?php } ?>
+		<?php if(isset($_GET['callback'])) { ?>
+			<input type="hidden" name="callback" value="<?=$_GET['callback']?>">
 		<?php } ?>
 		<input class="form-control btn btn-block btn-danger" type="submit" value="Connexion">
 	</div>

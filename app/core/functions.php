@@ -21,7 +21,7 @@ function updateUserInfos() {
 }
 
 function getURL() {
-	$url = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+	$url = 'http://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
 
 	return $url;
 }

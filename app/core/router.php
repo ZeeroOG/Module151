@@ -26,7 +26,7 @@ if($pages->$page->grade == -1 AND $grade != 0) {
 	header('Location: ?p=home');
     die();
 } elseif ($grade < $pages->$page->grade) {
-	header('Location: ?p=home');
+	header('Location: ?p=login&callback=' . urlencode(getURL()));
     die();
 }
 
