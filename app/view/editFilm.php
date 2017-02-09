@@ -1,4 +1,4 @@
-<!-- modofication du formulaire -->
+<!-- modofication de films -->
 <style>
 #oldImage {
 	display: block;
@@ -13,7 +13,9 @@
 	float: left;
 }
 </style>
-<form action=".?p=editFilm" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="addToDB">
+
+<?php echo getHTMLErrors($errors); ?>
+<form action=".?p=editFilm&id=<?=$film->getFilmId()?>" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="addToDB">
   <div class="form-group">
 	  <span class="element">
 	    <h3>Modifier un film</h3>
@@ -67,14 +69,11 @@
 		<label for="bandeAnnonceURL">Vidéo</label>
 		<input type="text" id="bandeAnnonceURL" name="bandeAnnonceURL" placeholder="URL de la vidéo"  value="<?=$film->getBandeAnnonceURL()?>" class="form-control" />
 	  </span>
-	  <hr>
+	  <hr/>
 	  
 <!-- Genres -->
 	  <span class="element">
 	    <h4>Genres: <span class="required">*</span></h4>
-		<?php foreach($film->getGenresID() as $key => $value):?>
-		<input type="hidden" name="oldGenre<?=($key+1)?>" value="<?=$value?>"/>
-		<?php endforeach;?>
 		<?php foreach($film->getGenres() as $key => $value):?>
 		<select name="genre<?=($key+1)?>" id="genre<?=($key+1)?>" class="genres form-control">
 		  <option value="NULL">-</option>
@@ -83,13 +82,11 @@
 		<?php endforeach;?>
 		<button class="btn btn-default btn-block addItem" id="addGenre">+ Ajouter</button>
 	  </span>
+	  <hr/>
 	  
 <!-- Langues -->
 	  <span class="element">
 	    <h4>Langues: <span class="required">*</span></h4>
-		<?php foreach($film->getLanguesID() as $key => $value):?>
-		<input type="hidden" name="oldLangue<?=($key+1)?>" value="<?=$value?>"/>
-		<?php endforeach;?>
 		<?php foreach($film->getLangues() as $key => $value):?>
 		<select name="langue<?=($key+1)?>" id="langue<?=($key+1)?>" class="langues form-control">
 		  <option value="NULL">-</option>
@@ -98,14 +95,12 @@
 		<?php endforeach;?>
 		<button class="btn btn-default btn-block addItem" id="addLangue">+ Ajouter</button>
 	  </span>
+	  <hr/>
 
 <!-- Sagas -->
 	  <span class="element">
 	    <h4>Sagas: <span class="required">*</span></h4>
-		<?php foreach($film->getSagasID() as $key => $value):?>
-		<input type="hidden" name="oldSaga<?=($key+1)?>" value="<?=$value?>"/>
-		<?php endforeach;?>
-		<?php foreach($film->getSagas() as $key => $value):?>
+		<?php foreach((array)$film->getSagas() as $key => $value):?>
 		<select name="saga<?=($key+1)?>" id="saga<?=($key+1)?>" class="sagas form-control">
 		  <option value="NULL">-</option>
 		  <?=getHTMLOptions($sagas,$value)?>
@@ -113,13 +108,11 @@
 		<?php endforeach;?>
 		<button class="btn btn-default btn-block addItem" id="addSaga">+ Ajouter</button>
 	  </span>
+	  <hr/>
 	  
 <!-- Societes -->
 	  <span class="element">
 	    <h4>Sociétés: <span class="required">*</span></h4>
-		<?php foreach($film->getSocietesID() as $key => $value):?>
-		<input type="hidden" name="oldSociete<?=($key+1)?>" value="<?=$value?>"/>
-		<?php endforeach;?>
 		<?php foreach($film->getSocietes() as $key => $value):?>
 		<select name="societe<?=($key+1)?>" id="societe<?=($key+1)?>" class="societes form-control">
 		  <option value="NULL">-</option>
@@ -128,13 +121,11 @@
 		<?php endforeach;?>
 		<button class="btn btn-default btn-block addItem" id="addSociete">+ Ajouter</button>
 	  </span>
+	  <hr/>
 	  
 <!-- Formats & prix -->
 	  <span class="element">
 	    <h4>Fromats & prix: <span class="required">*</span></h4>
-		<?php foreach($film->getFormatsID() as $key => $value) :?>
-		  <input type="hidden" name="oldFormat<?=($key+1)?>" value="<?=$value?>"/>
-		<?php endforeach; ?>
 		<?php $key = 1; foreach($film->getPrice() as $value) :?>
 			<input type="hidden" name="oldPrix<?=$key?>" value="<?=$value['prix']?>"/>
 		<?php $key++; endforeach;?>
@@ -149,12 +140,11 @@
 		<?php $key++; endforeach; ?>
 		<button class="btn btn-default btn-block addItem" id="addFormat">+ Ajouter</button>
 	  </span>
+	  <hr/>
+	  
 <!-- Personnes & rôles -->
 	  <span class="element">
 	    <h4>Personnes & rôles: <span class="required">*</span></h4>
-		<?php foreach($film->getPersonnesID() as $key => $value) :?>
-		  <input type="hidden" name="oldPersonne<?=($key+1)?>" value="<?=$value?>"/>
-		<?php endforeach; ?>
 		<?php $key = 1; foreach($film->getGens() as $value) :?>
 			<input type="hidden" name="oldRole<?=$key?>" value="<?=$value['role']?>"/>
 		<?php $key++; endforeach;?>
@@ -169,6 +159,8 @@
 		<?php $key++; endforeach; ?>
 		<button class="btn btn-default btn-block addItem" id="addPersonne">+ Ajouter</button>
 	  </span>
+	  <hr/>
+	  
 	  <span class="element">
 	    <input type="submit" class="form-control btn btn-block btn-primary" name="submit" id="submit" value="Enregistrer les modifications"/>
 	  </span>

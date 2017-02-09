@@ -61,6 +61,7 @@ $("#addToDB").on("click", ".addItem", function() {
 			$next+'<button class="btn btn-default btn-block addItem" id="add'+$name+'">'+$add.html()+'</button>');
 });
 
+//sert a afficher/cacher le formulaire pour l'ajout de genres/langues/formats/...
 $('.insertItem').click(function() {
 	$id = $(this).attr('id');
 	$('body').css('overflow','hidden');

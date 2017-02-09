@@ -1,0 +1,2 @@
+[17:17:30 INFO] Un nouveau film à été ajouté par Cedric : TEST 
+[17:38:04 INFO] Un film a été modifié par Cedric : TEST5 

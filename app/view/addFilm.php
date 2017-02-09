@@ -1,4 +1,4 @@
-<!-- Création du formulaire -->
+<!-- Ajout de films -->
 <?php echo getHTMLErrors($errors); ?>
 <?php echo getHTMLSuccess($_GET); ?>
 <form action=".?p=addFilm" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="addToDB">
@@ -6,39 +6,57 @@
 	  <span class="element">
 	    <h3>Ajouter un film</h3>
 	  </span>
+	  
+<!-- Titre original -->
 	  <span class="element">
 		<label for="titreOriginal">Titre<span class="required">*</span></label>
-		<input type="text" id="titreOriginal" name="titreOriginal" placeholder="Titre original" <?=getHTMLElements('titreOriginal',$errors,'form-control') //sert a recup l'ancienne valeur et l'erreur?> autofocus/>
+		<input type="text" id="titreOriginal" name="titreOriginal" placeholder="Titre original" <?=getHTMLElements('titreOriginal',$errors,'form-control') //sert a recup l'ancienne valeur et l'erreur (si erreur il y a)?> autofocus/>
 	  </span>
+	  
+<!-- Titre francais (facultatif) -->
 	  <span class="element">
 	    <label for="titreTraduit">Titre 2</label>
 		<input type="text" id="titreTraduit" name="titreTraduit" placeholder="Titre traduit" <?=getHTMLElements('titreTraduit',$errors,'form-control')?> />
 	  </span>
+	  
+<!-- Durée -->	
 	  <span class="element">
 	    <label for="duree">Durée<span class="required">*</span></label>
 		<input type="text" id="duree" name="duree" placeholder="Durée (minutes)" <?=getHTMLElements('duree',$errors,'form-control')?> />
 	  </span>
+	  
+<!-- Date de sortie -->	
 	  <span class="element">
 	    <label for="dateSortieSuisse">Date de sortie<span class="required">*</span></label>
 		<input type="date" id="dateSortieSuisse" name="dateSortieSuisse" placeholder="Date de sortie (yyyy-mm-dd)" <?=getHTMLElements('dateSortieSuisse',$errors,'form-control')?>/>
 	  </span>
+	  
+<!-- Description -->
 	  <span class="element">
 		<label for="description">Description<span class="required">*</span></label>
 		<textarea id="description" name="description" placeholder="Description" rows="4" <?=getHTMLElements('description',$errors,'form-control')?>><?=((isset($_POST['description']) AND !empty($_POST['description'])) ? htmlspecialchars($_POST['description']) : '')?></textarea>
 	  </span>
+
+<!-- Accord parental -->
 	  <span class="element">
 		<label for="accordParental">PEGI<span class="required">*</span></label>
 		<input type="text" id="accordParental" name="accordParental" placeholder="Accord parental" <?=getHTMLElements('accordParental',$errors,'form-control')?>/>
 	  </span>
+	  
+<!-- Pochette -->
 	  <span class="element">
 		<label for="pochetteFile">Pochette</label>
 		<input type="file" id="pochetteFile" name="pochetteFile" placeholder="URL de l'image" accept="image/*" <?=getHTMLElements('pochetteFile',$errors,'form-control')?> />
 	  </span>
+
+<!-- URL bande annonce -->
 	  <span class="element">
 		<label for="bandeAnnonceURL">Vidéo</label>
 		<input type="text" id="bandeAnnonceURL" name="bandeAnnonceURL" placeholder="URL de la vidéo" <?=getHTMLElements('bandeAnnonceURL',$errors,'form-control')?> />
 	  </span>
 	  <hr/>
+	  
+<!-- Genres -->
 	  <span class="element">
 	    <h4>Genres: <span class="required">*</span><a href="#" class="insertItem" id="insertGenre">(Ajouter un genre)</a></h4>
 		<select name="genre1" id="genre1" class="genres form-control">
@@ -60,7 +78,9 @@
 		?>
 		<button class="btn btn-default btn-block addItem" id="addGenre">+ Ajouter</button>
 	  </span>
-	  <hr>
+	  <hr/>
+	  
+<!-- Langues -->
 	  <span class="element">
 	    <h4>Langues: <span class="required">*</span><a href="#" class="insertItem" id="insertLangue">(Ajouter une langue)</a></h4>
 	    <select name="langue1" id="langue1" class="langues form-control">
@@ -79,7 +99,9 @@
 		?>
 		<button class="btn btn-default btn-block addItem" id="addLangue">+ Ajouter</button>
 	  </span>
-	  <hr>
+	  <hr/>
+	  
+<!-- Sagas -->
 	  <span class="element">
 	    <h4>Sagas: <a href="#" class="insertItem" id="insertSaga">(Ajouter une saga)</a></h4>
 	    <select name="saga1" id="saga1" class="sagas form-control">
@@ -98,7 +120,9 @@
 		?>
 		<button class="btn btn-default btn-block addItem" id="addSaga">+ Ajouter</button>
 	  </span>
-	  <hr>
+	  <hr/>
+	  
+<!-- Societes -->
 	  <span class="element">
 	    <h4>Sociétés: <span class="required">*</span><a href="#" class="insertItem" id="insertSociete">(Ajouter une société)</a></h4>
 	    <select name="societe1" id="societe1" class="societes form-control">
@@ -117,7 +141,9 @@
 		?>
 		<button class="btn btn-default btn-block addItem" id="addSociete">+ Ajouter</button>
 	  </span>
-	  <hr>
+	  <hr/>
+	  
+<!-- Formats & prix -->
 	  <span class="element">
 	    <h4>Fromats & prix: <span class="required">*</span><a href="#" class="insertItem" id="insertFormat">(Ajouter un format)</a></h4>
 		<div class="block">
@@ -142,7 +168,9 @@
 		?>
 		<button class="btn btn-default btn-block addItem" id="addFormat">+ Ajouter</button>
 	  </span>
-	  <hr>
+	  <hr/>
+	  
+<!-- Personnes & rôles -->
 	  <span class="element">
 		<h4>Personnes & rôles: <span class="required">*</span><a href="#" class="insertItem" id="insertPersonne">(Ajouter une personne)</a></h4>
 		<div class="block">
@@ -167,7 +195,8 @@
 		?>
 		<button class="btn btn-default btn-block addItem" id="addPersonne">+ Ajouter</button>
 	  </span>
-	  <hr>
+	  <hr/>
+	  
 	   <span class="element">
 	    <p><span class="required">*</span> obligatoire</p>
 	  </span>

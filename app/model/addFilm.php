@@ -42,7 +42,7 @@
 	}
 
 
-
+	// fonction qui gère les erreurs
 	function dbError(&$stmt,&$db,&$errors) {
 		if(!$stmt) {
 			array_push($errors,$db->errorInfo()[2]);
@@ -51,6 +51,8 @@
 		}
 		else return FALSE;
 	}
+	
+	
 	function sendToDB(&$db,$post,$files,&$errors) {// AJOUT DU FILM
 		
 		$pochettePath = '';
@@ -128,6 +130,8 @@
 		header('location: .?p=addFilm&success=1');
 
 	}
+	
+	
 	function sendItemToDB(&$db,$element,$errors) {
 		$key = array_keys($element);
 		$table = '';
