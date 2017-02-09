@@ -6,22 +6,22 @@
 			<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 
 			<label for="name">Nom & Prénom</label>
-			<input type="text" name="nom" id="nom" class="form-control" placeholder="Nom & Prénom" value="<?php echo $adresse['nom'] ?>" required autofocus>
+			<input type="text" name="nom" id="nom" class="form-control" placeholder="Nom & Prénom" value="<?=utf8_encode($adresse['nom'])?>" required autofocus>
 
 			<label for="rue">Rue</label>
-			<input type="text" name="rue" id="rue" class="form-control" placeholder="Rue" value="<?php echo $adresse['rue'] ?>" required>
+			<input type="text" name="rue" id="rue" class="form-control" placeholder="Rue" value="<?=utf8_encode($adresse['rue'])?>" required>
 
 			<label for="numero">Numéro</label>
-			<input type="text" name="numero" id="numero" class="form-control" placeholder="Numéro" value="<?php echo $adresse['numero'] ?>" required>
+			<input type="text" name="numero" id="numero" class="form-control" placeholder="Numéro" value="<?=utf8_encode($adresse['numero'])?>" required>
 
 			<label for="complement">Complément</label>
-			<input type="text" name="complement" id="complement" class="form-control" placeholder="Complément" value="<?php echo $adresse['complement'] ?>">
+			<input type="text" name="complement" id="complement" class="form-control" placeholder="Complément" value="<?=utf8_encode($adresse['complement'])?>">
 
 			<label for="npa">Code postal</label>
-			<input type="text" name="npa" id="npa" pattern="[0-9][0-9][0-9][0-9]" class="form-control" placeholder="Code postal" value="<?php echo $adresse['npa'] ?>" required>
+			<input type="text" name="npa" id="npa" pattern="[0-9][0-9][0-9][0-9]" class="form-control" placeholder="Code postal" value="<?=utf8_encode($adresse['npa'])?>" required>
 
 			<label for="npa">Localité</label>
-			<input type="text" name="ville" id="ville" class="form-control" placeholder="Localité" value="<?php echo $adresse['ville'] ?>" required>
+			<input type="text" name="ville" id="ville" class="form-control" placeholder="Localité" value="<?=utf8_encode($adresse['ville'])?>" required>
 
 			<label for="npa">Pays</label>
 			<input type="text" name="pays" id="pays" class="form-control" value="Suisse" disabled>

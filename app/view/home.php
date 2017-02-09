@@ -3,7 +3,7 @@
 <table class="table table-striped" style="text-align: center;">
 	<tr>
 	<?php foreach ($newFilms as $key => $film): ?>
-		<td>
+		<td style="width: 20%;">
 			<a href="?p=showFilm&id=<?=$film['id']?>">
 				<img src="<?=$film['image']?>" alt="<?=$film['titre']?>" style="height: 150px;" />
 				<br />
@@ -19,7 +19,7 @@
 <table class="table table-striped" style="text-align: center;">
 	<tr>
 	<?php foreach ($favFilms as $key => $film): ?>
-		<td>
+		<td style="width: 20%;">
 			<a href="?p=showFilm&id=<?=$film['id']?>">
 				<img src="<?=$film['image']?>" alt="<?=$film['titre']?>" style="height: 150px;" />
 				<br />
@@ -35,7 +35,7 @@
 <table class="table table-striped" style="text-align: center;">
 	<tr>
 	<?php foreach ($popFilms as $key => $film): ?>
-		<td>
+		<td style="width: 20%;">
 			<a href="?p=showFilm&id=<?=$film['id']?>">
 				<img src="<?=$film['image']?>" alt="<?=$film['titre']?>" style="height: 150px;" />
 				<br />

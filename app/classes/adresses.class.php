@@ -59,12 +59,12 @@ class Adresses
 
 		$send = array(
 			'id' => $this->userId,
-			'nom' => $nom,
-			'rue' => $rue,
-			'numero' => $numero,
-			'complement' => $complement,
+			'nom' => mb_convert_encoding($nom, "WINDOWS-1252", "UTF-8"),
+			'rue' => mb_convert_encoding($rue, "WINDOWS-1252", "UTF-8"),
+			'numero' => mb_convert_encoding($numero, "WINDOWS-1252", "UTF-8"),
+			'complement' => mb_convert_encoding($complement, "WINDOWS-1252", "UTF-8"),
 			'npa' => $npa,
-			'ville' => $ville
+			'ville' => mb_convert_encoding($ville, "WINDOWS-1252", "UTF-8")
 		);
 
 		$req = $db_acc->prepare('INSERT INTO t_adresses (fk_users, nom, rue, numero, complement, npa, ville) VALUES (:id, :nom, :rue, :numero, :complement, :npa, :ville)');

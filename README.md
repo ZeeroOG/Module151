@@ -6,23 +6,22 @@ Oui, on utilise une base de donnée MS Access en 2017, c'est triste...
 
 **William**
 
-* Afficher autres films de la saga dans showFilm
 * ~~Inscriptions~~
 * ~~Passage des requêtes SQL dans les models~~
 * ~~Affichage liste films~~
 * ~~Tri liste films~~
 * ~~Recherche liste films~~
-* Admin panel utilisateurs (add/~~edit~~/~~del~~)
+* ~~Admin panel utilisateurs~~
 * ~~Gestion des adresses~~
 * ~~Panier~~
 * ~~Rendre la page "Mon Compte" éditable par l'utilisateur~~
 * ~~Synchro panier~~
-* Commandes
+* ~~Commandes~~
 
 **Cédric**
 
 * ~~Upload d'images dans le formulaire d'ajout (nom des images: 'img_' . uniqid() . '.jpg')~~
-* Pouvoir éditer les films dans le même formulaire que l'ajout
+* ~~Pouvoir éditer les films dans le même formulaire que l'ajout~~
 
 **Jonas**
 
@@ -31,5 +30,5 @@ Oui, on utilise une base de donnée MS Access en 2017, c'est triste...
 
 **Cristiano**
 
-* Ajouter BEAUCOUP BEAUCOUP de films
+* ~~Ajouter BEAUCOUP BEAUCOUP de films~~
 * Générer de la fausse activité sur le site (inscriptions, commentaires, passer des commandes, etc...)

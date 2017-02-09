@@ -11,6 +11,8 @@ function formError($str) {
 function verifyOrder($livraison, $facturation, $panier, $userid) {
 	global $errorCount;
 
+	$prix = (double)getPrixPanier($panier);
+
 	if(!verifyAdresse($livraison, $userid)) {
 		formError('Veuillez choisir une adresse de livraison.');
 	}
@@ -24,7 +26,7 @@ function verifyOrder($livraison, $facturation, $panier, $userid) {
 	}
 
 	if($errorCount == 0) {
-		createOrder($livraison, $facturation, $panier, $userid);
+		createOrder($livraison, $facturation, $panier, $userid, $prix);
 		emptyPanier();
 		return true;
 	}
@@ -32,17 +34,39 @@ function verifyOrder($livraison, $facturation, $panier, $userid) {
 	return false;
 }
 
-function createOrder($livraison, $facturation, $panier, $userid) {
+function createOrder($livraison, $facturation, $panier, $userid, $prix) {
 	global $db_acc;
 
-	$req = $db_acc->prepare('INSERT INTO t_commandes (fk_facturation, fk_livraison, fk_user, panier, numero) VALUES (:fact, :livr, :user, :panier, :numero)');
+	$req = $db_acc->prepare('INSERT INTO t_commandes (fk_facturation, fk_livraison, fk_user, panier, numero, prix, fk_etat) VALUES (:fact, :livr, :user, :panier, :numero, :prix, :etat)');
 	$req->execute(array(
 		'fact' => $facturation,
 		'livr' => $livraison,
 		'user' => $userid,
 		'panier' => $panier,
-		'numero' => uniqid()
+		'numero' => uniqid(),
+		'prix' => $prix,
+		'etat' => 1
 	));
+}
+
+function getPrixPanier($panier) {
+	$prix = 0;
+
+	foreach (json_decode($panier, true) as $key => $item) {
+		$prix += (double)getPrixItem($item['id'])*(int)$item['qte'];
+	}
+
+	return (double)$prix;
+}
+
+function getPrixItem($numero) {
+	global $db_sql;
+
+	$req = $db_sql->prepare('SELECT prix FROM t_formatfilm WHERE numero_article = ?');
+	$req->execute(array($numero));
+	$res = $req->fetch();
+
+	return (double)$res['prix'];
 }
 
 function emptyPanier() {
@@ -57,12 +81,8 @@ function verifyAdresse($adresse, $userid) {
 		return false;
 	}
 
-	$req = $db_acc->prepare('SELECT fk_users FROM t_adresses');
+	$req = $db_acc->prepare('SELECT fk_users FROM t_adresses WHERE id_adresses = ?');
 	$req->execute(array($adresse));
-
-	if(count($req->fetch()) < 1) {
-		return false;
-	}
 
 	$data = $req->fetch();
 	$id = $data['fk_users'];

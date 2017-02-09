@@ -72,9 +72,9 @@
 	</tr>
 	<?php foreach ($adresses->get() as $data) { ?>
 	<tr>
-		<td><?php echo $data['nom']; ?></td>
-		<td><?php echo $data['rue'] . " " . $data['numero']; ?></td>
-		<td><?php echo $data['npa'] . " " . $data['ville']; ?></td>
+		<td><?=utf8_encode($data['nom'])?></td>
+		<td><?=utf8_encode($data['rue'] . " " . $data['numero'])?></td>
+		<td><?=utf8_encode($data['npa'] . " " . $data['ville'])?></td>
 		<td>Suisse</td>
 		<td>
 			<a href="?p=editAdresse&id=<?php echo $data['id']; ?>&callback=<?php echo urlencode('?p=account&return=edit-success'); ?>" class="btn btn-xs btn-primary">Editer</a>
