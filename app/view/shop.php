@@ -40,7 +40,7 @@
 	foreach ($filmList->getFilmList() as $value) {
 		?>
 		<tr>
-			<td style="text-align: center; padding: 0;"><img style="width: 100%; margin: 0;" src="<?php echo $value['image']; ?>" /></td>
+			<td style="text-align: center; padding: 0;"><img style="width: 100px; margin: 0;" src="<?php echo $value['image']; ?>" /></td>
 			<td><a href="?p=showFilm&id=<?php echo $value['id']; ?>"><?php echo $value['titre']; ?></a></td>
 			<td><?php echo date('d.m.Y', strtotime($value['sortie'])); ?></td>
 			<td><?php echo $value['age']; ?> ans</td>
