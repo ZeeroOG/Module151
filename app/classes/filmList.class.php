@@ -35,6 +35,27 @@ class FilmList {
 				array_push($film['prix'], $prixfilm);
 			}
 
+			$req2->closeCursor();
+
+			// Récup infos sur la note du film
+			$req3 = $db_sql->prepare("SELECT * FROM t_notefilm WHERE fk_film = ?");
+			$req3->execute(array($x['id_film']));
+
+			if($req3->rowCount() > 0)
+			{
+				$note = 0;
+				for($i = 0; $z = $req3->fetch(); $i++) {
+					$note = $note + $z['note'];
+				}
+				$note = $note / $i;
+				$nbVotes = $i;
+			} else {
+				$note = 0;
+				$nbVotes = 0;
+			}
+
+			$req3->closeCursor();
+
 			if($x['titreTraduit'] == NULL) $titre = $x['titreOriginal'];
 			else $titre = $x['titreTraduit'];
 
@@ -49,6 +70,8 @@ class FilmList {
 			$film['age'] = $x['accordParental'];
 			$film['image'] = $image;
 			$film['youtube'] = $x['bandeAnnonceURL'];
+			$film['note'] = $note;
+			$film['votes'] = $nbVotes;
 
 			array_push($this->filmList, $film);
 		}
@@ -91,6 +114,44 @@ class FilmList {
 
 		foreach ($this->filmList as $key => $value) {
 			$temp[$key] = strtotime($value['sortie']);
+		}
+
+		natsort($temp);
+
+		foreach ($temp as $key => $value) {
+			$temp2[$key] = $this->filmList[$key];
+		}
+
+		if($invert == 1) $temp2 = array_reverse($temp2);
+
+		$this->filmList = $temp2;
+	}
+
+	public function orderByVotes($invert = 1) {
+		$temp = array();
+		$temp2 = array();
+
+		foreach ($this->filmList as $key => $value) {
+			$temp[$key] = (int)$value['votes'];
+		}
+
+		natsort($temp);
+
+		foreach ($temp as $key => $value) {
+			$temp2[$key] = $this->filmList[$key];
+		}
+
+		if($invert == 1) $temp2 = array_reverse($temp2);
+
+		$this->filmList = $temp2;
+	}
+
+	public function orderByNotes($invert = 1) {
+		$temp = array();
+		$temp2 = array();
+
+		foreach ($this->filmList as $key => $value) {
+			$temp[$key] = (int)$value['note'];
 		}
 
 		natsort($temp);
