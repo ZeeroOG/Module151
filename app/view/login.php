@@ -31,6 +31,8 @@
 			<input type="hidden" name="callback" value="<?=$_GET['callback']?>">
 		<?php } ?>
 		<input class="form-control btn btn-block btn-danger" type="submit" value="Connexion">
+		<br />
+		<a href="?p=register" class="btn btn-danger btn-block">Inscription</a>
 	</div>
 </form>
 </div>

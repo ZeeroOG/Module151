@@ -55,7 +55,8 @@
 		<p class="adminMenu-top">Gestion</p>
 		<ul>
 			<li><a href="?p=addFilm"><button>Ajouter un film</button></a></li>
-			<li><a href="?p=listFilms"><button>Liste des films</button></a></li>
+			<li><a href="?p=listFilms"><button>Gestion films</button></a></li>
+			<li><a href="?p=adminOrders"><button>Gestion commandes</button></a></li>
 		</ul>
 	</div>
 	<?php if($_SESSION['user']->getLevel() > 2) { ?>

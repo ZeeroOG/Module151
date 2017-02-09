@@ -143,5 +143,11 @@
 			"title": "Changement mot de passe",
 			"menu" : "account",
 			"grade": 1
+	},
+	"adminOrders": {
+			"path" : "app/controller/adminOrders.php",
+			"title": "Gestion des commandes",
+			"menu" : "admin",
+			"grade": 2
 	}
 }
