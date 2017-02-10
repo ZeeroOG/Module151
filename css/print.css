@@ -1,0 +1,38 @@
+a[href]:after {
+    content: none !important;
+  }
+.container {
+	width: 100%;
+}
+.container img {
+	width: 100%;
+}
+.navbar {
+	display: none;
+}
+#order {
+	width: 100%;
+}
+#order h4 {
+	color: red;
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+.order_item {
+	padding-left: 50px;
+	padding-right: 10px;
+}
+label[for="prix"], #prix {
+	margin-top: 50px;
+	font-size: 17px;
+	font-weight: bold;
+}
+#prix {
+	margin-left: 5px;
+}
+#panier span {
+	margin-left: 100px;
+}
+.footer {
+	display: none;
+}

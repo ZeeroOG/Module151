@@ -43,6 +43,8 @@ if($pages->$page->title == 'RSS') {
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/print.css" media="print"/>
+	<script src="js/jquery.min.js"></script>
 </head>
 <body>
 	<div class="container header">
@@ -92,7 +94,6 @@ if($pages->$page->title == 'RSS') {
 	  </div>
 	</footer>
 	<!-- Javascript -->
-	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/addMovie.js"></script>
 	<script src="js/emotes.js"></script>

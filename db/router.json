@@ -41,6 +41,12 @@
 			"menu" : "orders",
 			"grade": 1
 		},
+	"print_order": {
+			"path" : "app/controller/print_order.php",
+			"title": "Imprimer la commande",
+			"menu" : "orders",
+			"grade": 1
+		},
 	"account": {
 			"path" : "app/controller/account.php",
 			"title": "Mon compte",
