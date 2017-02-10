@@ -42,8 +42,16 @@
 	  font-weight: bold;
   }
 </style>
+<?php if(isset($_GET['success'])) :?>
+	<div class="success">
+	<h4>Succès</h4>
+	Le film a bien été modifié
+	</div>
+<?php endif;?>
+	
 <div class="table">
   <div class="row title">
+
     <div class="col-xs-12">Liste des films</div>
   </div>
   <div class="row" id="columnNames">

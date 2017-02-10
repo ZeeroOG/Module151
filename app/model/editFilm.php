@@ -60,7 +60,7 @@
 
 		// LIAISON genres <> film, formats <> film, ...
 		foreach($post as $key => $value) {
-			if($value == 'NULL') continue;
+			if($value == 'NULL' OR empty($value)) continue;
 			//GENRE
 			if(preg_match('#^genre.+#',$key)) {
 				$stmt = $db->prepare('INSERT INTO t_genrefilm (fk_film,fk_genre) VALUES (?,?)');
@@ -88,16 +88,20 @@
 			//FORMAT&PRIX
 			else if(preg_match('#^prix.+#',$key)) {
 				$format = $post['format'.substr($key,4)];
-				$stmt = $db->prepare('INSERT INTO t_formatfilm (fk_film,fk_format,prix,numero_article) VALUES (?,?,?,?)');
-				if(dbError($stmt,$db,$errors)) return FALSE;
-				$stmt->execute(array($film_class->getFilmID(),$format,$value,uniqid()));
+				if($format != 'NULL') {
+					$stmt = $db->prepare('INSERT INTO t_formatfilm (fk_film,fk_format,prix,numero_article) VALUES (?,?,?,?)');
+					if(dbError($stmt,$db,$errors)) return FALSE;
+					$stmt->execute(array($film_class->getFilmID(),$format,$value,uniqid()));
+				}
 			}
 			//PERSONNE&ROLE
 			else if(preg_match('#^role.+#',$key)) {
 				$personne = $post['personne'.substr($key,4)];
-				$stmt = $db->prepare('INSERT INTO t_rolefilm (fk_film,fk_personne,role) VALUES (?,?,?)');
-				if(dbError($stmt,$db,$errors)) return FALSE;
-				$stmt->execute(array($film_class->getFilmID(),$personne,$value));
+				if($personne != 'NULL') {
+					$stmt = $db->prepare('INSERT INTO t_rolefilm (fk_film,fk_personne,role) VALUES (?,?,?)');
+					if(dbError($stmt,$db,$errors)) return FALSE;
+					$stmt->execute(array($film_class->getFilmID(),$personne,$value));
+				}
 			}
 		}
 
