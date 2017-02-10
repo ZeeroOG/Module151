@@ -43,6 +43,7 @@
 					<li><?=$item['qte']?>x - <?=getNomArticle($item['id'])?></li>
 				<?php endforeach; ?>
 			</ul>
+			<a class="btn btn-danger" style="float: right;" target="_blank" href="?p=print_order&order=<?=$commande['numero']?>">Imprimer</a>
 		</td>
 	</tr>
 	<?php endforeach; ?>
