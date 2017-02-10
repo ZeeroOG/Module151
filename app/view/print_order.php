@@ -1,7 +1,7 @@
 <script>
-	/*$(document).ready(function() {
+	$(document).ready(function() {
 		window.print();
-	});*/
+	});
 </script>
 <div id="order">
   <h4> Commande: </h4>
